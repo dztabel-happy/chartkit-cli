@@ -82,7 +82,7 @@ Prefer one **hero panel** that carries the primary conclusion. Supporting panels
 
 **Theme:**
 - `business-cn` — default, CJK-ready serif, A4 reports
-- `nature` — sans-serif, journal figures
+- `nature` — Times New Roman + Songti/Noto Serif CJK, compact journal figures
 - `energy` — energy/finance reports
 - `minimal` — clean minimal
 

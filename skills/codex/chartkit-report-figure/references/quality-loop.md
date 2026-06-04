@@ -1,32 +1,81 @@
 # Quality Loop
 
-Use this loop whenever a ChartKit figure is created by an LLM:
+Every ChartKit figure must pass the quality loop before delivery.
 
-1. Run `chart-kit validate`.
-2. Fix spec-level warnings first:
-   - `CKQ001`: add `contract`.
-   - `CKQ002`: add `profile`.
-   - `CKQ005`: add semantic roles or explicit colors.
-   - `CKQ105`: use `layout: "auto"` or `box_strip` for small-sample distributions.
-   - `CKQ108`: do not rely only on red/green; add another channel.
-3. Run `chart-kit build --format all`.
-4. Read `chart-quality.json`:
-   - `CKQ101`: match the report profile.
-   - `CKQ102`: reduce or rotate labels.
-   - `CKQ103`: reduce tick density.
-   - `CKQ104`: move legend or use a legend-only panel.
-   - `CKQ107`: increase text/background contrast.
-   - `CKQ109`: preserve editable SVG text and enough visible labels.
-   - `CKQ203`: custom backend font violates the report/nature serif contract.
-   - `CKQ204`: custom multi-panel figure uses bare upper-left panel labels instead of bottom `(a)`, `(b)`.
-   - `CKQ205` / `CKQ206` / `CKQ207`: figure is drifting toward PPT/card/text-heavy layout.
-   - `CKQ401`: schematic dominates a `data_figure`.
-   - `CKQ403`: rainbow colormap is used in a report/paper data figure.
-   - `CKQ404`: `contract.panel_map` repeats the same evidence question.
-5. Rebuild until `quality.ok` is true or document the accepted tradeoff.
+## The loop
 
-Quality warnings do not prohibit the model from using a visual choice. They force the model to make that choice explicit, accessible, and robust in a report.
+```bash
+# 1. Validate spec before rendering
+chart-kit validate figure.json
 
-For built-in renderers, `chart-kit build --format all` should produce SVG/PDF/PNG/TIFF plus `chart-quality.json`, `chart-manifest.json`, and source data when the spec declares it. For `custom_python` and `custom_r`, the backend must still write every requested format inside the output directory; missing requested artifacts are build failures. Custom scripts must keep ChartKit fonts, sparse text, data-first panels, and bottom-centered parenthesized panel labels.
+# 2. Fix spec-level warnings, then build
+chart-kit build figure.json --out outputs/figure-name --format all
 
-Use `chart-kit atlas --role <role>` when the chart type is unclear, `chart-kit doctor` when the environment or fonts look wrong, and `chart-kit gallery build` when checking that the installed ChartKit can still render the reference visual patterns.
+# 3. Read the quality report
+# outputs/figure-name/chart-quality.json
+
+# 4. Fix remaining warnings and rebuild
+# Repeat until quality.ok == true
+```
+
+## CKQ fix reference
+
+**Spec-level (fix before build):**
+
+| Code | Severity | Problem | Fix |
+|---|---|---|---|
+| CKQ001 | warning | Missing `contract` | Add `contract` with `conclusion`, `role`, `archetype` |
+| CKQ002 | warning | Missing `profile` | Add `profile` (e.g. `"report_a4.full_width"`) |
+| CKQ003 | info | Unknown `archetype` value | Use one of the eight standard archetypes |
+| CKQ004 | warning | More than 8 series — panel too dense | Split into multiple panels or aggregate groups |
+| CKQ005 | warning | Series missing `role` or explicit color | Add `role` to each series |
+| CKQ006 | info | Missing `evidence_hierarchy` | Add `hero` / `supporting` / `context` lists |
+| CKQ105 | warning | Small-sample `violin` | Use `layout: "auto"` or `layout: "box_strip"` |
+| CKQ108 | warning | Only red/green distinguish groups | Add labels, markers, or line styles as second channel |
+| CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
+| CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |
+| CKQ403 | warning | Rainbow colormap | Replace with sequential or diverging palette |
+| CKQ404 | warning | Two panels answer the same evidence question | Merge panels or replace one with different evidence |
+
+**Figure-level (fix after build):**
+
+| Code | Severity | Problem | Fix |
+|---|---|---|---|
+| CKQ101 | warning | Figure size does not match profile | Do not override `figsize` manually; let profile control it |
+| CKQ102 | warning | Text labels overlap | Rotate labels, reduce tick count, or use direct labels |
+| CKQ103 | warning | Tick density too high | Reduce tick count or use `MaxNLocator` |
+| CKQ104 | warning | Legend overlaps data | Move legend outside axes or use a legend-only panel |
+| CKQ107 | warning | Text contrast too low (WCAG < 2.5) | Darken text or lighten background |
+
+**Artifact-level (fix after build):**
+
+| Code | Severity | Problem | Fix |
+|---|---|---|---|
+| CKQ201 | error | PNG/SVG/PDF missing | Check output directory; rebuild with `--format all` |
+| CKQ202 | warning | SVG text converted to paths | Set `svg.fonttype = 'none'` (handled by theme; do not override) |
+| CKQ203 | warning | Custom backend uses wrong font family under serif theme | Call `setup_publication_rcparams(theme)` at script start |
+| CKQ204 | warning | Custom multi-panel uses bare `a` / `b` labels | Change to bottom-centered `(a)`, `(b)` |
+| CKQ205–207 | warning | Figure drifting toward PPT/card/text-heavy layout | Remove hero headlines, metric cards, explanatory paragraphs |
+
+## Custom backend rules
+
+`custom_python` scripts must:
+1. Call `setup_publication_rcparams(theme)` before any plotting
+2. Write all requested formats (`svg`, `pdf`, `png`, `tiff`) into the output directory
+3. Keep `contract`, `profile`, sparse text, and bottom-centered parenthesized panel labels
+4. Not set `DejaVu Sans`, `Arial`, or arbitrary sans fonts under a serif theme
+
+Missing requested artifacts in a custom backend are build **errors**, not warnings.
+
+## Utility commands
+
+```bash
+# Recommend chart type for a role
+chart-kit atlas --role comparison
+
+# Check environment (fonts, matplotlib, Python)
+chart-kit doctor
+
+# Verify installation by rendering all gallery examples
+chart-kit gallery build
+```

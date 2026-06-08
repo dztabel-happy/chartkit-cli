@@ -7,7 +7,8 @@ const packageRoot = findPackageRoot();
 const pythonPath = process.env.PYTHONPATH
   ? `${packageRoot}${path.delimiter}${process.env.PYTHONPATH}`
   : packageRoot;
-const bundledBinary = findBundledBinary();
+const forceSource = process.env.CHARTKIT_FORCE_SOURCE === "1";
+const bundledBinary = forceSource ? null : findBundledBinary();
 
 const result = bundledBinary ? runBundledBinary(bundledBinary) : runPythonPrototypeIfAvailable();
 

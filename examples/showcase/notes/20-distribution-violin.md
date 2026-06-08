@@ -8,6 +8,8 @@ The intended conclusion is: The proposed model shifts mass toward the upper mode
 ## Use When
 Use when a small number of groups need shape comparison: tails, skew, multimodality, compactness, and sample support. Raincloud should answer both "what does the distribution look like" and "how much observed data supports that shape."
 
+For three or more named groups, keep colors distinct but muted. Baseline/control groups can stay neutral and the proposed/ours group should remain primary, but intermediate variants should not all collapse into the same grey unless neutrality itself is part of the claim. Set `data.color_mode: "semantic"` only when repeated semantic colors are deliberate.
+
 ## Avoid
 Avoid when there are too few observations per group and density shape is not part of the claim; use box-strip instead. Avoid when many ordered groups would read better as ridges.
 

@@ -81,9 +81,27 @@ into labels. This keeps the chart faithful when the user's data changes:
 ```
 
 Supported computed cues are generic: `mean_delta` / `group_delta`, `group_spread`,
-`top_mover` (paired series or endpoint change across series), `percentiles`,
+`top_mover` (single-series category maximum, paired series delta, or endpoint change across series), `percentiles`,
 `threshold_crossing`, and `extreme`. Use them only when they support the claim; do not use them
 as decoration.
+
+For a single-series categorical bar/ranking chart, `top_mover` marks the largest category value
+by default. Use `mode: "min"` with wording such as "Largest reduction" when lower values are
+better; do not label a negative trade-off as a "lift".
+
+`extreme` is global by design. Do not use it to label a local incident dip, transition kink, or
+window-specific event unless the global min/max is actually the evidence. For ordered `area` and
+timestamped `time_series`, use `data.intervals` for shaded windows and `data.events` for sparse
+event callouts:
+
+```json
+{
+  "data": {
+    "intervals": [{"start": "W15", "end": "W18", "label": "incident"}],
+    "events": [{"at": "W16", "series": "Contribution", "label": "local dip"}]
+  }
+}
+```
 
 ChartKit automatically lanes guide labels, flips point-label direction near plot edges, reserves
 extra range for insight callouts, limits excessive insight count, and QA-checks overlap/out-of-bounds
@@ -156,6 +174,7 @@ For `distribution`, choose the layout deliberately:
 - `layout: "auto"` only when the user did not give a layout cue and the data size should decide.
 - `layout: "ridge"` for several ordered groups where distribution shifts are the evidence; keep median ticks visible unless they distract from the density shape.
 - `layout: "raincloud"` when a few groups need density shape, raw observations, and quartile structure together. This is the preferred report-grade default for shape/tail/mode comparisons because it avoids the bulky, decorative feel of full symmetric violins.
+- For rainclouds with three or more named groups, let ChartKit use distinct muted group colors by default; use `data.color_mode: "semantic"` only when repeated neutral/reference colors are intentionally part of the evidence. Keep endpoints semantically clear (`baseline`/`ours`) and do not make every intermediate variant the same grey unless the comparison demands it.
 - If the user asks for a "violin-style" compact distribution and also asks for median/quartiles/raw observations/tails/modes, choose `layout: "raincloud"` unless they explicitly ask for a full symmetric violin silhouette.
 - `layout: "violin"` only when the complete symmetric density silhouette itself is useful and each group has enough observations; use it for a few dense groups, not a long ordered ladder. With fewer than about 30 observations per group, prefer `box_strip` unless the user explicitly asks for density shape/tails/modes; if you still use violin on such data, keep raw observations visually important and do not rely on the density silhouette alone.
 Do not leave `layout: "auto"` when the matched reference card has an explicit layout anchor that fits the task.
@@ -206,6 +225,11 @@ Series `role` values: `ours` | `baseline` | `positive` | `negative` | `uncertain
 Direct labels default to normal weight. Only `ours`, `proposed`, `highlight`, `focus`, `focused`,
 `primary`, or explicit `label_weight` should be bold. Baseline/reference/context labels should not
 all become bold.
+
+Legend/direct-label protocol:
+- For `line`, `time_series`, and `mixed`, use `legend: {"mode": "direct"}` when a few line-like series can be labeled at their endpoints. For `mixed`, individual line series can also set `direct_label: true`; the renderer keeps a compact encoding key for bars/lines when useful.
+- For `scatter`, do not set `legend.position` to `direct_label` or `bottom`. Use `outside_right` for long legends, or let the compact outside legend collapse above the plot for short legends. If QA reports legend/data overlap on a dense scatter, increase `profile` to `report_a4.full_width` or reduce legend entries; do not guess unsupported legend positions.
+- For a legend above the plot, use `position: "upper center"` with `bbox_to_anchor` and `ncol`; avoid lower-center legends inside the data region unless the plot is visibly empty there.
 
 Validate first, then build:
 

@@ -8,6 +8,8 @@ I need to compare dense repeated evaluation distributions where shape and tail b
 
 Use `type: "distribution"` with `layout: "raincloud"` when a few groups need density shape, raw observations, and quartile structure in one report-grade figure. Raincloud combines a half-density silhouette, a compact box/IQR marker, and jittered observations, so it is usually a better default than a full symmetric violin for A4 reports.
 
+For three or more named groups, keep group colors distinct but low-saturation. Let ChartKit's raincloud default assign muted distinct colors, or provide explicit colors when the group order has semantic meaning. Use `data.color_mode: "semantic"` only when repeated neutral/reference colors are intended.
+
 ## Avoid
 
 Do not use raincloud for too many ordered groups; use `ridge` when the main evidence is a long distribution shift ladder. Do not use full `violin` as the default just because density exists; use it only when the complete symmetric silhouette itself is useful. Use `box_strip` when raw fold/seed observations and quartiles are the credibility story and density shape is not central.

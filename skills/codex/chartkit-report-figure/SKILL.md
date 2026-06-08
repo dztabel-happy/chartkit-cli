@@ -117,7 +117,7 @@ Prefer one **hero panel** that carries the primary conclusion. Supporting panels
 | Two continuous variables | `scatter`, `joint_scatter` |
 | Effect size + p-value feature screen | `scatter` with `data.volcano` |
 | Matrix / pairwise | `heatmap`, `network_matrix`, `ablation_heatmap` |
-| Sample distributions | `distribution` with a deliberate layout: `box_strip`/`auto` for small samples, `ridge` for ordered many-group shifts, `violin` when shape/tails/modes are the evidence |
+| Sample distributions | `distribution` with a deliberate layout: `box_strip`/`auto` for small samples, `ridge` for ordered many-group shifts, `raincloud` for compact shape/tail/mode comparisons with raw observations; full `violin` only when the complete symmetric silhouette itself is the evidence |
 | Effect estimates / intervals | `interval` |
 | Training or optimization curves | `convergence` |
 | Representative images | `image_plate` |
@@ -156,6 +156,7 @@ For `distribution`, choose the layout deliberately:
 - `layout: "auto"` only when the user did not give a layout cue and the data size should decide.
 - `layout: "ridge"` for several ordered groups where distribution shifts are the evidence; keep median ticks visible unless they distract from the density shape.
 - `layout: "raincloud"` when a few groups need density shape, raw observations, and quartile structure together. This is the preferred report-grade default for shape/tail/mode comparisons because it avoids the bulky, decorative feel of full symmetric violins.
+- If the user asks for a "violin-style" compact distribution and also asks for median/quartiles/raw observations/tails/modes, choose `layout: "raincloud"` unless they explicitly ask for a full symmetric violin silhouette.
 - `layout: "violin"` only when the complete symmetric density silhouette itself is useful and each group has enough observations; use it for a few dense groups, not a long ordered ladder. With fewer than about 30 observations per group, prefer `box_strip` unless the user explicitly asks for density shape/tails/modes; if you still use violin on such data, keep raw observations visually important and do not rely on the density silhouette alone.
 Do not leave `layout: "auto"` when the matched reference card has an explicit layout anchor that fits the task.
 

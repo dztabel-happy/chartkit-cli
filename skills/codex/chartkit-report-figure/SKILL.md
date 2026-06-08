@@ -176,6 +176,7 @@ For `distribution`, choose the layout deliberately:
 - `layout: "raincloud"` when a few groups need density shape, raw observations, and quartile structure together. This is the preferred report-grade default for shape/tail/mode comparisons because it avoids the bulky, decorative feel of full symmetric violins.
 - For rainclouds with three or more named groups, let ChartKit use distinct muted group colors by default; use `data.color_mode: "semantic"` only when repeated neutral/reference colors are intentionally part of the evidence. Keep endpoints semantically clear (`baseline`/`ours`) and do not make every intermediate variant the same grey unless the comparison demands it.
 - If the user asks for a "violin-style" compact distribution and also asks for median/quartiles/raw observations/tails/modes, choose `layout: "raincloud"` unless they explicitly ask for a full symmetric violin silhouette.
+- If you accidentally choose `layout: "violin"` for four or more named groups, ChartKit will render a safer default: `box_strip` for small samples and raincloud for dense groups. Set `data.full_violin: true` only when the complete symmetric silhouette is the actual evidence.
 - `layout: "violin"` only when the complete symmetric density silhouette itself is useful and each group has enough observations; use it for a few dense groups, not a long ordered ladder. With fewer than about 30 observations per group, prefer `box_strip` unless the user explicitly asks for density shape/tails/modes; if you still use violin on such data, keep raw observations visually important and do not rely on the density silhouette alone.
 Do not leave `layout: "auto"` when the matched reference card has an explicit layout anchor that fits the task.
 
@@ -230,6 +231,8 @@ Legend/direct-label protocol:
 - For `line`, `time_series`, and `mixed`, use `legend: {"mode": "direct"}` when a few line-like series can be labeled at their endpoints. For `mixed`, individual line series can also set `direct_label: true`; the renderer keeps a compact encoding key for bars/lines when useful.
 - For `scatter`, do not set `legend.position` to `direct_label` or `bottom`. Use `outside_right` for long legends, or let the compact outside legend collapse above the plot for short legends. If QA reports legend/data overlap on a dense scatter, increase `profile` to `report_a4.full_width` or reduce legend entries; do not guess unsupported legend positions.
 - For a legend above the plot, use `position: "upper center"` with `bbox_to_anchor` and `ncol`; avoid lower-center legends inside the data region unless the plot is visibly empty there.
+- For horizontal ranked bars, let computed `top_mover`/`extreme` labels attach to the bar endpoint; do not manually add diagonal arrows unless there is a specific outlier story.
+- For bubble matrices, keep the colorbar, group key, size key, and threshold note in the side legend. Do not put the threshold note under the main matrix when a side legend exists.
 
 Validate first, then build:
 

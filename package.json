@@ -1,6 +1,6 @@
 {
   "name": "@dztabel/chartkit",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "Agent-facing CLI for rendering polished report-grade charts from declarative specs.",
   "license": "UNLICENSED",
   "publishConfig": {
@@ -11,7 +11,7 @@
     "chartkit": "npm/chart-kit.cjs"
   },
   "optionalDependencies": {
-    "@dztabel/chartkit-darwin-arm64": "0.1.5"
+    "@dztabel/chartkit-darwin-arm64": "0.1.7"
   },
   "files": [
     "npm/chart-kit.cjs",

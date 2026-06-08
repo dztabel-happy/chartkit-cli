@@ -11,9 +11,7 @@
     "chartkit": "npm/chart-kit.cjs"
   },
   "optionalDependencies": {
-    "@dztabel/chartkit-darwin-arm64": "0.1.0",
-    "@dztabel/chartkit-linux-x64": "0.1.0",
-    "@dztabel/chartkit-win32-x64": "0.1.0"
+    "@dztabel/chartkit-darwin-arm64": "0.1.0"
   },
   "files": [
     "npm/chart-kit.cjs",

@@ -1,0 +1,85 @@
+metric,month,lift
+Return,1,0.095
+Return,2,0.133
+Return,3,0.111
+Return,4,0.137
+Return,5,0.115
+Return,6,0.118
+Return,7,0.13
+Return,8,0.096
+Return,9,0.127
+Return,10,0.063
+Return,11,0.073
+Return,12,0.129
+Risk,1,0.07
+Risk,2,0.09
+Risk,3,0.085
+Risk,4,0.084
+Risk,5,0.11
+Risk,6,0.1
+Risk,7,0.08
+Risk,8,0.059
+Risk,9,0.077
+Risk,10,0.1
+Risk,11,0.057
+Risk,12,0.092
+Stability,1,0.071
+Stability,2,0.054
+Stability,3,0.064
+Stability,4,0.073
+Stability,5,0.067
+Stability,6,0.072
+Stability,7,0.077
+Stability,8,0.024
+Stability,9,0.056
+Stability,10,0.067
+Stability,11,0.071
+Stability,12,0.062
+Hit rate,1,0.116
+Hit rate,2,0.125
+Hit rate,3,0.074
+Hit rate,4,0.109
+Hit rate,5,0.086
+Hit rate,6,0.078
+Hit rate,7,0.102
+Hit rate,8,0.09
+Hit rate,9,0.062
+Hit rate,10,0.096
+Hit rate,11,0.064
+Hit rate,12,0.096
+Cost,1,0.083
+Cost,2,0.043
+Cost,3,0.077
+Cost,4,0.059
+Cost,5,0.036
+Cost,6,0.058
+Cost,7,0.065
+Cost,8,0.051
+Cost,9,0.06
+Cost,10,0.06
+Cost,11,0.038
+Cost,12,0.056
+Calib,1,0.086
+Calib,2,0.074
+Calib,3,0.077
+Calib,4,0.045
+Calib,5,0.058
+Calib,6,0.066
+Calib,7,0.028
+Calib,8,0.065
+Calib,9,0.018
+Calib,10,0.075
+Calib,11,0.094
+Calib,12,0.074
+Robust,1,0.097
+Robust,2,0.067
+Robust,3,0.07
+Robust,4,0.083
+Robust,5,0.072
+Robust,6,0.095
+Robust,7,0.052
+Robust,8,0.077
+Robust,9,0.08
+Robust,10,0.055
+Robust,11,0.08
+Robust,12,0.09

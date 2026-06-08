@@ -46,6 +46,9 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ103 | warning | Tick density too high | Reduce tick count or use `MaxNLocator` |
 | CKQ104 | warning | Legend overlaps data | Move legend outside axes or use a legend-only panel |
 | CKQ107 | warning | Text contrast too low (WCAG < 2.5) | Darken text or lighten background |
+| CKQ108 | warning | Computed insight labels overlap | Reduce insight count or let renderer lane/offset them |
+| CKQ109 | warning | Computed insight label falls outside plot area | Use automatic placement or allow more margin/range |
+| CKQ110 | warning | Computed insight label covers key data evidence | Let ChartKit auto-place it, move callout outward, or remove a lower-value insight |
 
 **Artifact-level (fix after build):**
 

@@ -17,6 +17,10 @@ ChartKit CLI renders publication-quality figures from a declarative JSON spec. T
 
 Do not write matplotlib code. Write a JSON spec and use the CLI.
 
+Default posture: **single data figure first**. Do not jump to composite, schematic, dashboard,
+or slide-like layouts unless the user explicitly needs multi-panel evidence and each panel answers
+a different evidence question.
+
 ## Step 1 — Understand the data and the goal
 
 Before writing anything, answer these questions:
@@ -32,9 +36,60 @@ From the answers, decide:
 
 When the chart type is unclear, run:
 ```bash
-chart-kit atlas --role <role>
+chart-kit atlas --role <role> --archetype <archetype>
 ```
-The CLI returns a ranked recommendation list based on your role and archetype.
+The CLI returns ranked recommendations based on role and archetype.
+
+Use the returned `example_cards` before writing a spec:
+
+- `spec`: a maintained showcase JSON with the same chart family.
+- `prompt`: the natural-language request that produced the example.
+- `source_paths`: reproducible source data.
+- `reference/*.png`: the visual target style; inspect it before writing your spec.
+- `notes/*.md`: visual strategy, when to use the pattern, and what to avoid.
+
+Do not start from a blank JSON unless no example card is relevant. Start from the nearest card,
+then replace the contract and data with the current user's analysis.
+
+Reference cards are visual examples only. Never copy their source rows, dates, labels, or values
+into the user's figure. Load and use the current task's source CSV values.
+When a reference card matches the user's evidence need, carry over its chart `type`, explicit
+`layout`, and `profile` unless the user clearly asks for a different physical slot. Profile is part
+of the visual design: a compact raincloud, slopegraph, or matrix can become sparse or awkward if it
+is stretched to full width.
+
+Do not equate "clean" with "less information." Add information cues when they are earned by the
+current data and claim: thresholds with business meaning, event windows, percentile markers,
+computed group deltas, top movers, confidence bands, or sparse outlier labels. Avoid decorative
+helper lines, labels, and arrows that do not come from the user's data or conclusion.
+
+Use `data.insights` for computed, data-derived information cues instead of hand-writing values
+into labels. This keeps the chart faithful when the user's data changes:
+
+```json
+{
+  "data": {
+    "insights": [
+      {"kind": "mean_delta", "from": "Baseline", "to": "Ours", "label": "Mean shift", "format": "{:+.2f}"},
+      {"kind": "top_mover", "label": "Largest lift", "format": "{:+.0%}"},
+      {"kind": "percentiles", "series": "Ours", "probs": [0.25, 0.5, 0.75], "axis": "x"},
+      {"kind": "threshold_crossing", "series": "Cumulative", "threshold": 0, "direction": "above", "label": "First positive"},
+      {"kind": "extreme", "series": "Daily return", "mode": "min", "label": "Worst day"}
+    ]
+  }
+}
+```
+
+Supported computed cues are generic: `mean_delta` / `group_delta`, `group_spread`,
+`top_mover` (paired series or endpoint change across series), `percentiles`,
+`threshold_crossing`, and `extreme`. Use them only when they support the claim; do not use them
+as decoration.
+
+ChartKit automatically lanes guide labels, flips point-label direction near plot edges, reserves
+extra range for insight callouts, limits excessive insight count, and QA-checks overlap/out-of-bounds
+insight labels. It also checks whether insight labels cover key data evidence such as dense point
+regions, trend lines, endpoints, or important bars. Prefer the automatic placement; only set `dx`,
+`dy`, `x`, or `y` when a specific figure needs a deliberate override.
 
 ## Step 2 — Choose the archetype
 
@@ -53,21 +108,56 @@ Prefer one **hero panel** that carries the primary conclusion. Supporting panels
 
 ## Step 3 — Select chart type and profile
 
-**Chart type by data shape:**
+**Chart type by data shape. Choose the renderer from the data and evidence, not from business words:**
 
 | Data shape | Chart type |
 |---|---|
 | Ordered sequence / time | `line`, `time_series`, `area` |
 | Categories to compare | `bar`, `contribution` (waterfall/dumbbell) |
 | Two continuous variables | `scatter`, `joint_scatter` |
+| Effect size + p-value feature screen | `scatter` with `data.volcano` |
 | Matrix / pairwise | `heatmap`, `network_matrix`, `ablation_heatmap` |
-| Sample distributions | `distribution` (use `layout: "auto"` — auto-selects box+strip for small n, ridge for many groups) |
+| Sample distributions | `distribution` with a deliberate layout: `box_strip`/`auto` for small samples, `ridge` for ordered many-group shifts, `violin` when shape/tails/modes are the evidence |
 | Effect estimates / intervals | `interval` |
 | Training or optimization curves | `convergence` |
 | Representative images | `image_plate` |
 | Workflow / mechanism | `schematic` (supporting only, not hero in a data figure) |
 | Multiple panel types | `composite` |
 | Anything not covered above | `custom_python` |
+
+Use `mixed` only when measures share an ordered x domain but have different units or materially
+different scales. Use bar for discrete aggregates, area for background magnitude or cumulative
+quantity, and line/step for rates, indices, states, or continuous measurements.
+If the x field contains real dates, months, timestamps, or event windows (`date`, `month`,
+`timestamp`, `time`, `week`, `year`), prefer `type: "time_series"` over generic `line`.
+Use `line` for ordinal checkpoints such as E1-E6, Before/After, or ranked ordered observations.
+Use horizontal `bar` for ranked metric lift, Top-N categories, driver effects, or long labels; set
+`data.invert_y: true` or `yAxis.invert: true` when the strongest or first-ranked item should read
+from the top. For multi-metric benchmarks with heterogeneous units, prefer `radar` with
+`layout: "profile_bar"` and add `metric_groups` when metrics form evidence blocks.
+Use ordinary `scatter` for continuous relationships, agreement, cluster shift, thresholds, and
+outliers. Cohort ellipses should be density cues, not decoration; tune `ellipse_scales` and
+`ellipse_alpha` when the contours overpower the points. Use `scatter` with `data.volcano` only
+when each point has both an effect size and a p-value and the claim depends on
+effect/significance thresholds; when many points are auto-numbered, set `label_named_only: true`
+and add `label` only to real named hits; use `label_top_per_side` when both up/down sides need
+balanced labels. Do not add trend lines or cluster ellipses to volcano plots.
+Use `network_matrix` with `data.layout: "bubble"` for pairwise interaction or adjacency matrices
+when sparse strengths need area + color encoding. Add `mask_diagonal: true` when self-pairs are
+not evidence, and keep thresholded weak cells visually subdued instead of equally prominent.
+Use `contribution` with `layout: "waterfall"` only for sequential additive accounting from a start
+value to an end value; use `label_mode: "delta"` when intermediate labels should show each step's
+own contribution. For independent signed effects, use lollipop/dumbbell/interval/ranked
+contribution instead of waterfall. For lollipop effect estimates, include `low`/`high` or `ci`
+when the source provides uncertainty intervals.
+
+For `distribution`, choose the layout deliberately:
+- `layout: "box_strip"` when exact repeated observations, fold-level points, spread/overlap, and a compact summary box are the evidence. Use it explicitly for box-and-strip reference cards; do not replace it with a violin just because there are enough samples.
+- `layout: "auto"` only when the user did not give a layout cue and the data size should decide.
+- `layout: "ridge"` for several ordered groups where distribution shifts are the evidence; keep median ticks visible unless they distract from the density shape.
+- `layout: "raincloud"` when a few groups need density shape, raw observations, and quartile structure together. This is the preferred report-grade default for shape/tail/mode comparisons because it avoids the bulky, decorative feel of full symmetric violins.
+- `layout: "violin"` only when the complete symmetric density silhouette itself is useful and each group has enough observations; use it for a few dense groups, not a long ordered ladder. With fewer than about 30 observations per group, prefer `box_strip` unless the user explicitly asks for density shape/tails/modes; if you still use violin on such data, keep raw observations visually important and do not rely on the density silhouette alone.
+Do not leave `layout: "auto"` when the matched reference card has an explicit layout anchor that fits the task.
 
 **Profile (physical size — required on every spec):**
 
@@ -112,6 +202,10 @@ Minimal valid spec:
 
 Series `role` values: `ours` | `baseline` | `positive` | `negative` | `uncertainty` | `reference` | `context`
 
+Direct labels default to normal weight. Only `ours`, `proposed`, `highlight`, `focus`, `focused`,
+`primary`, or explicit `label_weight` should be bold. Baseline/reference/context labels should not
+all become bold.
+
 Validate first, then build:
 
 ```bash
@@ -128,8 +222,9 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Missing `contract` → add `contract` block (CKQ001)
 - Missing `profile` → add `profile` (CKQ002)
 - Missing series `role` → add `role` to each series (CKQ005)
-- Small-sample violin → change to `layout: "auto"` (CKQ105)
+- Small-sample violin → use `box_strip`/`auto`, or keep `violin` only when shape/tails/modes are the explicit evidence and raw observations remain visible (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
+- Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)
 
 For composite figures, see `references/composite-grammar.md`.
 For panel map guidance, see `references/information-architecture.md`.
@@ -147,9 +242,24 @@ chart-kit doctor
 
 - Do not write matplotlib code. Write a JSON spec.
 - Every spec must have `profile` and `contract`.
+- Start from `chart-kit atlas` and nearby `example_cards`; do not make the LLM invent style from scratch.
+- Example cards teach style and structure only; never copy example data into a user figure.
 - `data_figure` means axes and data marks dominate. Schematics support data — they do not replace it.
 - No metric cards, PPT headlines, dashboard chrome, explanatory paragraphs inside panels, or bare `a` / `b` / `c` panel labels.
+  No metric cards means no KPI tiles, large numbers in boxes, workflow cards, or slide-deck summary strips inside the figure.
 - Panel labels must be bottom-centered parenthesized: `(a)`, `(b)`, `(c)`.
 - If two panels answer the same evidence question, merge them or replace one.
 - Do not use rainbow colormaps (`jet`, `rainbow`).
 - Custom scripts (`custom_python`) must still declare `contract`, `profile`, and pass the quality loop.
+
+## Clean-context simulation
+
+Use `examples/llm-simulation` to test whether this skill works in the real product setting:
+
+```bash
+chart-kit simulate list
+chart-kit simulate report --out /tmp/chartkit-simulation-report.md
+```
+
+Each task gives a user request and source data only. Generate a new spec in a fresh context, then
+score failures with `docs/llm-simulation-evaluation.md`.

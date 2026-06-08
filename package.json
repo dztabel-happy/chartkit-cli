@@ -17,7 +17,8 @@
   },
   "files": [
     "npm/chart-kit.cjs",
-    "skills/codex/chartkit-report-figure"
+    "skills/codex/chartkit-report-figure",
+    "examples/showcase"
   ],
   "engines": {
     "node": ">=18"

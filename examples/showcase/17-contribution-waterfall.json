@@ -1,0 +1,88 @@
+{
+  "version": "0.1",
+  "type": "contribution",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "layout": "waterfall",
+  "orientation": "vertical",
+  "caption": "Sequential waterfall decomposition of validation accuracy gain with signed component deltas.",
+  "contract": {
+    "conclusion": "Data depth and calibration drive most of the gain, while execution constraints remove a smaller but visible amount before the final score.",
+    "role": "composition",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "waterfall decomposition"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "sequential component deltas from base to final model",
+        "center": "validation accuracy contribution",
+        "interval": "not shown"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/17-contribution-waterfall.csv"
+      }
+    ]
+  },
+  "data": {
+    "reference": 0.612,
+    "label_mode": "delta",
+    "delta_format": "{:+.3f}",
+    "total_format": "{:.3f}",
+    "items": [
+      {
+        "label": "Base",
+        "kind": "start",
+        "value": 0.612
+      },
+      {
+        "label": "Depth",
+        "value": 0.064
+      },
+      {
+        "label": "Calib.",
+        "value": 0.031
+      },
+      {
+        "label": "Regime",
+        "value": 0.026
+      },
+      {
+        "label": "Signal",
+        "value": 0.021
+      },
+      {
+        "label": "Robust",
+        "value": 0.017
+      },
+      {
+        "label": "Cost",
+        "value": -0.014
+      },
+      {
+        "label": "Latency",
+        "value": -0.01
+      },
+      {
+        "label": "Stress",
+        "value": -0.007
+      },
+      {
+        "label": "Final",
+        "kind": "end",
+        "value": 0.74
+      }
+    ]
+  },
+  "yAxis": {
+    "label": "Validation accuracy",
+    "range": [
+      0.58,
+      0.78
+    ]
+  }
+}

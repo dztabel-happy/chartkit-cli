@@ -1,0 +1,264 @@
+{
+  "version": "0.1",
+  "type": "bar",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "layout": "grouped",
+  "caption": "Three-method benchmark comparison with raw seed-level observations.",
+  "contract": {
+    "conclusion": "The proposed method improves benchmark scores beyond the tuned baseline across all cohorts, with the stress cohort remaining the hardest setting.",
+    "role": "comparison",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "benchmark scores"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "eight random seeds per cohort and method",
+        "center": "mean",
+        "interval": "SEM"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/07-benchmark-score-bars.csv"
+      }
+    ]
+  },
+  "data": {
+    "categories": [
+      "Stable",
+      "Seasonal",
+      "Urban",
+      "Volatile",
+      "Stress"
+    ],
+    "group_spacing": 0.88,
+    "show_points": true,
+    "value_labels": false,
+    "error": {
+      "capsize": 1.8,
+      "elinewidth": 0.65,
+      "capthick": 0.65
+    },
+    "series": [
+      {
+        "name": "Baseline",
+        "role": "baseline",
+        "values": [
+          0.744,
+          0.775,
+          0.793,
+          0.724,
+          0.714
+        ],
+        "error": [
+          0.006,
+          0.01,
+          0.005,
+          0.006,
+          0.005
+        ],
+        "points": [
+          [
+            0.738,
+            0.749,
+            0.722,
+            0.77,
+            0.718,
+            0.76,
+            0.752,
+            0.739
+          ],
+          [
+            0.796,
+            0.779,
+            0.804,
+            0.761,
+            0.718,
+            0.752,
+            0.798,
+            0.79
+          ],
+          [
+            0.784,
+            0.808,
+            0.776,
+            0.803,
+            0.79,
+            0.779,
+            0.808,
+            0.798
+          ],
+          [
+            0.738,
+            0.702,
+            0.722,
+            0.746,
+            0.714,
+            0.706,
+            0.744,
+            0.719
+          ],
+          [
+            0.743,
+            0.72,
+            0.708,
+            0.704,
+            0.72,
+            0.717,
+            0.698,
+            0.7
+          ]
+        ]
+      },
+      {
+        "name": "Tuned",
+        "role": "reference",
+        "color": "#65B9B3",
+        "values": [
+          0.802,
+          0.822,
+          0.842,
+          0.786,
+          0.748
+        ],
+        "error": [
+          0.003,
+          0.004,
+          0.003,
+          0.004,
+          0.002
+        ],
+        "points": [
+          [
+            0.792,
+            0.806,
+            0.799,
+            0.815,
+            0.787,
+            0.802,
+            0.811,
+            0.803
+          ],
+          [
+            0.819,
+            0.829,
+            0.811,
+            0.835,
+            0.802,
+            0.826,
+            0.831,
+            0.824
+          ],
+          [
+            0.836,
+            0.852,
+            0.829,
+            0.846,
+            0.854,
+            0.831,
+            0.849,
+            0.843
+          ],
+          [
+            0.775,
+            0.794,
+            0.786,
+            0.771,
+            0.799,
+            0.789,
+            0.781,
+            0.797
+          ],
+          [
+            0.741,
+            0.754,
+            0.748,
+            0.759,
+            0.752,
+            0.744,
+            0.738,
+            0.75
+          ]
+        ]
+      },
+      {
+        "name": "Ours",
+        "role": "ours",
+        "values": [
+          0.839,
+          0.856,
+          0.873,
+          0.828,
+          0.783
+        ],
+        "error": [
+          0.003,
+          0.005,
+          0.005,
+          0.004,
+          0.004
+        ],
+        "points": [
+          [
+            0.839,
+            0.83,
+            0.835,
+            0.848,
+            0.828,
+            0.842,
+            0.83,
+            0.856
+          ],
+          [
+            0.869,
+            0.841,
+            0.863,
+            0.872,
+            0.831,
+            0.854,
+            0.858,
+            0.86
+          ],
+          [
+            0.858,
+            0.893,
+            0.86,
+            0.868,
+            0.885,
+            0.862,
+            0.871,
+            0.886
+          ],
+          [
+            0.818,
+            0.839,
+            0.827,
+            0.807,
+            0.831,
+            0.834,
+            0.832,
+            0.836
+          ],
+          [
+            0.771,
+            0.78,
+            0.79,
+            0.802,
+            0.785,
+            0.789,
+            0.773,
+            0.777
+          ]
+        ]
+      }
+    ]
+  },
+  "yAxis": {
+    "label": "Score",
+    "range_strategy": "tight"
+  }
+}

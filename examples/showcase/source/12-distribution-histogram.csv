@@ -1,0 +1,781 @@
+model,observation,residual
+Raw model,1,-0.477
+Raw model,2,-0.004
+Raw model,3,-0.075
+Raw model,4,-0.030
+Raw model,5,-0.326
+Raw model,6,0.095
+Raw model,7,0.072
+Raw model,8,0.273
+Raw model,9,0.107
+Raw model,10,-0.018
+Raw model,11,0.119
+Raw model,12,-0.257
+Raw model,13,-0.486
+Raw model,14,-0.504
+Raw model,15,-0.065
+Raw model,16,-0.172
+Raw model,17,0.141
+Raw model,18,-0.190
+Raw model,19,0.219
+Raw model,20,-0.115
+Raw model,21,-0.263
+Raw model,22,-0.187
+Raw model,23,-0.056
+Raw model,24,0.170
+Raw model,25,-0.101
+Raw model,26,-0.167
+Raw model,27,-0.250
+Raw model,28,0.164
+Raw model,29,-0.229
+Raw model,30,-0.119
+Raw model,31,-0.080
+Raw model,32,-0.347
+Raw model,33,-0.022
+Raw model,34,-0.258
+Raw model,35,0.145
+Raw model,36,0.409
+Raw model,37,0.078
+Raw model,38,-0.081
+Raw model,39,-0.096
+Raw model,40,-0.320
+Raw model,41,0.061
+Raw model,42,-0.285
+Raw model,43,-0.068
+Raw model,44,0.028
+Raw model,45,-0.232
+Raw model,46,-0.016
+Raw model,47,-0.265
+Raw model,48,-0.088
+Raw model,49,-0.371
+Raw model,50,-0.475
+Raw model,51,-0.193
+Raw model,52,-0.028
+Raw model,53,-0.281
+Raw model,54,0.062
+Raw model,55,0.012
+Raw model,56,0.121
+Raw model,57,-0.192
+Raw model,58,-0.190
+Raw model,59,-0.199
+Raw model,60,-0.135
+Raw model,61,-0.219
+Raw model,62,0.240
+Raw model,63,-0.001
+Raw model,64,-0.012
+Raw model,65,0.115
+Raw model,66,-0.291
+Raw model,67,0.083
+Raw model,68,-0.269
+Raw model,69,0.120
+Raw model,70,-0.208
+Raw model,71,0.081
+Raw model,72,-0.145
+Raw model,73,0.046
+Raw model,74,-0.092
+Raw model,75,-0.295
+Raw model,76,-0.237
+Raw model,77,0.095
+Raw model,78,0.030
+Raw model,79,-0.499
+Raw model,80,0.205
+Raw model,81,0.055
+Raw model,82,0.198
+Raw model,83,-0.019
+Raw model,84,-0.091
+Raw model,85,-0.272
+Raw model,86,-0.106
+Raw model,87,-0.065
+Raw model,88,0.002
+Raw model,89,-0.035
+Raw model,90,-0.329
+Raw model,91,0.104
+Raw model,92,-0.233
+Raw model,93,-0.080
+Raw model,94,-0.097
+Raw model,95,0.074
+Raw model,96,-0.234
+Raw model,97,-0.132
+Raw model,98,-0.065
+Raw model,99,0.014
+Raw model,100,0.015
+Raw model,101,-0.184
+Raw model,102,-0.076
+Raw model,103,-0.103
+Raw model,104,-0.313
+Raw model,105,-0.620
+Raw model,106,0.480
+Raw model,107,-0.048
+Raw model,108,0.055
+Raw model,109,0.192
+Raw model,110,-0.152
+Raw model,111,-0.059
+Raw model,112,-0.062
+Raw model,113,0.009
+Raw model,114,-0.030
+Raw model,115,0.017
+Raw model,116,-0.003
+Raw model,117,-0.187
+Raw model,118,-0.565
+Raw model,119,0.061
+Raw model,120,0.059
+Raw model,121,0.138
+Raw model,122,-0.033
+Raw model,123,0.142
+Raw model,124,-0.110
+Raw model,125,0.040
+Raw model,126,0.202
+Raw model,127,0.156
+Raw model,128,0.200
+Raw model,129,0.030
+Raw model,130,0.342
+Raw model,131,-0.620
+Raw model,132,0.032
+Raw model,133,-0.365
+Raw model,134,-0.058
+Raw model,135,-0.278
+Raw model,136,0.462
+Raw model,137,0.045
+Raw model,138,0.283
+Raw model,139,-0.381
+Raw model,140,0.040
+Raw model,141,-0.183
+Raw model,142,-0.072
+Raw model,143,-0.165
+Raw model,144,-0.575
+Raw model,145,0.122
+Raw model,146,-0.203
+Raw model,147,-0.130
+Raw model,148,-0.248
+Raw model,149,-0.057
+Raw model,150,0.161
+Raw model,151,0.194
+Raw model,152,0.361
+Raw model,153,0.076
+Raw model,154,-0.186
+Raw model,155,-0.179
+Raw model,156,-0.401
+Raw model,157,-0.492
+Raw model,158,0.094
+Raw model,159,0.038
+Raw model,160,-0.221
+Raw model,161,0.011
+Raw model,162,-0.188
+Raw model,163,0.200
+Raw model,164,-0.001
+Raw model,165,-0.226
+Raw model,166,-0.083
+Raw model,167,0.094
+Raw model,168,-0.185
+Raw model,169,0.044
+Raw model,170,-0.367
+Raw model,171,-0.277
+Raw model,172,0.119
+Raw model,173,0.110
+Raw model,174,0.198
+Raw model,175,0.115
+Raw model,176,0.207
+Raw model,177,-0.256
+Raw model,178,-0.153
+Raw model,179,-0.108
+Raw model,180,-0.035
+Raw model,181,-0.229
+Raw model,182,0.418
+Raw model,183,-0.215
+Raw model,184,0.192
+Raw model,185,-0.116
+Raw model,186,-0.400
+Raw model,187,0.141
+Raw model,188,0.050
+Raw model,189,0.141
+Raw model,190,0.121
+Raw model,191,-0.343
+Raw model,192,-0.051
+Raw model,193,0.208
+Raw model,194,-0.071
+Raw model,195,-0.153
+Raw model,196,-0.620
+Raw model,197,-0.350
+Raw model,198,-0.242
+Raw model,199,0.015
+Raw model,200,-0.082
+Raw model,201,0.019
+Raw model,202,0.073
+Raw model,203,-0.083
+Raw model,204,0.015
+Raw model,205,0.052
+Raw model,206,-0.351
+Raw model,207,0.046
+Raw model,208,0.118
+Raw model,209,-0.620
+Raw model,210,0.218
+Raw model,211,-0.325
+Raw model,212,-0.359
+Raw model,213,0.059
+Raw model,214,-0.156
+Raw model,215,-0.482
+Raw model,216,0.216
+Raw model,217,0.017
+Raw model,218,0.001
+Raw model,219,-0.203
+Raw model,220,-0.197
+Raw model,221,0.220
+Raw model,222,-0.386
+Raw model,223,-0.301
+Raw model,224,-0.236
+Raw model,225,-0.071
+Raw model,226,0.160
+Raw model,227,-0.155
+Raw model,228,-0.093
+Raw model,229,0.073
+Raw model,230,-0.119
+Raw model,231,-0.273
+Raw model,232,-0.278
+Raw model,233,-0.400
+Raw model,234,-0.037
+Raw model,235,-0.285
+Raw model,236,-0.096
+Raw model,237,-0.228
+Raw model,238,-0.132
+Raw model,239,0.063
+Raw model,240,0.082
+Raw model,241,-0.023
+Raw model,242,-0.336
+Raw model,243,0.133
+Raw model,244,-0.024
+Raw model,245,-0.082
+Raw model,246,0.205
+Raw model,247,-0.188
+Raw model,248,-0.108
+Raw model,249,0.218
+Raw model,250,0.001
+Raw model,251,0.234
+Raw model,252,0.105
+Raw model,253,0.098
+Raw model,254,-0.011
+Raw model,255,0.006
+Raw model,256,-0.310
+Raw model,257,-0.054
+Raw model,258,0.025
+Raw model,259,-0.065
+Raw model,260,-0.535
+Calibrated,1,-0.194
+Calibrated,2,0.027
+Calibrated,3,0.192
+Calibrated,4,-0.090
+Calibrated,5,0.074
+Calibrated,6,0.200
+Calibrated,7,0.255
+Calibrated,8,0.114
+Calibrated,9,0.052
+Calibrated,10,0.137
+Calibrated,11,0.143
+Calibrated,12,-0.151
+Calibrated,13,0.114
+Calibrated,14,-0.343
+Calibrated,15,0.103
+Calibrated,16,0.199
+Calibrated,17,-0.145
+Calibrated,18,0.092
+Calibrated,19,0.089
+Calibrated,20,-0.115
+Calibrated,21,-0.092
+Calibrated,22,0.144
+Calibrated,23,-0.082
+Calibrated,24,-0.267
+Calibrated,25,-0.082
+Calibrated,26,-0.033
+Calibrated,27,-0.209
+Calibrated,28,-0.065
+Calibrated,29,-0.080
+Calibrated,30,0.191
+Calibrated,31,0.082
+Calibrated,32,0.046
+Calibrated,33,-0.168
+Calibrated,34,-0.226
+Calibrated,35,-0.069
+Calibrated,36,0.002
+Calibrated,37,0.100
+Calibrated,38,-0.112
+Calibrated,39,-0.014
+Calibrated,40,-0.178
+Calibrated,41,-0.247
+Calibrated,42,0.123
+Calibrated,43,0.068
+Calibrated,44,-0.035
+Calibrated,45,0.062
+Calibrated,46,0.185
+Calibrated,47,-0.139
+Calibrated,48,0.077
+Calibrated,49,0.085
+Calibrated,50,-0.018
+Calibrated,51,0.081
+Calibrated,52,0.131
+Calibrated,53,-0.224
+Calibrated,54,0.032
+Calibrated,55,0.055
+Calibrated,56,-0.042
+Calibrated,57,-0.014
+Calibrated,58,0.162
+Calibrated,59,0.142
+Calibrated,60,-0.055
+Calibrated,61,-0.115
+Calibrated,62,0.108
+Calibrated,63,-0.115
+Calibrated,64,0.078
+Calibrated,65,-0.154
+Calibrated,66,-0.192
+Calibrated,67,-0.038
+Calibrated,68,-0.187
+Calibrated,69,-0.300
+Calibrated,70,0.050
+Calibrated,71,0.093
+Calibrated,72,-0.038
+Calibrated,73,-0.083
+Calibrated,74,0.057
+Calibrated,75,-0.015
+Calibrated,76,-0.040
+Calibrated,77,-0.406
+Calibrated,78,-0.047
+Calibrated,79,-0.325
+Calibrated,80,-0.033
+Calibrated,81,0.013
+Calibrated,82,-0.002
+Calibrated,83,0.031
+Calibrated,84,-0.353
+Calibrated,85,-0.208
+Calibrated,86,-0.067
+Calibrated,87,-0.213
+Calibrated,88,-0.003
+Calibrated,89,0.159
+Calibrated,90,0.204
+Calibrated,91,0.077
+Calibrated,92,-0.139
+Calibrated,93,-0.018
+Calibrated,94,0.000
+Calibrated,95,-0.038
+Calibrated,96,-0.066
+Calibrated,97,-0.063
+Calibrated,98,-0.214
+Calibrated,99,0.126
+Calibrated,100,0.026
+Calibrated,101,-0.035
+Calibrated,102,0.018
+Calibrated,103,0.036
+Calibrated,104,-0.150
+Calibrated,105,-0.142
+Calibrated,106,-0.059
+Calibrated,107,0.148
+Calibrated,108,0.007
+Calibrated,109,0.051
+Calibrated,110,0.176
+Calibrated,111,-0.097
+Calibrated,112,0.027
+Calibrated,113,0.061
+Calibrated,114,0.067
+Calibrated,115,-0.131
+Calibrated,116,-0.088
+Calibrated,117,-0.263
+Calibrated,118,-0.163
+Calibrated,119,-0.042
+Calibrated,120,-0.158
+Calibrated,121,-0.392
+Calibrated,122,0.058
+Calibrated,123,-0.233
+Calibrated,124,0.080
+Calibrated,125,0.234
+Calibrated,126,-0.066
+Calibrated,127,0.069
+Calibrated,128,-0.221
+Calibrated,129,0.278
+Calibrated,130,-0.119
+Calibrated,131,-0.150
+Calibrated,132,0.098
+Calibrated,133,-0.086
+Calibrated,134,0.067
+Calibrated,135,0.098
+Calibrated,136,-0.022
+Calibrated,137,-0.266
+Calibrated,138,0.028
+Calibrated,139,-0.100
+Calibrated,140,-0.212
+Calibrated,141,-0.031
+Calibrated,142,0.108
+Calibrated,143,0.081
+Calibrated,144,-0.453
+Calibrated,145,-0.082
+Calibrated,146,-0.111
+Calibrated,147,-0.234
+Calibrated,148,0.041
+Calibrated,149,0.164
+Calibrated,150,0.091
+Calibrated,151,-0.086
+Calibrated,152,-0.082
+Calibrated,153,0.092
+Calibrated,154,0.117
+Calibrated,155,0.006
+Calibrated,156,-0.062
+Calibrated,157,-0.064
+Calibrated,158,0.008
+Calibrated,159,0.144
+Calibrated,160,0.068
+Calibrated,161,-0.037
+Calibrated,162,-0.227
+Calibrated,163,-0.018
+Calibrated,164,0.033
+Calibrated,165,-0.214
+Calibrated,166,0.134
+Calibrated,167,0.077
+Calibrated,168,-0.114
+Calibrated,169,-0.006
+Calibrated,170,-0.297
+Calibrated,171,0.424
+Calibrated,172,0.009
+Calibrated,173,-0.064
+Calibrated,174,0.092
+Calibrated,175,0.032
+Calibrated,176,0.191
+Calibrated,177,-0.056
+Calibrated,178,0.098
+Calibrated,179,-0.007
+Calibrated,180,0.053
+Calibrated,181,0.136
+Calibrated,182,-0.176
+Calibrated,183,-0.193
+Calibrated,184,0.060
+Calibrated,185,-0.247
+Calibrated,186,-0.134
+Calibrated,187,0.102
+Calibrated,188,0.086
+Calibrated,189,-0.035
+Calibrated,190,0.082
+Calibrated,191,-0.010
+Calibrated,192,-0.057
+Calibrated,193,0.118
+Calibrated,194,-0.122
+Calibrated,195,-0.214
+Calibrated,196,-0.217
+Calibrated,197,0.134
+Calibrated,198,-0.231
+Calibrated,199,-0.017
+Calibrated,200,-0.270
+Calibrated,201,-0.132
+Calibrated,202,-0.150
+Calibrated,203,0.263
+Calibrated,204,0.052
+Calibrated,205,-0.023
+Calibrated,206,0.305
+Calibrated,207,-0.072
+Calibrated,208,-0.001
+Calibrated,209,-0.169
+Calibrated,210,-0.299
+Calibrated,211,0.177
+Calibrated,212,-0.012
+Calibrated,213,-0.038
+Calibrated,214,-0.176
+Calibrated,215,-0.209
+Calibrated,216,-0.024
+Calibrated,217,0.086
+Calibrated,218,0.016
+Calibrated,219,0.130
+Calibrated,220,-0.307
+Calibrated,221,-0.081
+Calibrated,222,-0.297
+Calibrated,223,0.018
+Calibrated,224,0.041
+Calibrated,225,-0.231
+Calibrated,226,0.088
+Calibrated,227,-0.097
+Calibrated,228,-0.130
+Calibrated,229,-0.150
+Calibrated,230,0.047
+Calibrated,231,0.125
+Calibrated,232,0.029
+Calibrated,233,0.010
+Calibrated,234,-0.035
+Calibrated,235,-0.167
+Calibrated,236,-0.127
+Calibrated,237,0.048
+Calibrated,238,-0.013
+Calibrated,239,0.133
+Calibrated,240,-0.184
+Calibrated,241,-0.466
+Calibrated,242,-0.082
+Calibrated,243,0.058
+Calibrated,244,-0.008
+Calibrated,245,-0.304
+Calibrated,246,-0.015
+Calibrated,247,-0.174
+Calibrated,248,-0.346
+Calibrated,249,0.218
+Calibrated,250,-0.181
+Calibrated,251,-0.095
+Calibrated,252,0.160
+Calibrated,253,0.000
+Calibrated,254,-0.188
+Calibrated,255,-0.121
+Calibrated,256,0.128
+Calibrated,257,0.037
+Calibrated,258,-0.046
+Calibrated,259,-0.160
+Calibrated,260,-0.018
+Ours,1,-0.063
+Ours,2,0.160
+Ours,3,-0.152
+Ours,4,0.049
+Ours,5,0.032
+Ours,6,0.002
+Ours,7,-0.077
+Ours,8,-0.080
+Ours,9,-0.135
+Ours,10,0.087
+Ours,11,0.006
+Ours,12,-0.152
+Ours,13,0.030
+Ours,14,0.021
+Ours,15,0.024
+Ours,16,0.048
+Ours,17,-0.198
+Ours,18,0.079
+Ours,19,-0.042
+Ours,20,0.041
+Ours,21,0.030
+Ours,22,-0.041
+Ours,23,0.106
+Ours,24,0.057
+Ours,25,0.063
+Ours,26,0.047
+Ours,27,-0.091
+Ours,28,0.038
+Ours,29,0.060
+Ours,30,-0.108
+Ours,31,-0.055
+Ours,32,0.073
+Ours,33,0.010
+Ours,34,0.116
+Ours,35,0.053
+Ours,36,0.026
+Ours,37,0.018
+Ours,38,-0.162
+Ours,39,0.073
+Ours,40,0.052
+Ours,41,-0.048
+Ours,42,-0.162
+Ours,43,-0.110
+Ours,44,0.093
+Ours,45,0.110
+Ours,46,0.096
+Ours,47,0.035
+Ours,48,0.141
+Ours,49,0.149
+Ours,50,-0.058
+Ours,51,-0.076
+Ours,52,0.103
+Ours,53,0.089
+Ours,54,-0.058
+Ours,55,0.193
+Ours,56,-0.157
+Ours,57,0.060
+Ours,58,0.050
+Ours,59,0.217
+Ours,60,-0.074
+Ours,61,-0.067
+Ours,62,-0.061
+Ours,63,-0.032
+Ours,64,-0.001
+Ours,65,0.077
+Ours,66,0.043
+Ours,67,0.091
+Ours,68,0.088
+Ours,69,0.011
+Ours,70,-0.024
+Ours,71,-0.061
+Ours,72,0.017
+Ours,73,-0.013
+Ours,74,-0.017
+Ours,75,0.172
+Ours,76,-0.184
+Ours,77,0.000
+Ours,78,0.045
+Ours,79,0.037
+Ours,80,-0.012
+Ours,81,0.058
+Ours,82,0.114
+Ours,83,0.123
+Ours,84,0.061
+Ours,85,0.003
+Ours,86,0.092
+Ours,87,-0.102
+Ours,88,-0.046
+Ours,89,0.008
+Ours,90,0.090
+Ours,91,0.020
+Ours,92,-0.009
+Ours,93,-0.006
+Ours,94,0.226
+Ours,95,0.053
+Ours,96,-0.046
+Ours,97,0.140
+Ours,98,-0.057
+Ours,99,-0.143
+Ours,100,0.007
+Ours,101,-0.048
+Ours,102,0.026
+Ours,103,0.031
+Ours,104,-0.215
+Ours,105,-0.090
+Ours,106,-0.042
+Ours,107,-0.142
+Ours,108,-0.094
+Ours,109,0.101
+Ours,110,-0.022
+Ours,111,0.031
+Ours,112,-0.129
+Ours,113,-0.138
+Ours,114,-0.081
+Ours,115,-0.134
+Ours,116,0.048
+Ours,117,-0.089
+Ours,118,-0.205
+Ours,119,-0.184
+Ours,120,0.183
+Ours,121,0.066
+Ours,122,-0.026
+Ours,123,-0.071
+Ours,124,0.066
+Ours,125,0.103
+Ours,126,0.059
+Ours,127,0.025
+Ours,128,-0.078
+Ours,129,-0.173
+Ours,130,0.083
+Ours,131,-0.065
+Ours,132,0.075
+Ours,133,0.060
+Ours,134,-0.045
+Ours,135,-0.056
+Ours,136,0.011
+Ours,137,-0.011
+Ours,138,0.042
+Ours,139,0.027
+Ours,140,-0.134
+Ours,141,-0.111
+Ours,142,-0.134
+Ours,143,-0.049
+Ours,144,-0.040
+Ours,145,0.056
+Ours,146,-0.062
+Ours,147,0.029
+Ours,148,0.006
+Ours,149,-0.102
+Ours,150,-0.010
+Ours,151,0.072
+Ours,152,0.013
+Ours,153,0.182
+Ours,154,0.102
+Ours,155,-0.008
+Ours,156,-0.038
+Ours,157,-0.170
+Ours,158,-0.046
+Ours,159,0.057
+Ours,160,-0.114
+Ours,161,0.012
+Ours,162,-0.003
+Ours,163,-0.036
+Ours,164,-0.248
+Ours,165,-0.167
+Ours,166,0.113
+Ours,167,0.013
+Ours,168,-0.099
+Ours,169,0.069
+Ours,170,-0.107
+Ours,171,0.029
+Ours,172,0.081
+Ours,173,0.005
+Ours,174,-0.205
+Ours,175,-0.146
+Ours,176,-0.017
+Ours,177,-0.018
+Ours,178,-0.223
+Ours,179,-0.041
+Ours,180,0.035
+Ours,181,0.060
+Ours,182,0.012
+Ours,183,-0.131
+Ours,184,0.019
+Ours,185,-0.109
+Ours,186,-0.091
+Ours,187,0.016
+Ours,188,-0.092
+Ours,189,-0.143
+Ours,190,0.022
+Ours,191,-0.080
+Ours,192,-0.041
+Ours,193,0.108
+Ours,194,-0.041
+Ours,195,0.007
+Ours,196,-0.004
+Ours,197,0.024
+Ours,198,0.085
+Ours,199,0.006
+Ours,200,-0.009
+Ours,201,-0.013
+Ours,202,0.014
+Ours,203,-0.031
+Ours,204,0.091
+Ours,205,0.051
+Ours,206,-0.077
+Ours,207,0.095
+Ours,208,0.121
+Ours,209,-0.007
+Ours,210,0.039
+Ours,211,0.051
+Ours,212,0.087
+Ours,213,0.003
+Ours,214,0.024
+Ours,215,0.043
+Ours,216,0.053
+Ours,217,0.050
+Ours,218,-0.008
+Ours,219,-0.020
+Ours,220,0.159
+Ours,221,0.024
+Ours,222,0.037
+Ours,223,0.153
+Ours,224,0.076
+Ours,225,-0.042
+Ours,226,0.079
+Ours,227,0.055
+Ours,228,0.082
+Ours,229,0.189
+Ours,230,-0.025
+Ours,231,0.029
+Ours,232,0.006
+Ours,233,-0.080
+Ours,234,0.026
+Ours,235,-0.049
+Ours,236,-0.071
+Ours,237,0.126
+Ours,238,0.042
+Ours,239,0.076
+Ours,240,0.075
+Ours,241,0.035
+Ours,242,0.088
+Ours,243,-0.064
+Ours,244,0.042
+Ours,245,-0.017
+Ours,246,0.032
+Ours,247,0.089
+Ours,248,-0.059
+Ours,249,0.034
+Ours,250,0.075
+Ours,251,-0.060
+Ours,252,0.076
+Ours,253,-0.028
+Ours,254,0.062
+Ours,255,0.136
+Ours,256,-0.020
+Ours,257,-0.071
+Ours,258,-0.089
+Ours,259,-0.006
+Ours,260,-0.103

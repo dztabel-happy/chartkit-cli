@@ -1,0 +1,115 @@
+{
+  "version": "0.1",
+  "type": "line",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "layout": "slopegraph",
+  "caption": "Before-after slopegraph with endpoint labels for each cohort.",
+  "contract": {
+    "conclusion": "All cohorts improved after rollout, with enterprise and urban cohorts showing the largest absolute gains while public and rural segments remain lowest after rollout.",
+    "role": "comparison",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "before-after cohort movement"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "seven cohorts across two periods",
+        "center": "conversion rate",
+        "interval": "not shown"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/23-line-slopegraph.csv"
+      }
+    ]
+  },
+  "data": {
+    "x": [
+      "Before",
+      "After"
+    ],
+    "value_format": "{:.0%}",
+    "marker_size": 26,
+    "series": [
+      {
+        "name": "Enterprise",
+        "role": "ours",
+        "values": [
+          0.69,
+          0.86
+        ]
+      },
+      {
+        "name": "Urban",
+        "role": "accent",
+        "values": [
+          0.67,
+          0.82
+        ]
+      },
+      {
+        "name": "South",
+        "role": "reference",
+        "values": [
+          0.64,
+          0.76
+        ]
+      },
+      {
+        "name": "SMB",
+        "role": "context",
+        "values": [
+          0.61,
+          0.70
+        ]
+      },
+      {
+        "name": "North",
+        "role": "context",
+        "values": [
+          0.60,
+          0.68
+        ]
+      },
+      {
+        "name": "Rural",
+        "role": "context",
+        "values": [
+          0.58,
+          0.65
+        ]
+      },
+      {
+        "name": "Public",
+        "role": "context",
+        "values": [
+          0.56,
+          0.63
+        ]
+      }
+    ],
+    "insights": [
+      {
+        "kind": "top_mover",
+        "label": "Largest lift",
+        "format": "{:+.0%}",
+        "dx": 10,
+        "dy": 20
+      }
+    ]
+  },
+  "xAxis": {
+    "margins": 0.36
+  },
+  "yAxis": {
+    "label": "Conversion rate",
+    "range": [
+      0.54,
+      0.9
+    ]
+  }
+}

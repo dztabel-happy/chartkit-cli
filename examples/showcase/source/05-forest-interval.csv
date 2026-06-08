@@ -1,0 +1,12 @@
+factor,center,low,high
+Timing,0.36,0.27,0.45
+Spread,0.31,0.2,0.42
+Forecast,0.27,0.14,0.4
+SOC guard,0.23,0.14,0.32
+Ramp,0.18,0.07,0.29
+Cost filter,0.12,-0.01,0.25
+Curtailment,0.09,0.0,0.18
+Reserve,0.06,-0.05,0.17
+Outage,-0.04,-0.17,0.09
+Liquidity,-0.08,-0.17,0.01
+Stress,-0.13,-0.24,-0.02

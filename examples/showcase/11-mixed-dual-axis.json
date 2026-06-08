@@ -1,0 +1,144 @@
+{
+  "version": "0.1",
+  "type": "mixed",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "caption": "Dual-axis interval volume and normalized rate with repeated seasonal pullbacks.",
+  "legend": {
+    "show": false
+  },
+  "contract": {
+    "conclusion": "Interval volume expands despite three pullbacks, while the normalized rate crosses the operating target and finishes at a new high.",
+    "role": "trend",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "dual-axis mixed trend"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "20 ordered monthly observations",
+        "center": "reported value",
+        "interval": "not shown"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/11-mixed-dual-axis.csv"
+      }
+    ]
+  },
+  "data": {
+    "x": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8",
+      "M9",
+      "M10",
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M16",
+      "M17",
+      "M18",
+      "M19",
+      "M20"
+    ],
+    "series": [
+      {
+        "name": "Interval volume",
+        "kind": "bar",
+        "role": "accent",
+        "alpha": 0.46,
+        "values": [
+          96.0,
+          111.0,
+          129.0,
+          148.0,
+          166.0,
+          181.0,
+          172.0,
+          185.0,
+          207.0,
+          226.0,
+          218.0,
+          238.0,
+          261.0,
+          279.0,
+          270.0,
+          296.0,
+          318.0,
+          333.0,
+          326.0,
+          348.0
+        ],
+        "y_axis": "left",
+        "color": "#74B8BA"
+      },
+      {
+        "name": "Rate index",
+        "kind": "line",
+        "role": "ours",
+        "direct_label": true,
+        "label_weight": "normal",
+        "values": [
+          0.142,
+          0.151,
+          0.163,
+          0.179,
+          0.194,
+          0.205,
+          0.198,
+          0.207,
+          0.226,
+          0.242,
+          0.235,
+          0.254,
+          0.271,
+          0.285,
+          0.279,
+          0.299,
+          0.315,
+          0.326,
+          0.321,
+          0.338
+        ],
+        "y_axis": "right",
+        "markers": true,
+        "marker_size": 9
+      }
+    ],
+    "insights": [
+      {
+        "kind": "threshold_crossing",
+        "series": "Rate index",
+        "threshold": 0.28,
+        "direction": "above",
+        "label": "Target"
+      }
+    ]
+  },
+  "xAxis": {
+    "label": "Observation month",
+    "max_ticks": 9,
+    "margins": 0.2
+  },
+  "yAxis": {
+    "label": "Interval volume"
+  },
+  "y2Axis": {
+    "label": "Rate index",
+    "range": [
+      0.13,
+      0.36
+    ]
+  }
+}

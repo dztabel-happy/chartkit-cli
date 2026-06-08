@@ -1,0 +1,150 @@
+{
+  "version": "0.1",
+  "type": "network_matrix",
+  "figure_mode": "data_figure",
+  "profile": "nature.double_column",
+  "caption": "Bubble matrix encodes off-diagonal interaction strength by circle area and color.",
+  "contract": {
+    "conclusion": "The strongest ligand-receptor interactions concentrate between immune and stromal compartments.",
+    "role": "correlation",
+    "archetype": "evidence_matrix",
+    "evidence_hierarchy": {
+      "hero": "bubble interaction matrix"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "49 cell-type interaction pairs",
+        "center": "interaction score",
+        "interval": "not applicable"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/bubble-matrix.csv"
+      }
+    ]
+  },
+  "data": {
+    "layout": "bubble",
+    "label": "Interaction score",
+    "threshold": 0.25,
+    "threshold_alpha": 0.22,
+    "threshold_size_scale": 0.24,
+    "mask_diagonal": true,
+    "size_legend": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "nodes": [
+      {
+        "id": "tcell",
+        "label": "T cell",
+        "group": "immune"
+      },
+      {
+        "id": "myeloid",
+        "label": "Myeloid",
+        "group": "immune"
+      },
+      {
+        "id": "nk",
+        "label": "NK",
+        "group": "immune"
+      },
+      {
+        "id": "bcell",
+        "label": "B cell",
+        "group": "immune"
+      },
+      {
+        "id": "fibro",
+        "label": "Fibroblast",
+        "group": "stromal"
+      },
+      {
+        "id": "endo",
+        "label": "Endothelial",
+        "group": "stromal"
+      },
+      {
+        "id": "tumour",
+        "label": "Tumour",
+        "group": "tumour"
+      }
+    ],
+    "groups": {
+      "immune": "#2F6F9F",
+      "stromal": "#C6B89E",
+      "tumour": "#C94B4B"
+    },
+    "matrix": [
+      [
+        0.1,
+        0.36,
+        0.44,
+        0.22,
+        0.82,
+        0.45,
+        0.58
+      ],
+      [
+        0.36,
+        0.14,
+        0.4,
+        0.18,
+        0.76,
+        0.52,
+        0.61
+      ],
+      [
+        0.44,
+        0.4,
+        0.08,
+        0.34,
+        0.62,
+        0.49,
+        0.7
+      ],
+      [
+        0.22,
+        0.18,
+        0.34,
+        0.06,
+        0.38,
+        0.28,
+        0.42
+      ],
+      [
+        0.82,
+        0.76,
+        0.62,
+        0.38,
+        0.08,
+        0.34,
+        0.55
+      ],
+      [
+        0.45,
+        0.52,
+        0.49,
+        0.28,
+        0.34,
+        0.06,
+        0.47
+      ],
+      [
+        0.58,
+        0.61,
+        0.7,
+        0.42,
+        0.55,
+        0.47,
+        0.12
+      ]
+    ],
+    "max_size": 240
+  }
+}

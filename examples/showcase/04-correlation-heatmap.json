@@ -1,0 +1,270 @@
+{
+  "version": "0.1",
+  "type": "heatmap",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "caption": "Upper-triangular feature correlation matrix with block structure.",
+  "contract": {
+    "conclusion": "Feature groups form three positive blocks with weaker cross-block correlation; the matrix is exported as a report-width panel rather than a square thumbnail.",
+    "role": "correlation",
+    "archetype": "evidence_matrix",
+    "evidence_hierarchy": {
+      "hero": "correlation matrix"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "66 unique feature pairs",
+        "center": "Pearson correlation",
+        "interval": "not applicable"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/04-correlation-heatmap.csv"
+      }
+    ]
+  },
+  "data": {
+    "label": "Correlation",
+    "vmin": -1,
+    "vmax": 1,
+    "mask": "upper",
+    "colormap": "RdBu_r",
+    "x_labels": [
+      "f01",
+      "f02",
+      "f03",
+      "f04",
+      "f05",
+      "f06",
+      "f07",
+      "f08",
+      "f09",
+      "f10",
+      "f11",
+      "f12"
+    ],
+    "y_labels": [
+      "f01",
+      "f02",
+      "f03",
+      "f04",
+      "f05",
+      "f06",
+      "f07",
+      "f08",
+      "f09",
+      "f10",
+      "f11",
+      "f12"
+    ],
+    "values": [
+      [
+        1.0,
+        0.75,
+        0.74,
+        0.74,
+        -0.25,
+        -0.33,
+        -0.23,
+        -0.14,
+        0.14,
+        0.27,
+        0.19,
+        0.19
+      ],
+      [
+        0.75,
+        1.0,
+        0.68,
+        0.67,
+        -0.23,
+        -0.32,
+        -0.33,
+        -0.22,
+        0.04,
+        0.07,
+        0.26,
+        0.13
+      ],
+      [
+        0.74,
+        0.68,
+        1.0,
+        0.8,
+        -0.13,
+        -0.22,
+        -0.2,
+        -0.27,
+        0.15,
+        0.2,
+        0.06,
+        0.11
+      ],
+      [
+        0.74,
+        0.67,
+        0.8,
+        1.0,
+        -0.31,
+        -0.13,
+        -0.33,
+        -0.19,
+        0.19,
+        0.06,
+        0.1,
+        0.27
+      ],
+      [
+        -0.25,
+        -0.23,
+        -0.13,
+        -0.31,
+        1.0,
+        0.82,
+        0.69,
+        0.78,
+        -0.33,
+        -0.21,
+        -0.24,
+        -0.08
+      ],
+      [
+        -0.33,
+        -0.32,
+        -0.22,
+        -0.13,
+        0.82,
+        1.0,
+        0.69,
+        0.86,
+        -0.14,
+        -0.31,
+        -0.35,
+        -0.09
+      ],
+      [
+        -0.23,
+        -0.33,
+        -0.2,
+        -0.33,
+        0.69,
+        0.69,
+        1.0,
+        0.66,
+        -0.37,
+        -0.33,
+        -0.09,
+        -0.21
+      ],
+      [
+        -0.14,
+        -0.22,
+        -0.27,
+        -0.19,
+        0.78,
+        0.86,
+        0.66,
+        1.0,
+        -0.13,
+        -0.15,
+        -0.26,
+        -0.22
+      ],
+      [
+        0.14,
+        0.04,
+        0.15,
+        0.19,
+        -0.33,
+        -0.14,
+        -0.37,
+        -0.13,
+        1.0,
+        0.86,
+        0.63,
+        0.67
+      ],
+      [
+        0.27,
+        0.07,
+        0.2,
+        0.06,
+        -0.21,
+        -0.31,
+        -0.33,
+        -0.15,
+        0.86,
+        1.0,
+        0.69,
+        0.7
+      ],
+      [
+        0.19,
+        0.26,
+        0.06,
+        0.1,
+        -0.24,
+        -0.35,
+        -0.09,
+        -0.26,
+        0.63,
+        0.69,
+        1.0,
+        0.69
+      ],
+      [
+        0.19,
+        0.13,
+        0.11,
+        0.27,
+        -0.08,
+        -0.09,
+        -0.21,
+        -0.22,
+        0.67,
+        0.7,
+        0.69,
+        1.0
+      ]
+    ],
+    "x_groups": [
+      {
+        "label": "Block A",
+        "start": 0,
+        "end": 3
+      },
+      {
+        "label": "Block B",
+        "start": 4,
+        "end": 7
+      },
+      {
+        "label": "Block C",
+        "start": 8,
+        "end": 11
+      }
+    ],
+    "y_groups": [
+      {
+        "label": "A",
+        "start": 0,
+        "end": 3
+      },
+      {
+        "label": "B",
+        "start": 4,
+        "end": 7
+      },
+      {
+        "label": "C",
+        "start": 8,
+        "end": 11
+      }
+    ],
+    "aspect": "auto",
+    "colorbar_inset_height": "46%"
+  }
+}

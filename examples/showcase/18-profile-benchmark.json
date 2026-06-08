@@ -1,0 +1,213 @@
+{
+  "version": "0.1",
+  "type": "radar",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "layout": "profile_bar",
+  "caption": "Multi-metric profile benchmark with metric-specific normalization.",
+  "contract": {
+    "conclusion": "The proposed model dominates most quality and robustness metrics while the compact variant remains strongest on latency and unit cost.",
+    "role": "comparison",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "multi-metric profile"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "twelve normalized benchmark metrics across four methods",
+        "center": "normalized metric score",
+        "interval": "not shown"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/18-profile-benchmark.csv"
+      }
+    ]
+  },
+  "data": {
+    "metrics": [
+      "Accuracy",
+      "F1",
+      "Recall",
+      "Coverage",
+      "Fairness",
+      "Robust",
+      "OOD",
+      "Stability",
+      "Calib err",
+      "Latency",
+      "Memory",
+      "Unit cost"
+    ],
+    "metric_groups": [
+      {
+        "label": "Quality",
+        "start": "Accuracy",
+        "end": "Fairness"
+      },
+      {
+        "label": "Robustness",
+        "start": "Robust",
+        "end": "Stability"
+      },
+      {
+        "label": "Efficiency",
+        "start": "Calib err",
+        "end": "Unit cost"
+      }
+    ],
+    "range": [
+      0,
+      1
+    ],
+    "ticks": [
+      0,
+      0.5,
+      1
+    ],
+    "axis_label": "Normalized score, higher is better",
+    "show_range_lines": true,
+    "range_line_alpha": 0.32,
+    "range_line_width": 0.9,
+    "marker_size": 28,
+    "metric_ranges": {
+      "Accuracy": [
+        0.6,
+        0.92
+      ],
+      "F1": [
+        0.55,
+        0.9
+      ],
+      "Recall": [
+        0.5,
+        0.88
+      ],
+      "Coverage": [
+        0.55,
+        0.95
+      ],
+      "Fairness": [
+        0.5,
+        0.88
+      ],
+      "Robust": [
+        0.45,
+        0.86
+      ],
+      "OOD": [
+        0.4,
+        0.82
+      ],
+      "Stability": [
+        0.45,
+        0.9
+      ],
+      "Calib err": [
+        0.18,
+        0.02
+      ],
+      "Latency": [
+        220,
+        60
+      ],
+      "Memory": [
+        18,
+        6
+      ],
+      "Unit cost": [
+        1.6,
+        0.55
+      ]
+    },
+    "series": [
+      {
+        "name": "Baseline",
+        "role": "baseline",
+        "color": "#A9BAC8",
+        "values": [
+          0.73,
+          0.68,
+          0.62,
+          0.73,
+          0.64,
+          0.58,
+          0.52,
+          0.61,
+          0.118,
+          174,
+          13.8,
+          1.26
+        ]
+      },
+      {
+        "name": "Tuned",
+        "role": "reference",
+        "color": "#65B9B3",
+        "values": [
+          0.79,
+          0.74,
+          0.69,
+          0.79,
+          0.7,
+          0.66,
+          0.61,
+          0.7,
+          0.083,
+          146,
+          12.4,
+          1.08
+        ]
+      },
+      {
+        "name": "Compact",
+        "role": "accent",
+        "color": "#D9A45F",
+        "values": [
+          0.81,
+          0.76,
+          0.72,
+          0.8,
+          0.72,
+          0.68,
+          0.63,
+          0.73,
+          0.076,
+          104,
+          8.9,
+          0.78
+        ]
+      },
+      {
+        "name": "Ours",
+        "role": "ours",
+        "color": "#315B7D",
+        "values": [
+          0.87,
+          0.83,
+          0.79,
+          0.89,
+          0.81,
+          0.78,
+          0.74,
+          0.84,
+          0.041,
+          118,
+          9.7,
+          0.86
+        ]
+      }
+    ]
+  },
+  "legend": {
+    "position": "upper center",
+    "bbox_to_anchor": [
+      0.5,
+      -0.16
+    ],
+    "ncol": 4
+  }
+}

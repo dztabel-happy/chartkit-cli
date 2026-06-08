@@ -1,0 +1,117 @@
+{
+  "version": "0.1",
+  "type": "bar",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "layout": "stacked_percent",
+  "orientation": "horizontal",
+  "caption": "Composition share by segment, ordered from core-load-heavy to flexible-heavy portfolios.",
+  "contract": {
+    "conclusion": "Enterprise and rural portfolios remain core-load heavy, while urban and SMB portfolios allocate more share to flexible and interruptible capacity.",
+    "role": "composition",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "composition share"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "eight portfolio segments with four component categories",
+        "center": "component share",
+        "interval": "not shown"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/21-bar-percent-stack.csv"
+      }
+    ]
+  },
+  "data": {
+    "categories": [
+      "Enterprise",
+      "Rural",
+      "East",
+      "Stable",
+      "North",
+      "West",
+      "SMB",
+      "Urban"
+    ],
+    "invert_y": true,
+    "series": [
+      {
+        "name": "Core load",
+        "color": "#315B7D",
+        "values": [
+          48,
+          46,
+          42,
+          40,
+          38,
+          36,
+          33,
+          31
+        ]
+      },
+      {
+        "name": "Flexible",
+        "color": "#65B9B3",
+        "values": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          23,
+          26,
+          28
+        ]
+      },
+      {
+        "name": "Interruptible",
+        "color": "#D9A45F",
+        "values": [
+          12,
+          12,
+          18,
+          15,
+          16,
+          15,
+          19,
+          21
+        ]
+      },
+      {
+        "name": "Reserve",
+        "color": "#A9BAC8",
+        "values": [
+          23,
+          24,
+          21,
+          25,
+          25,
+          26,
+          22,
+          20
+        ]
+      }
+    ]
+  },
+  "xAxis": {
+    "label": "Share of segment (%)",
+    "range": [
+      0,
+      100
+    ]
+  },
+  "legend": {
+    "position": "upper center",
+    "bbox_to_anchor": [
+      0.5,
+      1.1
+    ],
+    "ncol": 4
+  }
+}

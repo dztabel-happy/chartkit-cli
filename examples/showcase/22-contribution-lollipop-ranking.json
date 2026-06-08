@@ -1,0 +1,103 @@
+{
+  "version": "0.1",
+  "type": "contribution",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "layout": "lollipop",
+  "orientation": "horizontal",
+  "caption": "Ranked signed effect estimates with uncertainty intervals relative to zero.",
+  "contract": {
+    "conclusion": "Forecast quality and peak timing are the largest positive effects, while stress and curtailment remain the clearest negative drivers after accounting for interval uncertainty.",
+    "role": "ranking",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "signed effect ranking"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "ten ranked drivers",
+        "center": "effect estimate",
+        "interval": "bootstrap 90% interval"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/22-contribution-lollipop-ranking.csv"
+      }
+    ]
+  },
+  "data": {
+    "reference": 0,
+    "items": [
+      {
+        "label": "Forecast quality",
+        "value": 0.164,
+        "low": 0.126,
+        "high": 0.184
+      },
+      {
+        "label": "Peak timing",
+        "value": 0.132,
+        "low": 0.096,
+        "high": 0.154
+      },
+      {
+        "label": "Spread filter",
+        "value": 0.108,
+        "low": 0.072,
+        "high": 0.134
+      },
+      {
+        "label": "SOC guard",
+        "value": 0.087,
+        "low": 0.048,
+        "high": 0.112
+      },
+      {
+        "label": "Reserve signal",
+        "value": 0.066,
+        "low": 0.026,
+        "high": 0.091
+      },
+      {
+        "label": "Weather context",
+        "value": 0.045,
+        "low": 0.006,
+        "high": 0.073
+      },
+      {
+        "label": "Liquidity screen",
+        "value": 0.028,
+        "low": -0.004,
+        "high": 0.054
+      },
+      {
+        "label": "Transaction cost",
+        "value": -0.021,
+        "low": -0.049,
+        "high": 0.004
+      },
+      {
+        "label": "Curtailment",
+        "value": -0.033,
+        "low": -0.061,
+        "high": -0.009
+      },
+      {
+        "label": "Stress penalty",
+        "value": -0.046,
+        "low": -0.074,
+        "high": -0.018
+      }
+    ]
+  },
+  "xAxis": {
+    "label": "Effect on monthly return",
+    "range": [
+      -0.085,
+      0.19
+    ]
+  }
+}

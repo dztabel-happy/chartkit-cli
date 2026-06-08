@@ -1,0 +1,152 @@
+{
+  "version": "0.1",
+  "type": "area",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "layout": "stacked",
+  "caption": "Stacked composition trajectory across sixteen ordered planning windows with a reserve bulge during transition.",
+  "contract": {
+    "conclusion": "Flexible capacity becomes dominant after a transition window, while reserve temporarily expands and legacy capacity is phased out.",
+    "role": "composition",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "stacked composition"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "sixteen ordered planning windows",
+        "center": "category share",
+        "interval": "not applicable"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/16-stacked-area-composition.csv"
+      }
+    ]
+  },
+  "data": {
+    "x": [
+      "Q1",
+      "",
+      "",
+      "Q4",
+      "",
+      "",
+      "",
+      "Q8",
+      "",
+      "",
+      "",
+      "Q12",
+      "",
+      "",
+      "",
+      "Q16"
+    ],
+    "normalize": true,
+    "direct_labels": true,
+    "line_overlay": true,
+    "series": [
+      {
+        "name": "Flexible",
+        "role": "ours",
+        "values": [
+          10,
+          12,
+          16,
+          20,
+          27,
+          31,
+          35,
+          39,
+          37,
+          42,
+          48,
+          55,
+          61,
+          64,
+          67,
+          72
+        ]
+      },
+      {
+        "name": "Core",
+        "role": "accent",
+        "color": "#D36B56",
+        "values": [
+          36,
+          36,
+          37,
+          38,
+          37,
+          36,
+          34,
+          33,
+          31,
+          30,
+          29,
+          28,
+          27,
+          26,
+          25,
+          24
+        ]
+      },
+      {
+        "name": "Reserve",
+        "role": "uncertainty",
+        "color": "#6F8798",
+        "values": [
+          7,
+          8,
+          9,
+          10,
+          12,
+          14,
+          15,
+          16,
+          18,
+          17,
+          15,
+          13,
+          11,
+          10,
+          9,
+          8
+        ]
+      },
+      {
+        "name": "Legacy",
+        "role": "baseline",
+        "color": "#6D7785",
+        "values": [
+          47,
+          44,
+          38,
+          32,
+          24,
+          19,
+          16,
+          12,
+          14,
+          11,
+          8,
+          4,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "xAxis": {
+    "label": "Planning window"
+  },
+  "yAxis": {
+    "label": "Share"
+  }
+}

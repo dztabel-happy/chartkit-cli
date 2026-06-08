@@ -1,0 +1,193 @@
+{
+  "version": "0.1",
+  "type": "line",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "caption": "Validation trajectory across deployment checkpoints.",
+  "contract": {
+    "conclusion": "The proposed configuration reaches the strongest final validation score while all variants converge late in training.",
+    "role": "trend",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "validation trajectory"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "18 validation checkpoints",
+        "center": "mean score",
+        "interval": "SEM"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/10-line-validation-trajectory.csv"
+      }
+    ]
+  },
+  "data": {
+    "x": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11",
+      "E12",
+      "E13",
+      "E14",
+      "E15",
+      "E16",
+      "E17",
+      "E18"
+    ],
+    "series": [
+      {
+        "name": "Ours",
+        "role": "ours",
+        "values": [
+          0.539,
+          0.643,
+          0.721,
+          0.773,
+          0.814,
+          0.84,
+          0.863,
+          0.876,
+          0.883,
+          0.88,
+          0.894,
+          0.893,
+          0.886,
+          0.9,
+          0.905,
+          0.906,
+          0.9,
+          0.906
+        ],
+        "sem": [
+          0.02,
+          0.019,
+          0.019,
+          0.018,
+          0.018,
+          0.017,
+          0.016,
+          0.016,
+          0.015,
+          0.015,
+          0.014,
+          0.014,
+          0.013,
+          0.012,
+          0.012,
+          0.011,
+          0.011,
+          0.01
+        ]
+      },
+      {
+        "name": "Tuned",
+        "role": "accent",
+        "values": [
+          0.522,
+          0.627,
+          0.696,
+          0.753,
+          0.8,
+          0.822,
+          0.836,
+          0.858,
+          0.858,
+          0.865,
+          0.861,
+          0.871,
+          0.878,
+          0.881,
+          0.88,
+          0.892,
+          0.893,
+          0.888
+        ],
+        "sem": [
+          0.02,
+          0.019,
+          0.019,
+          0.018,
+          0.018,
+          0.017,
+          0.016,
+          0.016,
+          0.015,
+          0.015,
+          0.014,
+          0.014,
+          0.013,
+          0.012,
+          0.012,
+          0.011,
+          0.011,
+          0.01
+        ],
+        "color": "#B65F4B"
+      },
+      {
+        "name": "Baseline",
+        "role": "baseline",
+        "values": [
+          0.498,
+          0.585,
+          0.657,
+          0.716,
+          0.753,
+          0.791,
+          0.803,
+          0.834,
+          0.841,
+          0.842,
+          0.855,
+          0.854,
+          0.864,
+          0.866,
+          0.865,
+          0.866,
+          0.878,
+          0.881
+        ],
+        "sem": [
+          0.022,
+          0.021,
+          0.021,
+          0.02,
+          0.02,
+          0.019,
+          0.018,
+          0.018,
+          0.017,
+          0.017,
+          0.016,
+          0.016,
+          0.015,
+          0.014,
+          0.014,
+          0.013,
+          0.013,
+          0.012
+        ]
+      }
+    ]
+  },
+  "xAxis": {
+    "label": "Checkpoint",
+    "max_ticks": 9
+  },
+  "yAxis": {
+    "label": "Validation score"
+  }
+}

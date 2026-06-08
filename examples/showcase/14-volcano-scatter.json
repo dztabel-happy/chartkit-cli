@@ -1,0 +1,1293 @@
+{
+  "version": "0.1",
+  "type": "scatter",
+  "figure_mode": "data_figure",
+  "profile": "nature.double_column",
+  "caption": "Volcano scatter identifies significant up- and down-regulated features with effect and p-value thresholds.",
+  "contract": {
+    "conclusion": "The treatment shifts a small set of features beyond both effect-size and significance thresholds.",
+    "role": "diagnostic",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "volcano scatter"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "244 tested features",
+        "center": "log2 fold change",
+        "spread": "p-value",
+        "test": "two-sided moderated test"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/volcano-scatter.csv"
+      }
+    ]
+  },
+  "data": {
+    "volcano": {
+      "x": "log2fc",
+      "p": "pvalue",
+      "effect_threshold": 1.0,
+      "p_threshold": 0.05,
+      "label_top": 6,
+      "label_top_per_side": 2,
+      "label_named_only": true,
+      "xlim": [
+        -2.35,
+        2.35
+      ],
+      "ylim": [
+        0,
+        3.8
+      ]
+    },
+    "series": [
+      {
+        "name": "Features",
+        "role": "reference",
+        "points": [
+          {
+            "id": "gene001",
+            "log2fc": 0.146,
+            "pvalue": 0.40391
+          },
+          {
+            "id": "gene002",
+            "log2fc": 0.36,
+            "pvalue": 0.60941
+          },
+          {
+            "id": "gene003",
+            "log2fc": -0.936,
+            "pvalue": 0.83062
+          },
+          {
+            "id": "gene004",
+            "log2fc": 0.061,
+            "pvalue": 0.67992
+          },
+          {
+            "id": "gene005",
+            "log2fc": -0.008,
+            "pvalue": 0.41306
+          },
+          {
+            "id": "gene006",
+            "log2fc": 0.422,
+            "pvalue": 0.79178
+          },
+          {
+            "id": "gene007",
+            "log2fc": 0.032,
+            "pvalue": 0.7091
+          },
+          {
+            "id": "gene008",
+            "log2fc": 0.224,
+            "pvalue": 0.23565
+          },
+          {
+            "id": "gene009",
+            "log2fc": 0.177,
+            "pvalue": 0.10573
+          },
+          {
+            "id": "gene010",
+            "log2fc": 0.422,
+            "pvalue": 0.55717
+          },
+          {
+            "id": "gene011",
+            "log2fc": -0.089,
+            "pvalue": 0.33685
+          },
+          {
+            "id": "gene012",
+            "log2fc": 0.587,
+            "pvalue": 0.76503
+          },
+          {
+            "id": "gene013",
+            "log2fc": -0.206,
+            "pvalue": 0.20974
+          },
+          {
+            "id": "gene014",
+            "log2fc": 0.256,
+            "pvalue": 0.08982
+          },
+          {
+            "id": "gene015",
+            "log2fc": 0.198,
+            "pvalue": 0.59802
+          },
+          {
+            "id": "gene016",
+            "log2fc": 1.028,
+            "pvalue": 0.82417
+          },
+          {
+            "id": "gene017",
+            "log2fc": -0.246,
+            "pvalue": 0.34952
+          },
+          {
+            "id": "gene018",
+            "log2fc": 0.296,
+            "pvalue": 0.20563
+          },
+          {
+            "id": "gene019",
+            "log2fc": -0.055,
+            "pvalue": 0.43319
+          },
+          {
+            "id": "gene020",
+            "log2fc": -0.396,
+            "pvalue": 0.5875
+          },
+          {
+            "id": "gene021",
+            "log2fc": 0.357,
+            "pvalue": 0.71698
+          },
+          {
+            "id": "gene022",
+            "log2fc": -0.562,
+            "pvalue": 0.30333
+          },
+          {
+            "id": "gene023",
+            "log2fc": -0.319,
+            "pvalue": 0.69479
+          },
+          {
+            "id": "gene024",
+            "log2fc": 0.056,
+            "pvalue": 0.28422
+          },
+          {
+            "id": "gene025",
+            "log2fc": 0.418,
+            "pvalue": 0.1661
+          },
+          {
+            "id": "gene026",
+            "log2fc": 0.326,
+            "pvalue": 0.06085
+          },
+          {
+            "id": "gene027",
+            "log2fc": 0.139,
+            "pvalue": 0.58356
+          },
+          {
+            "id": "gene028",
+            "log2fc": -0.699,
+            "pvalue": 0.67568
+          },
+          {
+            "id": "gene029",
+            "log2fc": -0.226,
+            "pvalue": 0.50715
+          },
+          {
+            "id": "gene030",
+            "log2fc": -0.132,
+            "pvalue": 0.14605
+          },
+          {
+            "id": "gene031",
+            "log2fc": -0.416,
+            "pvalue": 0.42952
+          },
+          {
+            "id": "gene032",
+            "log2fc": -0.808,
+            "pvalue": 0.66317
+          },
+          {
+            "id": "gene033",
+            "log2fc": 0.078,
+            "pvalue": 0.4951
+          },
+          {
+            "id": "gene034",
+            "log2fc": 0.341,
+            "pvalue": 0.29664
+          },
+          {
+            "id": "gene035",
+            "log2fc": -0.167,
+            "pvalue": 0.40219
+          },
+          {
+            "id": "gene036",
+            "log2fc": 0.412,
+            "pvalue": 0.37978
+          },
+          {
+            "id": "gene037",
+            "log2fc": -0.612,
+            "pvalue": 0.24098
+          },
+          {
+            "id": "gene038",
+            "log2fc": -0.441,
+            "pvalue": 0.2787
+          },
+          {
+            "id": "gene039",
+            "log2fc": 0.068,
+            "pvalue": 0.58122
+          },
+          {
+            "id": "gene040",
+            "log2fc": -0.205,
+            "pvalue": 0.6782
+          },
+          {
+            "id": "gene041",
+            "log2fc": 0.3,
+            "pvalue": 0.37808
+          },
+          {
+            "id": "gene042",
+            "log2fc": 0.219,
+            "pvalue": 0.18774
+          },
+          {
+            "id": "gene043",
+            "log2fc": -0.174,
+            "pvalue": 0.12659
+          },
+          {
+            "id": "gene044",
+            "log2fc": -0.574,
+            "pvalue": 0.42219
+          },
+          {
+            "id": "gene045",
+            "log2fc": -0.225,
+            "pvalue": 0.45333
+          },
+          {
+            "id": "gene046",
+            "log2fc": 0.231,
+            "pvalue": 0.60857
+          },
+          {
+            "id": "gene047",
+            "log2fc": 0.319,
+            "pvalue": 0.35791
+          },
+          {
+            "id": "gene048",
+            "log2fc": -0.203,
+            "pvalue": 0.55607
+          },
+          {
+            "id": "gene049",
+            "log2fc": -0.81,
+            "pvalue": 0.12468
+          },
+          {
+            "id": "gene050",
+            "log2fc": -0.635,
+            "pvalue": 0.81971
+          },
+          {
+            "id": "gene051",
+            "log2fc": 0.192,
+            "pvalue": 0.61127
+          },
+          {
+            "id": "gene052",
+            "log2fc": -0.182,
+            "pvalue": 0.8255
+          },
+          {
+            "id": "gene053",
+            "log2fc": -0.171,
+            "pvalue": 0.62493
+          },
+          {
+            "id": "gene054",
+            "log2fc": -0.448,
+            "pvalue": 0.27143
+          },
+          {
+            "id": "gene055",
+            "log2fc": -0.456,
+            "pvalue": 0.77257
+          },
+          {
+            "id": "gene056",
+            "log2fc": 0.403,
+            "pvalue": 0.21588
+          },
+          {
+            "id": "gene057",
+            "log2fc": 0.209,
+            "pvalue": 0.51548
+          },
+          {
+            "id": "gene058",
+            "log2fc": -0.285,
+            "pvalue": 0.73601
+          },
+          {
+            "id": "gene059",
+            "log2fc": 0.035,
+            "pvalue": 0.62697
+          },
+          {
+            "id": "gene060",
+            "log2fc": 0.112,
+            "pvalue": 0.55371
+          },
+          {
+            "id": "gene061",
+            "log2fc": 0.769,
+            "pvalue": 0.57163
+          },
+          {
+            "id": "gene062",
+            "log2fc": -0.491,
+            "pvalue": 0.38557
+          },
+          {
+            "id": "gene063",
+            "log2fc": 0.106,
+            "pvalue": 0.44772
+          },
+          {
+            "id": "gene064",
+            "log2fc": 0.401,
+            "pvalue": 0.1699
+          },
+          {
+            "id": "gene065",
+            "log2fc": 0.702,
+            "pvalue": 0.52218
+          },
+          {
+            "id": "gene066",
+            "log2fc": -0.307,
+            "pvalue": 0.79047
+          },
+          {
+            "id": "gene067",
+            "log2fc": -0.187,
+            "pvalue": 0.33076
+          },
+          {
+            "id": "gene068",
+            "log2fc": 0.305,
+            "pvalue": 0.07313
+          },
+          {
+            "id": "gene069",
+            "log2fc": -0.706,
+            "pvalue": 0.43843
+          },
+          {
+            "id": "gene070",
+            "log2fc": 0.15,
+            "pvalue": 0.12077
+          },
+          {
+            "id": "gene071",
+            "log2fc": 0.958,
+            "pvalue": 0.44511
+          },
+          {
+            "id": "gene072",
+            "log2fc": 0.199,
+            "pvalue": 0.50952
+          },
+          {
+            "id": "gene073",
+            "log2fc": -1.023,
+            "pvalue": 0.26725
+          },
+          {
+            "id": "gene074",
+            "log2fc": -0.39,
+            "pvalue": 0.46893
+          },
+          {
+            "id": "gene075",
+            "log2fc": -0.294,
+            "pvalue": 0.07218
+          },
+          {
+            "id": "gene076",
+            "log2fc": 0.512,
+            "pvalue": 0.76745
+          },
+          {
+            "id": "gene077",
+            "log2fc": -0.076,
+            "pvalue": 0.49546
+          },
+          {
+            "id": "gene078",
+            "log2fc": -0.804,
+            "pvalue": 0.58943
+          },
+          {
+            "id": "gene079",
+            "log2fc": -0.026,
+            "pvalue": 0.63296
+          },
+          {
+            "id": "gene080",
+            "log2fc": 0.063,
+            "pvalue": 0.14065
+          },
+          {
+            "id": "gene081",
+            "log2fc": -0.24,
+            "pvalue": 0.23802
+          },
+          {
+            "id": "gene082",
+            "log2fc": -0.463,
+            "pvalue": 0.49611
+          },
+          {
+            "id": "gene083",
+            "log2fc": 1.022,
+            "pvalue": 0.71468
+          },
+          {
+            "id": "gene084",
+            "log2fc": 0.402,
+            "pvalue": 0.30713
+          },
+          {
+            "id": "gene085",
+            "log2fc": 0.447,
+            "pvalue": 0.28628
+          },
+          {
+            "id": "gene086",
+            "log2fc": -0.075,
+            "pvalue": 0.25849
+          },
+          {
+            "id": "gene087",
+            "log2fc": -0.314,
+            "pvalue": 0.18586
+          },
+          {
+            "id": "gene088",
+            "log2fc": -0.218,
+            "pvalue": 0.4009
+          },
+          {
+            "id": "gene089",
+            "log2fc": -0.613,
+            "pvalue": 0.76388
+          },
+          {
+            "id": "gene090",
+            "log2fc": 0.758,
+            "pvalue": 0.76318
+          },
+          {
+            "id": "gene091",
+            "log2fc": -0.057,
+            "pvalue": 0.46749
+          },
+          {
+            "id": "gene092",
+            "log2fc": 0.627,
+            "pvalue": 0.66875
+          },
+          {
+            "id": "gene093",
+            "log2fc": -0.197,
+            "pvalue": 0.35206
+          },
+          {
+            "id": "gene094",
+            "log2fc": 0.206,
+            "pvalue": 0.6487
+          },
+          {
+            "id": "gene095",
+            "log2fc": 0.088,
+            "pvalue": 0.79977
+          },
+          {
+            "id": "gene096",
+            "log2fc": -0.657,
+            "pvalue": 0.15259
+          },
+          {
+            "id": "gene097",
+            "log2fc": 0.827,
+            "pvalue": 0.17686
+          },
+          {
+            "id": "gene098",
+            "log2fc": -0.184,
+            "pvalue": 0.53151
+          },
+          {
+            "id": "gene099",
+            "log2fc": -0.531,
+            "pvalue": 0.30171
+          },
+          {
+            "id": "gene100",
+            "log2fc": 0.309,
+            "pvalue": 0.8276
+          },
+          {
+            "id": "gene101",
+            "log2fc": -0.002,
+            "pvalue": 0.1694
+          },
+          {
+            "id": "gene102",
+            "log2fc": 0.162,
+            "pvalue": 0.23758
+          },
+          {
+            "id": "gene103",
+            "log2fc": 0.043,
+            "pvalue": 0.59374
+          },
+          {
+            "id": "gene104",
+            "log2fc": -0.984,
+            "pvalue": 0.45753
+          },
+          {
+            "id": "gene105",
+            "log2fc": -0.405,
+            "pvalue": 0.51699
+          },
+          {
+            "id": "gene106",
+            "log2fc": -0.422,
+            "pvalue": 0.69428
+          },
+          {
+            "id": "gene107",
+            "log2fc": 0.44,
+            "pvalue": 0.64249
+          },
+          {
+            "id": "gene108",
+            "log2fc": 0.015,
+            "pvalue": 0.15338
+          },
+          {
+            "id": "gene109",
+            "log2fc": 0.234,
+            "pvalue": 0.37107
+          },
+          {
+            "id": "gene110",
+            "log2fc": -0.157,
+            "pvalue": 0.44342
+          },
+          {
+            "id": "gene111",
+            "log2fc": 0.258,
+            "pvalue": 0.81472
+          },
+          {
+            "id": "gene112",
+            "log2fc": -0.074,
+            "pvalue": 0.79022
+          },
+          {
+            "id": "gene113",
+            "log2fc": -0.107,
+            "pvalue": 0.49638
+          },
+          {
+            "id": "gene114",
+            "log2fc": 0.085,
+            "pvalue": 0.13919
+          },
+          {
+            "id": "gene115",
+            "log2fc": 0.043,
+            "pvalue": 0.3882
+          },
+          {
+            "id": "gene116",
+            "log2fc": 1.208,
+            "pvalue": 0.52885
+          },
+          {
+            "id": "gene117",
+            "log2fc": -0.41,
+            "pvalue": 0.69447
+          },
+          {
+            "id": "gene118",
+            "log2fc": -0.702,
+            "pvalue": 0.67889
+          },
+          {
+            "id": "gene119",
+            "log2fc": 0.151,
+            "pvalue": 0.14177
+          },
+          {
+            "id": "gene120",
+            "log2fc": -0.35,
+            "pvalue": 0.68847
+          },
+          {
+            "id": "gene121",
+            "log2fc": -1.031,
+            "pvalue": 0.47696
+          },
+          {
+            "id": "gene122",
+            "log2fc": -0.51,
+            "pvalue": 0.74485
+          },
+          {
+            "id": "gene123",
+            "log2fc": 1.061,
+            "pvalue": 0.38299
+          },
+          {
+            "id": "gene124",
+            "log2fc": -0.421,
+            "pvalue": 0.57329
+          },
+          {
+            "id": "gene125",
+            "log2fc": -0.844,
+            "pvalue": 0.41585
+          },
+          {
+            "id": "gene126",
+            "log2fc": 1.022,
+            "pvalue": 0.24315
+          },
+          {
+            "id": "gene127",
+            "log2fc": -0.526,
+            "pvalue": 0.70417
+          },
+          {
+            "id": "gene128",
+            "log2fc": 1.25,
+            "pvalue": 0.10791
+          },
+          {
+            "id": "gene129",
+            "log2fc": -0.177,
+            "pvalue": 0.17121
+          },
+          {
+            "id": "gene130",
+            "log2fc": 0.83,
+            "pvalue": 0.30172
+          },
+          {
+            "id": "gene131",
+            "log2fc": -0.118,
+            "pvalue": 0.78717
+          },
+          {
+            "id": "gene132",
+            "log2fc": 0.209,
+            "pvalue": 0.28135
+          },
+          {
+            "id": "gene133",
+            "log2fc": -0.064,
+            "pvalue": 0.14681
+          },
+          {
+            "id": "gene134",
+            "log2fc": -0.114,
+            "pvalue": 0.09904
+          },
+          {
+            "id": "gene135",
+            "log2fc": 0.111,
+            "pvalue": 0.09744
+          },
+          {
+            "id": "gene136",
+            "log2fc": 0.226,
+            "pvalue": 0.59617
+          },
+          {
+            "id": "gene137",
+            "log2fc": 0.075,
+            "pvalue": 0.3078
+          },
+          {
+            "id": "gene138",
+            "log2fc": 0.026,
+            "pvalue": 0.75063
+          },
+          {
+            "id": "gene139",
+            "log2fc": -0.346,
+            "pvalue": 0.08956
+          },
+          {
+            "id": "gene140",
+            "log2fc": -0.047,
+            "pvalue": 0.25326
+          },
+          {
+            "id": "gene141",
+            "log2fc": 0.755,
+            "pvalue": 0.38593
+          },
+          {
+            "id": "gene142",
+            "log2fc": -0.366,
+            "pvalue": 0.35202
+          },
+          {
+            "id": "gene143",
+            "log2fc": 0.125,
+            "pvalue": 0.13583
+          },
+          {
+            "id": "gene144",
+            "log2fc": 0.572,
+            "pvalue": 0.09631
+          },
+          {
+            "id": "gene145",
+            "log2fc": 0.23,
+            "pvalue": 0.13379
+          },
+          {
+            "id": "gene146",
+            "log2fc": 0.445,
+            "pvalue": 0.77261
+          },
+          {
+            "id": "gene147",
+            "log2fc": -0.533,
+            "pvalue": 0.69261
+          },
+          {
+            "id": "gene148",
+            "log2fc": 0.127,
+            "pvalue": 0.56577
+          },
+          {
+            "id": "gene149",
+            "log2fc": -0.14,
+            "pvalue": 0.16197
+          },
+          {
+            "id": "gene150",
+            "log2fc": -0.121,
+            "pvalue": 0.46381
+          },
+          {
+            "id": "gene151",
+            "log2fc": 0.706,
+            "pvalue": 0.42293
+          },
+          {
+            "id": "gene152",
+            "log2fc": -0.114,
+            "pvalue": 0.56345
+          },
+          {
+            "id": "gene153",
+            "log2fc": 0.142,
+            "pvalue": 0.16612
+          },
+          {
+            "id": "gene154",
+            "log2fc": -0.843,
+            "pvalue": 0.38643
+          },
+          {
+            "id": "gene155",
+            "log2fc": 0.829,
+            "pvalue": 0.34717
+          },
+          {
+            "id": "gene156",
+            "log2fc": 0.415,
+            "pvalue": 0.31536
+          },
+          {
+            "id": "gene157",
+            "log2fc": -0.029,
+            "pvalue": 0.60017
+          },
+          {
+            "id": "gene158",
+            "log2fc": -0.161,
+            "pvalue": 0.80934
+          },
+          {
+            "id": "gene159",
+            "log2fc": 0.28,
+            "pvalue": 0.43732
+          },
+          {
+            "id": "gene160",
+            "log2fc": 0.565,
+            "pvalue": 0.48067
+          },
+          {
+            "id": "IFNG",
+            "label": "IFNG",
+            "log2fc": 1.86,
+            "pvalue": 0.00062
+          },
+          {
+            "id": "CXCL9",
+            "label": "CXCL9",
+            "log2fc": 1.54,
+            "pvalue": 0.0024
+          },
+          {
+            "id": "GZMB",
+            "label": "GZMB",
+            "log2fc": 1.42,
+            "pvalue": 0.0056
+          },
+          {
+            "id": "PRF1",
+            "label": "PRF1",
+            "log2fc": 1.3,
+            "pvalue": 0.011
+          },
+          {
+            "id": "STAT1",
+            "label": "STAT1",
+            "log2fc": 1.22,
+            "pvalue": 0.018
+          },
+          {
+            "id": "CXCL10",
+            "label": "CXCL10",
+            "log2fc": 1.68,
+            "pvalue": 0.0075
+          },
+          {
+            "id": "IL7R",
+            "label": "IL7R",
+            "log2fc": -1.44,
+            "pvalue": 0.0018
+          },
+          {
+            "id": "CCR7",
+            "label": "CCR7",
+            "log2fc": -1.32,
+            "pvalue": 0.0062
+          },
+          {
+            "id": "SELL",
+            "log2fc": -1.57,
+            "pvalue": 0.012
+          },
+          {
+            "id": "TCF7",
+            "log2fc": -1.23,
+            "pvalue": 0.017
+          },
+          {
+            "id": "LEF1",
+            "log2fc": -1.74,
+            "pvalue": 0.0048
+          },
+          {
+            "id": "GATA3",
+            "log2fc": -1.88,
+            "pvalue": 0.0095
+          },
+          {
+            "id": "up01",
+            "log2fc": 1.894,
+            "pvalue": 0.00855
+          },
+          {
+            "id": "up02",
+            "log2fc": 1.849,
+            "pvalue": 0.01159
+          },
+          {
+            "id": "up03",
+            "log2fc": 1.672,
+            "pvalue": 0.02153
+          },
+          {
+            "id": "up04",
+            "log2fc": 1.777,
+            "pvalue": 0.02675
+          },
+          {
+            "id": "up05",
+            "log2fc": 1.736,
+            "pvalue": 0.00505
+          },
+          {
+            "id": "up06",
+            "log2fc": 1.156,
+            "pvalue": 0.00942
+          },
+          {
+            "id": "up07",
+            "log2fc": 1.118,
+            "pvalue": 0.00711
+          },
+          {
+            "id": "up08",
+            "log2fc": 1.107,
+            "pvalue": 0.00417
+          },
+          {
+            "id": "up09",
+            "log2fc": 1.162,
+            "pvalue": 0.00394
+          },
+          {
+            "id": "up10",
+            "log2fc": 1.845,
+            "pvalue": 0.00993
+          },
+          {
+            "id": "up11",
+            "log2fc": 1.826,
+            "pvalue": 0.00596
+          },
+          {
+            "id": "up12",
+            "log2fc": 1.994,
+            "pvalue": 0.02351
+          },
+          {
+            "id": "up13",
+            "log2fc": 1.628,
+            "pvalue": 0.03511
+          },
+          {
+            "id": "up14",
+            "log2fc": 1.655,
+            "pvalue": 0.02895
+          },
+          {
+            "id": "up15",
+            "log2fc": 1.602,
+            "pvalue": 0.01048
+          },
+          {
+            "id": "up16",
+            "log2fc": 1.5,
+            "pvalue": 0.01189
+          },
+          {
+            "id": "up17",
+            "log2fc": 1.807,
+            "pvalue": 0.0059
+          },
+          {
+            "id": "up18",
+            "log2fc": 1.527,
+            "pvalue": 0.00978
+          },
+          {
+            "id": "up19",
+            "log2fc": 1.979,
+            "pvalue": 0.03298
+          },
+          {
+            "id": "up20",
+            "log2fc": 1.141,
+            "pvalue": 0.03577
+          },
+          {
+            "id": "up21",
+            "log2fc": 1.698,
+            "pvalue": 0.01547
+          },
+          {
+            "id": "up22",
+            "log2fc": 1.818,
+            "pvalue": 0.00816
+          },
+          {
+            "id": "up23",
+            "log2fc": 1.364,
+            "pvalue": 0.00459
+          },
+          {
+            "id": "up24",
+            "log2fc": 1.805,
+            "pvalue": 0.02251
+          },
+          {
+            "id": "down01",
+            "log2fc": -1.675,
+            "pvalue": 0.02014
+          },
+          {
+            "id": "down02",
+            "log2fc": -1.888,
+            "pvalue": 0.03072
+          },
+          {
+            "id": "down03",
+            "log2fc": -1.086,
+            "pvalue": 0.01473
+          },
+          {
+            "id": "down04",
+            "log2fc": -1.655,
+            "pvalue": 0.00704
+          },
+          {
+            "id": "down05",
+            "log2fc": -1.48,
+            "pvalue": 0.00417
+          },
+          {
+            "id": "down06",
+            "log2fc": -1.246,
+            "pvalue": 0.01326
+          },
+          {
+            "id": "down07",
+            "log2fc": -1.662,
+            "pvalue": 0.00367
+          },
+          {
+            "id": "down08",
+            "log2fc": -1.311,
+            "pvalue": 0.00402
+          },
+          {
+            "id": "down09",
+            "log2fc": -1.928,
+            "pvalue": 0.00518
+          },
+          {
+            "id": "down10",
+            "log2fc": -1.394,
+            "pvalue": 0.0328
+          },
+          {
+            "id": "down11",
+            "log2fc": -1.444,
+            "pvalue": 0.00786
+          },
+          {
+            "id": "down12",
+            "log2fc": -2.037,
+            "pvalue": 0.01413
+          },
+          {
+            "id": "down13",
+            "log2fc": -1.2,
+            "pvalue": 0.02114
+          },
+          {
+            "id": "down14",
+            "log2fc": -1.578,
+            "pvalue": 0.01457
+          },
+          {
+            "id": "down15",
+            "log2fc": -1.739,
+            "pvalue": 0.00436
+          },
+          {
+            "id": "down16",
+            "log2fc": -1.245,
+            "pvalue": 0.03376
+          },
+          {
+            "id": "down17",
+            "log2fc": -1.023,
+            "pvalue": 0.00482
+          },
+          {
+            "id": "down18",
+            "log2fc": -1.758,
+            "pvalue": 0.00536
+          },
+          {
+            "id": "down19",
+            "log2fc": -1.94,
+            "pvalue": 0.00356
+          },
+          {
+            "id": "down20",
+            "log2fc": -1.364,
+            "pvalue": 0.00861
+          },
+          {
+            "id": "down21",
+            "log2fc": -1.957,
+            "pvalue": 0.00461
+          },
+          {
+            "id": "down22",
+            "log2fc": -2.02,
+            "pvalue": 0.02427
+          },
+          {
+            "id": "down23",
+            "log2fc": -1.903,
+            "pvalue": 0.00625
+          },
+          {
+            "id": "down24",
+            "log2fc": -1.846,
+            "pvalue": 0.00445
+          },
+          {
+            "id": "border01",
+            "log2fc": 1.63,
+            "pvalue": 0.06651
+          },
+          {
+            "id": "border02",
+            "log2fc": -1.025,
+            "pvalue": 0.0693
+          },
+          {
+            "id": "border03",
+            "log2fc": 1.584,
+            "pvalue": 0.20427
+          },
+          {
+            "id": "border04",
+            "log2fc": -1.242,
+            "pvalue": 0.21289
+          },
+          {
+            "id": "border05",
+            "log2fc": 1.073,
+            "pvalue": 0.20417
+          },
+          {
+            "id": "border06",
+            "log2fc": -1.883,
+            "pvalue": 0.19898
+          },
+          {
+            "id": "border07",
+            "log2fc": 1.669,
+            "pvalue": 0.21084
+          },
+          {
+            "id": "border08",
+            "log2fc": -1.057,
+            "pvalue": 0.09632
+          },
+          {
+            "id": "border09",
+            "log2fc": 1.136,
+            "pvalue": 0.15082
+          },
+          {
+            "id": "border10",
+            "log2fc": -1.713,
+            "pvalue": 0.1734
+          },
+          {
+            "id": "border11",
+            "log2fc": 1.812,
+            "pvalue": 0.08794
+          },
+          {
+            "id": "border12",
+            "log2fc": -1.703,
+            "pvalue": 0.09475
+          },
+          {
+            "id": "border13",
+            "log2fc": 1.272,
+            "pvalue": 0.18778
+          },
+          {
+            "id": "border14",
+            "log2fc": -1.932,
+            "pvalue": 0.17008
+          },
+          {
+            "id": "border15",
+            "log2fc": 1.071,
+            "pvalue": 0.17094
+          },
+          {
+            "id": "border16",
+            "log2fc": -1.059,
+            "pvalue": 0.21915
+          },
+          {
+            "id": "border17",
+            "log2fc": 1.68,
+            "pvalue": 0.09116
+          },
+          {
+            "id": "border18",
+            "log2fc": -1.105,
+            "pvalue": 0.09304
+          },
+          {
+            "id": "border19",
+            "log2fc": 1.931,
+            "pvalue": 0.14254
+          },
+          {
+            "id": "border20",
+            "log2fc": -1.749,
+            "pvalue": 0.17455
+          },
+          {
+            "id": "border21",
+            "log2fc": 1.552,
+            "pvalue": 0.08612
+          },
+          {
+            "id": "border22",
+            "log2fc": -1.9,
+            "pvalue": 0.11424
+          },
+          {
+            "id": "border23",
+            "log2fc": 1.558,
+            "pvalue": 0.18596
+          },
+          {
+            "id": "border24",
+            "log2fc": -1.624,
+            "pvalue": 0.22931
+          }
+        ]
+      }
+    ]
+  },
+  "legend": {
+    "position": "upper center",
+    "bbox_to_anchor": [
+      0.5,
+      1.12
+    ],
+    "ncol": 3
+  }
+}

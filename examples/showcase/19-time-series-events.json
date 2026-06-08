@@ -1,0 +1,180 @@
+{
+  "version": "0.1",
+  "type": "time_series",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.compact",
+  "caption": "Timestamped monthly performance trajectory with deployment event and stabilization window.",
+  "contract": {
+    "conclusion": "The proposed series separates after deployment, dips briefly during migration, and recovers to a higher trajectory.",
+    "role": "timeline",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "timestamped trajectory"
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "twenty-four monthly observations per method",
+        "center": "monthly index value",
+        "interval": "not shown"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/19-time-series-events.csv"
+      }
+    ]
+  },
+  "data": {
+    "timestamps": [
+      "2025-01-01",
+      "2025-02-01",
+      "2025-03-01",
+      "2025-04-01",
+      "2025-05-01",
+      "2025-06-01",
+      "2025-07-01",
+      "2025-08-01",
+      "2025-09-01",
+      "2025-10-01",
+      "2025-11-01",
+      "2025-12-01",
+      "2026-01-01",
+      "2026-02-01",
+      "2026-03-01",
+      "2026-04-01",
+      "2026-05-01",
+      "2026-06-01",
+      "2026-07-01",
+      "2026-08-01",
+      "2026-09-01",
+      "2026-10-01",
+      "2026-11-01",
+      "2026-12-01"
+    ],
+    "smooth": true,
+    "markers": true,
+    "intervals": [
+      {
+        "start": "2025-10-01",
+        "end": "2026-03-01",
+        "label": "migration",
+        "alpha": 0.1
+      }
+    ],
+    "events": [
+      {
+        "at": "2026-06-01",
+        "label": "deployment",
+        "series": "Ours",
+        "arrow": true,
+        "xytext": [
+          8,
+          14
+        ]
+      }
+    ],
+    "series": [
+      {
+        "name": "Baseline",
+        "role": "baseline",
+        "values": [
+          58.9,
+          60.3,
+          62.1,
+          63.9,
+          65.3,
+          66.2,
+          66.4,
+          66.0,
+          65.4,
+          66.2,
+          65.9,
+          64.6,
+          65.5,
+          67.0,
+          68.7,
+          70.5,
+          71.9,
+          72.8,
+          73.0,
+          72.7,
+          72.0,
+          71.3,
+          71.0,
+          71.2
+        ]
+      },
+      {
+        "name": "Tuned",
+        "role": "reference",
+        "values": [
+          61.5,
+          62.9,
+          64.6,
+          66.2,
+          67.6,
+          68.6,
+          69.1,
+          69.3,
+          69.2,
+          69.2,
+          69.3,
+          69.9,
+          70.9,
+          70.3,
+          71.9,
+          75.5,
+          76.9,
+          77.9,
+          78.5,
+          78.7,
+          78.6,
+          78.5,
+          78.7,
+          79.3
+        ]
+      },
+      {
+        "name": "Ours",
+        "role": "ours",
+        "values": [
+          62.9,
+          64.5,
+          66.2,
+          68.0,
+          69.6,
+          70.9,
+          71.9,
+          72.5,
+          73.0,
+          73.4,
+          74.1,
+          75.0,
+          76.3,
+          75.3,
+          77.1,
+          81.5,
+          83.1,
+          86.8,
+          87.7,
+          88.3,
+          88.8,
+          89.3,
+          89.9,
+          90.8
+        ]
+      }
+    ]
+  },
+  "xAxis": {
+    "label": "Month",
+    "format": "%Y-%m",
+    "max_ticks": 6,
+    "margins": 0.16
+  },
+  "yAxis": {
+    "label": "Performance index"
+  }
+}

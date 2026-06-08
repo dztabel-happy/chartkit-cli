@@ -143,6 +143,7 @@ function packageVersion() {
 function utf8Env() {
   return {
     ...process.env,
+    CHARTKIT_PACKAGE_ROOT: process.env.CHARTKIT_PACKAGE_ROOT || packageRoot,
     PYTHONUTF8: process.env.PYTHONUTF8 || "1",
     PYTHONIOENCODING: process.env.PYTHONIOENCODING || "utf-8",
   };

@@ -1,0 +1,17 @@
+source,target,score
+tcell,tcell,0.10
+tcell,myeloid,0.36
+tcell,fibro,0.82
+tcell,endo,0.45
+myeloid,tcell,0.36
+myeloid,myeloid,0.14
+myeloid,fibro,0.76
+myeloid,endo,0.52
+fibro,tcell,0.82
+fibro,myeloid,0.76
+fibro,fibro,0.08
+fibro,endo,0.34
+endo,tcell,0.45
+endo,myeloid,0.52
+endo,fibro,0.34
+endo,endo,0.06

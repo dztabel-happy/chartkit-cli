@@ -135,7 +135,7 @@ Prefer one **hero panel** that carries the primary conclusion. Supporting panels
 | Two continuous variables | `scatter`, `joint_scatter` |
 | Effect size + p-value feature screen | `scatter` with `data.volcano` |
 | Matrix / pairwise | `heatmap`, `network_matrix`, `ablation_heatmap` |
-| Sample distributions | `distribution` with a deliberate layout: `box_strip`/`auto` for small samples, `ridge` for ordered many-group shifts, `raincloud` for compact shape/tail/mode comparisons with raw observations; full `violin` only when the complete symmetric silhouette itself is the evidence |
+| Sample distributions | `distribution` with a deliberate layout: `box_strip`/`auto` for small samples, `ridge` for ordered many-group shifts, `raincloud` or plain `violin` for compact shape/tail/mode comparisons with raw observations; `full_violin` only when the complete symmetric silhouette itself is the evidence |
 | Effect estimates / intervals | `interval` |
 | Training or optimization curves | `convergence` |
 | Representative images | `image_plate` |
@@ -175,9 +175,9 @@ For `distribution`, choose the layout deliberately:
 - `layout: "ridge"` for several ordered groups where distribution shifts are the evidence; keep median ticks visible unless they distract from the density shape.
 - `layout: "raincloud"` when a few groups need density shape, raw observations, and quartile structure together. This is the preferred report-grade default for shape/tail/mode comparisons because it avoids the bulky, decorative feel of full symmetric violins.
 - For rainclouds with three or more named groups, let ChartKit use distinct muted group colors by default; use `data.color_mode: "semantic"` only when repeated neutral/reference colors are intentionally part of the evidence. Keep endpoints semantically clear (`baseline`/`ours`) and do not make every intermediate variant the same grey unless the comparison demands it.
-- If the user asks for a "violin-style" compact distribution and also asks for median/quartiles/raw observations/tails/modes, choose `layout: "raincloud"` unless they explicitly ask for a full symmetric violin silhouette.
-- If you accidentally choose `layout: "violin"` for four or more named groups, ChartKit will render a safer default: `box_strip` for small samples and raincloud for dense groups. Set `data.full_violin: true` only when the complete symmetric silhouette is the actual evidence.
-- `layout: "violin"` only when the complete symmetric density silhouette itself is useful and each group has enough observations; use it for a few dense groups, not a long ordered ladder. With fewer than about 30 observations per group, prefer `box_strip` unless the user explicitly asks for density shape/tails/modes; if you still use violin on such data, keep raw observations visually important and do not rely on the density silhouette alone.
+- If the user asks for a "violin-style" compact distribution and also asks for median/quartiles/raw observations/tails/modes, choose `layout: "raincloud"` or plain `layout: "violin"`; ChartKit treats plain `violin` as a safe density request and renders `box_strip` for small samples or raincloud for dense groups.
+- Use `layout: "full_violin"` only when the complete symmetric density silhouette itself is useful and each group has enough observations. Do not use full symmetric violins as a generic distribution default; they are an explicit opt-in for the rare case where the full silhouette is the evidence.
+- Set `data.full_violin: true` or `data.violin_style: "full"` only when you intentionally want to override ChartKit's safe default and keep the complete symmetric silhouette.
 Do not leave `layout: "auto"` when the matched reference card has an explicit layout anchor that fits the task.
 
 **Profile (physical size — required on every spec):**
@@ -250,7 +250,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Missing `contract` → add `contract` block (CKQ001)
 - Missing `profile` → add `profile` (CKQ002)
 - Missing series `role` → add `role` to each series (CKQ005)
-- Small-sample violin → use `box_strip`/`auto`, or keep `violin` only when shape/tails/modes are the explicit evidence and raw observations remain visible (CKQ105)
+- Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)
 

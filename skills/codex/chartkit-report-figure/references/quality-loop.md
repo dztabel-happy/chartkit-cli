@@ -30,7 +30,7 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ004 | warning | More than 8 series — panel too dense | Split into multiple panels or aggregate groups |
 | CKQ005 | warning | Series missing `role` or explicit color | Add `role` to each series |
 | CKQ006 | info | Missing `evidence_hierarchy` | Add `hero` / `supporting` / `context` lists |
-| CKQ105 | warning | Small-sample `violin` | Use `layout: "auto"` or `layout: "box_strip"` |
+| CKQ105 | warning | Small-sample or many-group `full_violin` | Use `layout: "raincloud"`, `layout: "auto"`, or `layout: "box_strip"` |
 | CKQ108 | warning | Only red/green distinguish groups | Add labels, markers, or line styles as second channel |
 | CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
 | CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |

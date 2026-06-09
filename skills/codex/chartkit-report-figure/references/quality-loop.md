@@ -32,6 +32,9 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ006 | info | Missing `evidence_hierarchy` | Add `hero` / `supporting` / `context` lists |
 | CKQ105 | warning | Small-sample or many-group `full_violin` | Use `layout: "raincloud"`, `layout: "auto"`, or `layout: "box_strip"` |
 | CKQ108 | warning | Only red/green distinguish groups | Add labels, markers, or line styles as second channel |
+| CKQ111 | warning/info | Mixed display language | Translate ordinary labels or declare official identifiers in `language_policy` |
+| CKQ112 | info | Dense raw time axis | Aggregate, choose a typical period, or select a representative window |
+| CKQ113 | warning | Scatter uses unordered `top_mover` | Use `extreme` with `series` and `axis`, or `mean_delta` for paired groups |
 | CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
 | CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |
 | CKQ403 | warning | Rainbow colormap | Replace with sequential or diverging palette |

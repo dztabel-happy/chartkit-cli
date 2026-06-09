@@ -105,6 +105,12 @@ For ordered funnel/stage-decay lines, do not use `top_mover` to mean "best final
 that would usually mark the largest drop from the start. Use `endpoint_value` with `mode: "max"`
 for the highest terminal conversion, or rely on direct labels when the endpoint ordering is already clear.
 
+For ordinary `scatter` charts, points are unordered. Do not use unpaired `top_mover` to mean
+"highest point", "highest risk", "largest amount", or "top outlier"; it will describe endpoint
+change in an arbitrary point order and fails QA. Use `extreme` with an explicit `series` and
+`axis: "x"` or `axis: "y"` for max/min point labels, or use `mean_delta` when comparing paired
+groups.
+
 `extreme` is global by design. Do not use it to label a local incident dip, transition kink, or
 window-specific event unless the global min/max is actually the evidence. For ordered `area` and
 timestamped `time_series`, use `data.intervals` for shaded windows and `data.events` for sparse

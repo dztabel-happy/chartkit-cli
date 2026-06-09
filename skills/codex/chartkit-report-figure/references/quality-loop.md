@@ -32,7 +32,7 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ006 | info | Missing `evidence_hierarchy` | Add `hero` / `supporting` / `context` lists |
 | CKQ105 | warning | Small-sample or many-group `full_violin` | Use `layout: "raincloud"`, `layout: "auto"`, or `layout: "box_strip"` |
 | CKQ108 | warning | Only red/green distinguish groups | Add labels, markers, or line styles as second channel |
-| CKQ111 | warning/info | Mixed display language | Translate visible labels, declare official identifiers in `language_policy`, or hide internal keys that are not meant to display |
+| CKQ111 | warning/info | Mixed display language | Read `suggestions`; translate listed visible labels, declare official identifiers in `language_policy`, or hide internal keys that are not meant to display |
 | CKQ112 | info/warning | Dense raw time axis | Read `suggestions`; aggregate to `daily_mean_band`, choose `representative_window`, or document intentional `downsample` |
 | CKQ113 | warning | Scatter uses unordered `top_mover` | Use `extreme` with `series` and `axis`, or `mean_delta` for paired groups |
 | CKQ115 | warning | Placeholder visible series labels | Use source-derived display labels, or hide raw/context series from legends and direct labels |

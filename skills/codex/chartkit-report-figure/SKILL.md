@@ -72,6 +72,9 @@ are English. Exceptions: official product names, model names, gene/protein symbo
 codes, acronyms, units, dates, and source identifiers may remain unchanged. When official English
 identifiers must remain inside a Chinese figure, declare that intent in the spec, for example:
 `"language_policy": {"allow_mixed_display": true, "reason": "Product names are official identifiers"}`.
+When CKQ111 appears in `chart-quality.json`, read its `suggestions`: translate the listed visible
+labels, declare official identifiers when the English strings are intentional, or hide/replace
+internal keys that should not be displayed.
 Internal English keys may remain in the spec for source binding, ordering, or lookup, but only when
 they are not visible. If a chart uses internal category keys, either provide translated display
 labels or explicitly hide those tick labels with `xAxis.show_labels: false` / `yAxis.show_labels:
@@ -393,6 +396,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Too many computed insights → read CKQ117 `suggestions`; keep the strongest 1-3 cues, add `priority` / `importance`, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals`
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
+- Mixed display language → read CKQ111 `suggestions`; translate listed visible labels, declare official identifiers, or hide internal keys
 - Legend overlaps data → apply CKQ104 `suggestions`: direct labels, outside legend, hide context entries, or a legend-only panel
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)
 

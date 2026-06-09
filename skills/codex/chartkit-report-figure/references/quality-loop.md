@@ -49,7 +49,7 @@ chart-kit build figure.json --out outputs/figure-name --format all
 |---|---|---|---|
 | CKQ101 | warning | Figure size does not match profile | Do not override `figsize` manually; let profile control it |
 | CKQ102 | warning | Text labels overlap | Rotate labels, reduce tick count, or use direct labels |
-| CKQ103 | warning | Tick density too high | Reduce tick count or use `MaxNLocator` |
+| CKQ103 | warning | Tick density too high | Read `suggestions`; use sparse ticks, aggregate/group categories, choose a representative window, or use a wider profile before rotating labels by habit |
 | CKQ104 | warning | Legend overlaps data | Read `suggestions`; use direct labels, move legend outside with margin, hide raw/context entries, or reserve a legend-only panel |
 | CKQ107 | warning | Text contrast too low (WCAG < 2.5) | Darken text or lighten background |
 | CKQ108 | warning | Computed insight labels overlap | Reduce insight count or let renderer lane/offset them |

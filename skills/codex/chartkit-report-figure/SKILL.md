@@ -390,6 +390,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Missing `contract` → add `contract` block (CKQ001)
 - Missing `profile` → add `profile` (CKQ002)
 - Missing series `role` → add `role` to each series (CKQ005)
+- Dense x tick labels → read CKQ103 `suggestions`; use sparse ticks, aggregate/group categories, choose a representative window, or move to a wider profile before rotating labels by habit
 - Dense raw time axis → aggregate, choose a typical period/representative window, or document intentional downsampling (CKQ112)
 - Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
 - Too many manual text annotations → read CKQ116 `suggestions`; replace fixed labels with `data.insights`, move temporal cues to `data.events` / `data.intervals`, keep only 1-3 earned labels, or move narrative prose to `caption` / report body

@@ -37,7 +37,7 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ113 | warning | Scatter uses unordered `top_mover` | Use `extreme` with `series` and `axis`, or `mean_delta` for paired groups |
 | CKQ115 | warning | Placeholder visible series labels | Use source-derived display labels, or hide raw/context series from legends and direct labels |
 | CKQ116 | warning | Too many manual text annotations | Replace fixed callouts with computed `data.insights`, events, intervals, or 1-3 earned labels |
-| CKQ117 | warning | Too many computed insights | Keep the strongest 1-3 cues, add `priority` / `importance`, and only raise `insight_layout.max_point_labels` when multiple point callouts are evidence-critical |
+| CKQ117 | warning | Too many computed insights | Read `suggestions`; cap visible cues, rank by `priority` / `importance`, demote context cues, or move temporal cues into `events` / `intervals` |
 | CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
 | CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |
 | CKQ403 | warning | Rainbow colormap | Replace with sequential or diverging palette |

@@ -390,7 +390,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Dense raw time axis → aggregate, choose a typical period/representative window, or document intentional downsampling (CKQ112)
 - Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
 - Too many manual text annotations → replace fixed-value callouts with `data.insights`, `data.events`, or 1-3 earned labels (CKQ116)
-- Too many computed insights → keep the strongest 1-3 cues, or add `priority` / `importance` so lower-value labels can be down-ranked (CKQ117)
+- Too many computed insights → read CKQ117 `suggestions`; keep the strongest 1-3 cues, add `priority` / `importance`, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals`
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
 - Legend overlaps data → apply CKQ104 `suggestions`: direct labels, outside legend, hide context entries, or a legend-only panel

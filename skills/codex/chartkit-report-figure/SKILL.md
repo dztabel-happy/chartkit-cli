@@ -367,6 +367,7 @@ Legend/direct-label protocol:
 - For repeated-measures trajectories, do not make every subject a labeled series. Use `type: "line"` with `data.repeated_measures: true`; encode individual subjects as low-alpha `role: "context"` series with `show_legend: false`, and encode group means or model summaries as the few visible series with direct labels.
 - For `scatter`, do not set `legend.position` to `direct_label` or `bottom`. Use `outside_right` for long legends, or let the compact outside legend collapse above the plot for short legends. If QA reports legend/data overlap on a dense scatter, increase `profile` to `report_a4.full_width` or reduce legend entries; do not guess unsupported legend positions.
 - For a legend above the plot, use `position: "upper center"` with `bbox_to_anchor` and `ncol`; avoid lower-center legends inside the data region unless the plot is visibly empty there.
+- If CKQ104 reports a legend/data overlap, read its `suggestions` array and apply the first suitable strategy: direct labels for a few line-like series, outside legend with reserved margin, hide raw/context/background legend entries, or a legend-only panel for composites.
 - For horizontal ranked bars, let computed `top_mover`/`extreme` labels attach to the bar endpoint; do not manually add diagonal arrows unless there is a specific outlier story.
 - For bubble matrices, keep the colorbar, group key, size key, and threshold note in the side legend. Write the threshold as one explanatory rule line such as `emphasize >= 0.25` or `突出 >= 0.25`; do not turn it into a fake legend symbol, short line, or separate "threshold" subsection. Do not put the threshold note under the main matrix when a side legend exists.
 
@@ -392,6 +393,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Too many computed insights → keep the strongest 1-3 cues, or add `priority` / `importance` so lower-value labels can be down-ranked (CKQ117)
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
+- Legend overlaps data → apply CKQ104 `suggestions`: direct labels, outside legend, hide context entries, or a legend-only panel
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)
 
 For composite figures, see `references/composite-grammar.md`.

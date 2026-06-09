@@ -72,6 +72,12 @@ are English. Exceptions: official product names, model names, gene/protein symbo
 codes, acronyms, units, dates, and source identifiers may remain unchanged. When official English
 identifiers must remain inside a Chinese figure, declare that intent in the spec, for example:
 `"language_policy": {"allow_mixed_display": true, "reason": "Product names are official identifiers"}`.
+Internal English keys may remain in the spec for source binding, ordering, or lookup, but only when
+they are not visible. If a chart uses internal category keys, either provide translated display
+labels or explicitly hide those tick labels with `xAxis.show_labels: false` / `yAxis.show_labels:
+false`; do not let raw keys leak into the rendered figure. When a series needs a stable internal
+identifier, keep it in the source data or use `name` carefully, and set the visible `label` to the
+language of the figure.
 
 Use `data.insights` for computed, data-derived information cues instead of hand-writing values
 into labels. This keeps the chart faithful when the user's data changes:

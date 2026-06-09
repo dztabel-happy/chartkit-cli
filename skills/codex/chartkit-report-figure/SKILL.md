@@ -53,15 +53,23 @@ then replace the contract and data with the current user's analysis.
 
 Reference cards are visual examples only. Never copy their source rows, dates, labels, or values
 into the user's figure. Load and use the current task's source CSV values.
-When a reference card matches the user's evidence need, carry over its chart `type`, explicit
-`layout`, and `profile` unless the user clearly asks for a different physical slot. Profile is part
-of the visual design: a compact raincloud, slopegraph, or matrix can become sparse or awkward if it
-is stretched to full width.
+When a reference card matches the user's evidence need, carry over its chart `type` and explicit
+`layout`, but choose `profile` from the user's delivery slot. For standalone A4 report charts,
+default to `report_a4.full_width` unless the user explicitly asks for a smaller slot such as a
+half-width figure, compact inset, side-by-side report panel, or paper single-column figure.
+Reference card profile is a visual clue only; it must not override the user's report slot.
 
 Do not equate "clean" with "less information." Add information cues when they are earned by the
 current data and claim: thresholds with business meaning, event windows, percentile markers,
 computed group deltas, top movers, confidence bands, or sparse outlier labels. Avoid decorative
 helper lines, labels, and arrows that do not come from the user's data or conclusion.
+
+Keep display language consistent inside one figure. If the user's request, caption, or axis labels
+are Chinese, translate ordinary categorical labels, legend labels, direct labels, and annotation
+phrases into Chinese as well. If the figure is English, keep those display labels English. Do not
+mix Chinese axis labels with English business categories merely because the source CSV column values
+are English. Exceptions: official product names, model names, gene/protein symbols, SKUs, tickers,
+codes, acronyms, units, dates, and source identifiers may remain unchanged.
 
 Use `data.insights` for computed, data-derived information cues instead of hand-writing values
 into labels. This keeps the chart faithful when the user's data changes:
@@ -72,6 +80,7 @@ into labels. This keeps the chart faithful when the user's data changes:
     "insights": [
       {"kind": "mean_delta", "from": "Baseline", "to": "Ours", "label": "Mean shift", "format": "{:+.2f}"},
       {"kind": "top_mover", "label": "Largest lift", "format": "{:+.0%}"},
+      {"kind": "endpoint_value", "mode": "max", "label": "Best final", "format": "{:.1%}"},
       {"kind": "percentiles", "series": "Ours", "probs": [0.25, 0.5, 0.75], "axis": "x"},
       {"kind": "threshold_crossing", "series": "Cumulative", "threshold": 0, "direction": "above", "label": "First positive"},
       {"kind": "extreme", "series": "Daily return", "mode": "min", "label": "Worst day"}
@@ -81,13 +90,18 @@ into labels. This keeps the chart faithful when the user's data changes:
 ```
 
 Supported computed cues are generic: `mean_delta` / `group_delta`, `group_spread`,
-`top_mover` (single-series category maximum, paired series delta, or endpoint change across series), `percentiles`,
+`top_mover` (single-series category maximum, paired series delta, or endpoint change across series),
+`endpoint_value` / `final_value` (highest or lowest final-stage value across series), `percentiles`,
 `threshold_crossing`, and `extreme`. Use them only when they support the claim; do not use them
 as decoration.
 
 For a single-series categorical bar/ranking chart, `top_mover` marks the largest category value
 by default. Use `mode: "min"` with wording such as "Largest reduction" when lower values are
 better; do not label a negative trade-off as a "lift".
+
+For ordered funnel/stage-decay lines, do not use `top_mover` to mean "best final conversion";
+that would usually mark the largest drop from the start. Use `endpoint_value` with `mode: "max"`
+for the highest terminal conversion, or rely on direct labels when the endpoint ordering is already clear.
 
 `extreme` is global by design. Do not use it to label a local incident dip, transition kink, or
 window-specific event unless the global min/max is actually the evidence. For ordered `area` and
@@ -229,10 +243,11 @@ all become bold.
 
 Legend/direct-label protocol:
 - For `line`, `time_series`, and `mixed`, use `legend: {"mode": "direct"}` when a few line-like series can be labeled at their endpoints. For `mixed`, individual line series can also set `direct_label: true`; the renderer keeps a compact encoding key for bars/lines when useful.
+- For repeated-measures trajectories, do not make every subject a labeled series. Use `type: "line"` with `data.repeated_measures: true`; encode individual subjects as low-alpha `role: "context"` series with `show_legend: false`, and encode group means or model summaries as the few visible series with direct labels.
 - For `scatter`, do not set `legend.position` to `direct_label` or `bottom`. Use `outside_right` for long legends, or let the compact outside legend collapse above the plot for short legends. If QA reports legend/data overlap on a dense scatter, increase `profile` to `report_a4.full_width` or reduce legend entries; do not guess unsupported legend positions.
 - For a legend above the plot, use `position: "upper center"` with `bbox_to_anchor` and `ncol`; avoid lower-center legends inside the data region unless the plot is visibly empty there.
 - For horizontal ranked bars, let computed `top_mover`/`extreme` labels attach to the bar endpoint; do not manually add diagonal arrows unless there is a specific outlier story.
-- For bubble matrices, keep the colorbar, group key, size key, and threshold note in the side legend. Do not put the threshold note under the main matrix when a side legend exists.
+- For bubble matrices, keep the colorbar, group key, size key, and threshold note in the side legend. Write the threshold as one explanatory rule line such as `emphasize >= 0.25` or `突出 >= 0.25`; do not turn it into a fake legend symbol, short line, or separate "threshold" subsection. Do not put the threshold note under the main matrix when a side legend exists.
 
 Validate first, then build:
 

@@ -14,6 +14,9 @@ Encode strength with circle size and color, add a colorbar/size guide, and use
 group strips only when they help interpret blocks in the matrix. If diagonal
 self-pairs are not evidence, set `mask_diagonal: true`; if a threshold defines
 meaningful interactions, let sub-threshold cells stay visible but subdued.
+When a side legend is present, keep the threshold as one rule note such as
+`emphasize >= 0.25`; do not draw a fake line symbol or a separate threshold
+legend subsection.
 
 ## Avoid
 

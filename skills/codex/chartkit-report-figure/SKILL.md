@@ -315,6 +315,11 @@ documents that source binding shape.
 
 Series `role` values: `ours` | `baseline` | `positive` | `negative` | `uncertainty` | `reference` | `context`
 
+Never leave visible legend/direct-label names as placeholders such as `Series 1`, `Series 2`,
+`Line A`, `S01`, `Model 1`, or `Group 1`. Derive display labels from the source columns or group
+values, translate ordinary labels into the figure language, and hide raw/background/context series
+with `show_legend: false` and `direct_label: false`.
+
 Direct labels default to normal weight. Only `ours`, `proposed`, `highlight`, `focus`, `focused`,
 `primary`, or explicit `label_weight` should be bold. Baseline/reference/context labels should not
 all become bold.
@@ -343,6 +348,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Missing `contract` → add `contract` block (CKQ001)
 - Missing `profile` → add `profile` (CKQ002)
 - Missing series `role` → add `role` to each series (CKQ005)
+- Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)

@@ -69,7 +69,9 @@ are Chinese, translate ordinary categorical labels, legend labels, direct labels
 phrases into Chinese as well. If the figure is English, keep those display labels English. Do not
 mix Chinese axis labels with English business categories merely because the source CSV column values
 are English. Exceptions: official product names, model names, gene/protein symbols, SKUs, tickers,
-codes, acronyms, units, dates, and source identifiers may remain unchanged.
+codes, acronyms, units, dates, and source identifiers may remain unchanged. When official English
+identifiers must remain inside a Chinese figure, declare that intent in the spec, for example:
+`"language_policy": {"allow_mixed_display": true, "reason": "Product names are official identifiers"}`.
 
 Use `data.insights` for computed, data-derived information cues instead of hand-writing values
 into labels. This keeps the chart faithful when the user's data changes:
@@ -162,7 +164,12 @@ different scales. Use bar for discrete aggregates, area for background magnitude
 quantity, and line/step for rates, indices, states, or continuous measurements.
 If the x field contains real dates, months, timestamps, or event windows (`date`, `month`,
 `timestamp`, `time`, `week`, `year`), prefer `type: "time_series"` over generic `line`.
-Use `line` for ordinal checkpoints such as E1-E6, Before/After, or ranked ordered observations.
+For `mixed` charts with a true time domain, put ISO dates/datetimes in `data.x`; the renderer will
+use a real time axis with sparse, readable ticks. Do not invent short categorical labels for hourly
+or daily timestamps just to avoid overlap.
+For `time_series`, the x values must be ISO dates/datetimes in `data.timestamps`; do not use
+`data.x`. Use `line` with `data.x` for ordinal checkpoints such as `W01`, `E1`, `Before/After`,
+or ranked ordered observations that are not real dates.
 Use horizontal `bar` for ranked metric lift, Top-N categories, driver effects, or long labels; set
 `data.invert_y: true` or `yAxis.invert: true` when the strongest or first-ranked item should read
 from the top. For multi-metric benchmarks with heterogeneous units, prefer `radar` with
@@ -223,7 +230,12 @@ Minimal valid spec:
   "contract": {
     "conclusion": "Method A reduces latency by 40% across all workloads.",
     "role": "comparison",
-    "archetype": "quantitative_grid"
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {"hero": "latency comparison"},
+    "statistics": [
+      {"n_definition": "workloads", "center": "mean", "interval": "standard error"}
+    ],
+    "source_data": [{"path": "input.csv"}]
   },
   "data": {
     "series": [
@@ -234,6 +246,59 @@ Minimal valid spec:
   }
 }
 ```
+
+For `contract.source_data`, prefer an array of objects with `path`; `file` is accepted by the CLI
+for compatibility, but `path` is the canonical field.
+Do not put prose descriptions as separate `source_data` array items. Put descriptions in a
+`note` or `description` field on the same object:
+
+```json
+{
+  "contract": {
+    "statistics": [
+      {"n_definition": "42 days x 5 queues", "center": "daily total backlog", "interval": "not applicable"}
+    ],
+    "source_data": [
+      {"path": "support-ticket-aging.csv", "note": "raw daily queue observations"}
+    ]
+  }
+}
+```
+
+Do not write statistics as `{"field": "n", "value": "..."}` rows. Each `statistics` object should
+describe one plotted evidence unit and include at least `n_definition`, `center`, and one of
+`spread`, `interval`, or `test`.
+
+When rendering a distribution from raw observations, you may bind directly to the CSV instead of
+copying every observation into `data.series`. Use this only when the CSV rows are already the
+observations to plot:
+
+```json
+{
+  "type": "distribution",
+  "layout": "raincloud",
+  "data": {
+    "source": "input.csv",
+    "value_col": "score",
+    "group_col": "arm",
+    "group_order": ["Control", "Dose A", "Dose B"],
+    "labels": {
+      "Control": "对照组",
+      "Dose A": "低剂量组",
+      "Dose B": "高剂量组"
+    }
+  }
+}
+```
+
+For vertical distribution layouts (`box_strip`, `violin`, `raincloud`), the x-axis is the group
+or variant and the y-axis is the measured value. Put the value label in `yAxis.label` and the group
+label in `xAxis.label`. For `hist` and `ridge`, the numeric value runs along the x-axis.
+
+If the CSV has multiple rows per time/category/matrix cell and the chart needs aggregates, compute
+the aggregate first and write `data.series`, `data.categories`, `data.values`, or the renderer's
+normal in-spec data shape. Do not point `data.source` at an arbitrary CSV unless the renderer
+documents that source binding shape.
 
 Series `role` values: `ours` | `baseline` | `positive` | `negative` | `uncertainty` | `reference` | `context`
 

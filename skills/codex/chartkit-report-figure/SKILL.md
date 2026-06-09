@@ -106,7 +106,8 @@ as decoration.
 Do not bypass this by adding many manual `annotations` with fixed text values. A real data figure
 usually has at most 1-3 earned callouts. If you need more, compute the strongest ones as
 `data.insights`, use `data.events`/`data.intervals` for temporal evidence, or move explanation to
-the report body.
+the report body. Do not list every possible computed insight: if more than a few cues are available,
+keep the strongest 1-3 or add `priority` / `importance` so lower-value labels can be down-ranked.
 
 For a single-series categorical bar/ranking chart, `top_mover` marks the largest category value
 by default. Use `mode: "min"` with wording such as "Largest reduction" when lower values are
@@ -367,6 +368,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Dense raw time axis → aggregate, choose a typical period/representative window, or document intentional downsampling (CKQ112)
 - Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
 - Too many manual text annotations → replace fixed-value callouts with `data.insights`, `data.events`, or 1-3 earned labels (CKQ116)
+- Too many computed insights → keep the strongest 1-3 cues, or add `priority` / `importance` so lower-value labels can be down-ranked (CKQ117)
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)

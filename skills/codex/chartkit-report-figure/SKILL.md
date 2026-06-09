@@ -108,6 +108,24 @@ usually has at most 1-3 earned callouts. If you need more, compute the strongest
 `data.insights`, use `data.events`/`data.intervals` for temporal evidence, or move explanation to
 the report body. Do not list every possible computed insight: if more than a few cues are available,
 keep the strongest 1-3 or add `priority` / `importance` so lower-value labels can be down-ranked.
+ChartKit defaults to a sparse point-label budget because labels can easily cover the evidence.
+When the claim genuinely needs more than one point callout, declare the budget explicitly and use
+priorities instead of adding manual text:
+
+```json
+{
+  "insight_layout": {"max_marks": 3, "max_point_labels": 2},
+  "data": {
+    "insights": [
+      {"kind": "extreme", "series": "Daily return", "mode": "min", "label": "Worst day", "priority": 2},
+      {"kind": "extreme", "series": "Daily return", "mode": "max", "label": "Best day", "priority": 1}
+    ]
+  }
+}
+```
+
+Do not raise `max_point_labels` merely because more labels are available. Use it only when the
+second or third label is part of the evidence hierarchy.
 
 For a single-series categorical bar/ranking chart, `top_mover` marks the largest category value
 by default. Use `mode: "min"` with wording such as "Largest reduction" when lower values are

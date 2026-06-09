@@ -97,6 +97,11 @@ Supported computed cues are generic: `mean_delta` / `group_delta`, `group_spread
 `threshold_crossing`, and `extreme`. Use them only when they support the claim; do not use them
 as decoration.
 
+Do not bypass this by adding many manual `annotations` with fixed text values. A real data figure
+usually has at most 1-3 earned callouts. If you need more, compute the strongest ones as
+`data.insights`, use `data.events`/`data.intervals` for temporal evidence, or move explanation to
+the report body.
+
 For a single-series categorical bar/ranking chart, `top_mover` marks the largest category value
 by default. Use `mode: "min"` with wording such as "Largest reduction" when lower values are
 better; do not label a negative trade-off as a "lift".
@@ -183,6 +188,11 @@ or daily timestamps just to avoid overlap.
 For `time_series`, the x values must be ISO dates/datetimes in `data.timestamps`; do not use
 `data.x`. Use `line` with `data.x` for ordinal checkpoints such as `W01`, `E1`, `Before/After`,
 or ranked ordered observations that are not real dates.
+For dense raw time series, do not pour the full sensor/hourly log into an A4 figure by default.
+If the series has hundreds of timestamped observations across multiple days, first choose the
+evidence view: aggregate summaries/bands, a typical period, or a representative anomaly/event
+window. If raw density is intentionally kept, document it with `data.aggregation`,
+`data.downsample`, or `data.representative_window`; otherwise CKQ112 will warn.
 Use horizontal `bar` for ranked metric lift, Top-N categories, driver effects, or long labels; set
 `data.invert_y: true` or `yAxis.invert: true` when the strongest or first-ranked item should read
 from the top. For multi-metric benchmarks with heterogeneous units, prefer `radar` with
@@ -348,7 +358,9 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Missing `contract` → add `contract` block (CKQ001)
 - Missing `profile` → add `profile` (CKQ002)
 - Missing series `role` → add `role` to each series (CKQ005)
+- Dense raw time axis → aggregate, choose a typical period/representative window, or document intentional downsampling (CKQ112)
 - Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
+- Too many manual text annotations → replace fixed-value callouts with `data.insights`, `data.events`, or 1-3 earned labels (CKQ116)
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)

@@ -165,6 +165,13 @@ Prefer one **hero panel** that carries the primary conclusion. Supporting panels
 | Multiple panel types | `composite` |
 | Anything not covered above | `custom_python` |
 
+When the user or source fields signal composition or structure (`mix`, `composition`, `structure`,
+`share`, `portfolio`, `product mix`, `销售结构`, `构成`, `占比`, product/category by region, or
+two categorical dimensions plus a value/rate), first check whether the strongest evidence is a
+share shift, category mix, or matrix difference. Prefer `bar` with `layout: "stacked_percent"`,
+`area`, `heatmap`, or `mixed` for these cases. Do not collapse the data to a plain total
+`time_series` unless the composition is clearly secondary to a time-trend claim.
+
 Use `mixed` only when measures share an ordered x domain but have different units or materially
 different scales. Use bar for discrete aggregates, area for background magnitude or cumulative
 quantity, and line/step for rates, indices, states, or continuous measurements.

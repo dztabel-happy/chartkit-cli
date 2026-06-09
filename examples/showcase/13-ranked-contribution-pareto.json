@@ -3,21 +3,21 @@
   "type": "ranked_contribution",
   "figure_mode": "data_figure",
   "profile": "report_a4.full_width",
-  "caption": "Ranked daily contribution plot showing loss tail, profit concentration, and cumulative contribution share.",
+  "caption": "日度收益排序贡献图，同时展示亏损尾部、盈利集中度与累计贡献占比。",
   "contract": {
-    "conclusion": "A small high-profit tail contributes most of the cumulative net gain, while 48 negative days form a visible loss tail.",
+    "conclusion": "少量高盈利日贡献了大部分累计净收益，同时 48 个亏损日形成清晰亏损尾部。",
     "role": "ranking",
     "archetype": "quantitative_grid",
     "evidence_hierarchy": {
-      "hero": "ranked positive/negative contribution with cumulative share"
+      "hero": "正负收益排序贡献与累计占比"
     },
     "statistics": [
       {
         "panel": "main",
-        "n_definition": "246 daily observations",
-        "center": "daily net profit",
-        "interval": "not shown",
-        "ordering": "sorted by daily net profit"
+        "n_definition": "246 个日度观测",
+        "center": "日净收益",
+        "interval": "未显示",
+        "ordering": "按日净收益排序"
       }
     ],
     "source_data": [

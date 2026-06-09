@@ -389,7 +389,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Missing series `role` → add `role` to each series (CKQ005)
 - Dense raw time axis → aggregate, choose a typical period/representative window, or document intentional downsampling (CKQ112)
 - Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
-- Too many manual text annotations → replace fixed-value callouts with `data.insights`, `data.events`, or 1-3 earned labels (CKQ116)
+- Too many manual text annotations → read CKQ116 `suggestions`; replace fixed labels with `data.insights`, move temporal cues to `data.events` / `data.intervals`, keep only 1-3 earned labels, or move narrative prose to `caption` / report body
 - Too many computed insights → read CKQ117 `suggestions`; keep the strongest 1-3 cues, add `priority` / `importance`, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals`
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)

@@ -217,7 +217,10 @@ For dense raw time series, do not pour the full sensor/hourly log into an A4 fig
 If the series has hundreds of timestamped observations across multiple days, first choose the
 evidence view: aggregate summaries/bands, a typical period, or a representative anomaly/event
 window. If raw density is intentionally kept, document it with `data.aggregation`,
-`data.downsample`, or `data.representative_window`; otherwise CKQ112 will warn.
+`data.downsample`, or `data.representative_window`; otherwise CKQ112 will warn. When CKQ112
+appears in `chart-quality.json`, read its `suggestions` array and apply one of the proposed
+spec-level fixes such as `data.aggregation: "daily_mean_band"`,
+`data.representative_window`, or documented `data.downsample`.
 Use horizontal `bar` for ranked metric lift, Top-N categories, driver effects, or long labels; set
 `data.invert_y: true` or `yAxis.invert: true` when the strongest or first-ranked item should read
 from the top. For multi-metric benchmarks with heterogeneous units, prefer `radar` with

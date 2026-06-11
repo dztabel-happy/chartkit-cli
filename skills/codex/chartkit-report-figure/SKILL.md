@@ -65,22 +65,27 @@ computed group deltas, top movers, confidence bands, or sparse outlier labels. A
 helper lines, labels, and arrows that do not come from the user's data or conclusion.
 
 Keep display language consistent inside one figure. If the user's request, caption, or axis labels
-are Chinese, translate ordinary categorical labels, legend labels, direct labels, and annotation
-phrases into Chinese as well. If the figure is English, keep those display labels English. Do not
-mix Chinese axis labels with English business categories merely because the source CSV column values
-are English. Exceptions: official product names, model names, gene/protein symbols, SKUs, tickers,
-codes, acronyms, units, dates, and source identifiers may remain unchanged. When official English
-identifiers must remain inside a Chinese figure, declare that intent in the spec, for example:
-`"language_policy": {"allow_mixed_display": true, "reason": "Product names are official identifiers"}`.
+are Chinese, translate ordinary categorical labels, legend labels, direct labels, annotation
+phrases, ordinary English phrases inside captions, and report-facing contract phrases into Chinese
+as well. If the figure is English, keep those display labels English. Do not mix Chinese axis
+labels with English business categories, or write captions/contract notes such as
+`Critical/High 级别` or `calibration curve`, merely because the source CSV column values are
+English. Exceptions: official product names, model names, gene/protein symbols, SKUs, tickers,
+codes, acronyms, units, dates, and source identifiers may remain unchanged. `allow_mixed_display`
+is not a blanket escape hatch. When official English identifiers must remain inside a Chinese
+figure, list the exact display terms, for example:
+`"language_policy": {"allow_mixed_display": true, "official_terms": ["T cell", "AAPL"], "reason": "Official identifiers"}`.
+Translate ordinary business metrics such as `Burn Multiple`, `Burn`, `Churn`, `conversion rate`,
+`interaction score`, or `gross margin` into the figure language instead of declaring them official.
 When CKQ111 appears in `chart-quality.json`, read its `suggestions`: translate the listed visible
-labels, declare official identifiers when the English strings are intentional, or hide/replace
+labels, declare exact official identifiers only when the English strings are immutable, or hide/replace
 internal keys that should not be displayed.
 Internal English keys may remain in the spec for source binding, ordering, or lookup, but only when
-they are not visible. If a chart uses internal category keys, either provide translated display
-labels or explicitly hide those tick labels with `xAxis.show_labels: false` / `yAxis.show_labels:
-false`; do not let raw keys leak into the rendered figure. When a series needs a stable internal
-identifier, keep it in the source data or use `name` carefully, and set the visible `label` to the
-language of the figure.
+they are not visible. For series, treat `name` as a stable lookup key and `label` / `display_name`
+as the visible text; ChartKit displays `label` before `name`, and computed insights can still refer
+to either. If a chart uses internal category keys, either provide translated display labels or
+explicitly hide those tick labels with `xAxis.show_labels: false` / `yAxis.show_labels: false`; do
+not let raw keys leak into the rendered figure.
 
 Use `data.insights` for computed, data-derived information cues instead of hand-writing values
 into labels. This keeps the chart faithful when the user's data changes:
@@ -100,6 +105,10 @@ into labels. This keeps the chart faithful when the user's data changes:
 }
 ```
 
+The key location is part of the contract: computed cues must be nested under `data.insights`.
+Do not write top-level `insights`, `data_insights`, or a literal `"data.insights"` key. Those
+misplaced keys are ignored by renderers and CKQ118 will ask you to move them under `data`.
+
 Supported computed cues are generic: `mean_delta` / `group_delta`, `group_spread`,
 `top_mover` (single-series category maximum, paired series delta, or endpoint change across series),
 `endpoint_value` / `final_value` (highest or lowest final-stage value across series), `percentiles`,
@@ -109,9 +118,10 @@ as decoration.
 Do not bypass this by adding many manual `annotations` with fixed text values. A real data figure
 usually has at most 1-3 earned callouts. If you need more, compute the strongest ones as
 `data.insights`, use `data.events`/`data.intervals` for temporal evidence, or move explanation to
-the report body. Do not list every possible computed insight: if more than a few cues are available,
-keep the strongest 1-3 or add `priority` / `importance` so lower-value labels can be down-ranked.
-ChartKit defaults to a sparse point-label budget because labels can easily cover the evidence.
+the report body. ChartKit auto-caps rendered computed insights by evidence priority, so it is safe
+to provide several candidate insights as metadata, but only the strongest few should become visible.
+Add `priority` / `importance` when the visual hierarchy matters. ChartKit defaults to a sparse
+point-label budget because labels can easily cover the evidence.
 When the claim genuinely needs more than one point callout, declare the budget explicitly and use
 priorities instead of adding manual text:
 
@@ -133,6 +143,10 @@ second or third label is part of the evidence hierarchy.
 For a single-series categorical bar/ranking chart, `top_mover` marks the largest category value
 by default. Use `mode: "min"` with wording such as "Largest reduction" when lower values are
 better; do not label a negative trade-off as a "lift".
+For grouped/multi-series categorical bars, an unpaired `top_mover` is treated as a categorical
+maximum/minimum across the displayed bars. If the claim is about change between two series,
+write `from` and `to` explicitly; otherwise use `extreme` or unpaired `top_mover` for labels
+such as "longest wait", "highest cost", or "lowest score".
 
 For ordered funnel/stage-decay lines, do not use `top_mover` to mean "best final conversion";
 that would usually mark the largest drop from the start. Use `endpoint_value` with `mode: "max"`
@@ -208,6 +222,8 @@ share shift, category mix, or matrix difference. Prefer `bar` with `layout: "sta
 Use `mixed` only when measures share an ordered x domain but have different units or materially
 different scales. Use bar for discrete aggregates, area for background magnitude or cumulative
 quantity, and line/step for rates, indices, states, or continuous measurements.
+For mixed thresholds or baselines, use `data.reference_lines`; set `axis: "right"` for a right-axis
+threshold instead of adding a fake constant series.
 If the x field contains real dates, months, timestamps, or event windows (`date`, `month`,
 `timestamp`, `time`, `week`, `year`), prefer `type: "time_series"` over generic `line`.
 For `mixed` charts with a true time domain, put ISO dates/datetimes in `data.x`; the renderer will
@@ -224,10 +240,19 @@ window. If raw density is intentionally kept, document it with `data.aggregation
 appears in `chart-quality.json`, read its `suggestions` array and apply one of the proposed
 spec-level fixes such as `data.aggregation: "daily_mean_band"`,
 `data.representative_window`, or documented `data.downsample`.
+For dense forest/interval charts, avoid turning the figure into a long table. If an interval spec
+has dozens of rows, keep only the claim-carrying top/bottom rows, switch many-entity comparisons
+to heatmap/bubble matrix/profile/ranked-bar forms, or split by group. CKQ119 will warn when a
+forest interval is too dense for a standalone A4 report figure.
 Use horizontal `bar` for ranked metric lift, Top-N categories, driver effects, or long labels; set
 `data.invert_y: true` or `yAxis.invert: true` when the strongest or first-ranked item should read
 from the top. For multi-metric benchmarks with heterogeneous units, prefer `radar` with
 `layout: "profile_bar"` and add `metric_groups` when metrics form evidence blocks.
+For bar uncertainty, use `series[].error` / `sem` / `yerr` for symmetric error bars. Use
+`series[].error_lower` / `error_upper` for asymmetric intervals or one-sided upper evidence
+such as median bars with P90 upper bounds; if only the upper bound matters, provide
+`error_upper` and omit `error_lower`. Do not claim P90 / confidence upper bounds in the caption
+unless the spec provides fields the renderer can draw.
 Use ordinary `scatter` for continuous relationships, agreement, cluster shift, thresholds, and
 outliers. Cohort ellipses should be density cues, not decoration; tune `ellipse_scales` and
 `ellipse_alpha` when the contours overpower the points. Use `scatter` with `data.volcano` only
@@ -235,9 +260,26 @@ when each point has both an effect size and a p-value and the claim depends on
 effect/significance thresholds; when many points are auto-numbered, set `label_named_only: true`
 and add `label` only to real named hits; use `label_top_per_side` when both up/down sides need
 balanced labels. Do not add trend lines or cluster ellipses to volcano plots.
+For ordered agreement/calibration curves (for example predicted probability vs observed rate by
+decile or cohort), `scatter` series may set `connect: true`; ordinary unordered scatter points
+should not be connected. For a visual reference line encoded as a series, set `marker: false`,
+`connect: true`, and `linestyle: "--"`. If you want the renderer to compute the diagonal from the
+axis range, use `data.reference_lines: [{"slope": 1, "intercept": 0, "label": "Perfect calibration",
+"style": "--", "show_legend": false}]`.
+For `line` uncertainty bands, use `series[].sem` or `series[].band` for half-width bands around
+`values`; use `series[].low` plus `series[].high` for absolute lower/upper bounds. Do not claim a
+confidence or prediction band in the caption or insight text unless the series includes one of
+those interval encodings.
+For horizontal thresholds, benchmarks, or target lines in `line`, use
+`data.reference_lines: [{"intercept": value, "label": "...", "style": "--"}]` (aliases `value` and
+`y` are also accepted). Plain `line` reference lines are horizontal only; use `scatter` reference
+lines or an explicit series for diagonal/model lines.
 Use `network_matrix` with `data.layout: "bubble"` for pairwise interaction or adjacency matrices
 when sparse strengths need area + color encoding. Add `mask_diagonal: true` when self-pairs are
 not evidence, and keep thresholded weak cells visually subdued instead of equally prominent.
+When `nodes[].group` uses internal English keys in a Chinese/localized figure, keep those keys for
+binding but add `data.group_labels` or `groups: {key: {color, label}}` so the side legend displays
+localized group names rather than raw source keys.
 Use `contribution` with `layout: "waterfall"` only for sequential additive accounting from a start
 value to an end value; use `label_mode: "delta"` when intermediate labels should show each step's
 own contribution. For independent signed effects, use lollipop/dumbbell/interval/ranked
@@ -271,6 +313,13 @@ Do not leave `layout: "auto"` when the matched reference card has an explicit la
 - `nature` — Times New Roman + Songti/Noto Serif CJK, compact journal figures
 - `energy` — energy/finance reports
 - `minimal` — clean minimal
+
+**Axis value formatting:**
+If the plotted values are ratios/proportions but the reader should see percentages, set
+`yAxis.format` (and `y2Axis.format` for right-axis mixed charts) to `.0%`, `.1%`, or `{:.1%}`.
+Do not rely on a label such as `rate (%)` while leaving tick labels as decimals like `0.08`.
+For already-percent values such as `85.1`, keep the axis label as `(%)` and do not use percent
+formatting, otherwise the ticks will read as `8510%`.
 
 ## Step 4 — Write the spec and build
 
@@ -354,12 +403,12 @@ the aggregate first and write `data.series`, `data.categories`, `data.values`, o
 normal in-spec data shape. Do not point `data.source` at an arbitrary CSV unless the renderer
 documents that source binding shape.
 
-Series `role` values: `ours` | `baseline` | `positive` | `negative` | `uncertainty` | `reference` | `context`
+Series `role` values: `ours` | `baseline` | `positive` | `negative` | `uncertainty` | `reference` | `context` | `background`
 
 Never leave visible legend/direct-label names as placeholders such as `Series 1`, `Series 2`,
 `Line A`, `S01`, `Model 1`, or `Group 1`. Derive display labels from the source columns or group
 values, translate ordinary labels into the figure language, and hide raw/background/context series
-with `show_legend: false` and `direct_label: false`.
+that should not be decoded with `show_legend: false` and `direct_label: false`.
 
 Direct labels default to normal weight. Only `ours`, `proposed`, `highlight`, `focus`, `focused`,
 `primary`, or explicit `label_weight` should be bold. Baseline/reference/context labels should not
@@ -367,12 +416,14 @@ all become bold.
 
 Legend/direct-label protocol:
 - For `line`, `time_series`, and `mixed`, use `legend: {"mode": "direct"}` when a few line-like series can be labeled at their endpoints. For `mixed`, individual line series can also set `direct_label: true`; the renderer keeps a compact encoding key for bars/lines when useful.
-- For repeated-measures trajectories, do not make every subject a labeled series. Use `type: "line"` with `data.repeated_measures: true`; encode individual subjects as low-alpha `role: "context"` series with `show_legend: false`, and encode group means or model summaries as the few visible series with direct labels.
-- For `scatter`, do not set `legend.position` to `direct_label` or `bottom`. Use `outside_right` for long legends, or let the compact outside legend collapse above the plot for short legends. If QA reports legend/data overlap on a dense scatter, increase `profile` to `report_a4.full_width` or reduce legend entries; do not guess unsupported legend positions.
+- For repeated-measures trajectories or background comparison lines, do not make every subject or raw trace a labeled series. Use `role: "background"` (or raw/shadow/subject-style roles) with low alpha / thin linewidth for background evidence; ChartKit hides these roles from legend/direct labels by default. Use `role: "context"` for a small number of secondary business groups that still need to be decoded; ChartKit may label human-readable context series by default. If a context series is truly background, either use `role: "background"` or explicitly set `show_legend: false` and `direct_label: false`.
+- For grouped `bar` charts with four or more visible series, do not place the legend as a wide strip over the plotting area. Omit `legend.position` and let ChartKit default to a right-side legend, or set `legend: {"position": "outside_right", "frameon": false}` explicitly.
+- For `scatter`, do not set `legend.position` to `direct_label` or `bottom`. Use `outside_right` for long legends, or let the compact outside legend collapse above the plot for short legends. For a few connected calibration/agreement series, either use `legend: {"mode": "direct"}` or set per-series `direct_label: true`; do not add duplicate endpoint insight labels unless they add new evidence. If QA reports legend/data overlap on a dense scatter, increase `profile` to `report_a4.full_width` or reduce legend entries; do not guess unsupported legend positions.
 - For a legend above the plot, use `position: "upper center"` with `bbox_to_anchor` and `ncol`; avoid lower-center legends inside the data region unless the plot is visibly empty there.
 - If CKQ104 reports a legend/data overlap, read its `suggestions` array and apply the first suitable strategy: direct labels for a few line-like series, outside legend with reserved margin, hide raw/context/background legend entries, or a legend-only panel for composites.
 - For horizontal ranked bars, let computed `top_mover`/`extreme` labels attach to the bar endpoint; do not manually add diagonal arrows unless there is a specific outlier story.
 - For bubble matrices, keep the colorbar, group key, size key, and threshold note in the side legend. Write the threshold as one explanatory rule line such as `emphasize >= 0.25` or `突出 >= 0.25`; do not turn it into a fake legend symbol, short line, or separate "threshold" subsection. Do not put the threshold note under the main matrix when a side legend exists.
+- For bubble matrix group legends, never expose internal group keys such as `acute`, `stromal`, or `diagnostic` as display labels in a localized report. Add `data.group_labels` or `groups: {key: {color, label}}` instead of renaming the binding keys.
 
 Validate first, then build:
 
@@ -392,12 +443,14 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Missing series `role` → add `role` to each series (CKQ005)
 - Dense x tick labels → read CKQ103 `suggestions`; use sparse ticks, aggregate/group categories, choose a representative window, or move to a wider profile before rotating labels by habit
 - Dense raw time axis → aggregate, choose a typical period/representative window, or document intentional downsampling (CKQ112)
+- Dense forest interval → keep top rows, use matrix/profile/ranked-bar forms, or split into grouped panels (CKQ119)
 - Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
 - Too many manual text annotations → read CKQ116 `suggestions`; replace fixed labels with `data.insights`, move temporal cues to `data.events` / `data.intervals`, keep only 1-3 earned labels, or move narrative prose to `caption` / report body
-- Too many computed insights → read CKQ117 `suggestions`; keep the strongest 1-3 cues, add `priority` / `importance`, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals`
+- Too many computed insights → CKQ117 is informational: ChartKit auto-caps visible cues; add `priority` / `importance`, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals` when the chosen visible cues are not the right ones
+- Misplaced computed insights → move top-level `insights`, `data_insights`, or literal `"data.insights"` keys into `data.insights`; otherwise the renderer cannot compute or place them
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
-- Mixed display language → read CKQ111 `suggestions`; translate listed visible labels, declare official identifiers, or hide internal keys
+- Mixed display language → read CKQ111 `suggestions`; translate listed visible labels, declare exact `official_terms` only for immutable identifiers, or hide internal keys
 - Legend overlaps data → apply CKQ104 `suggestions`: direct labels, outside legend, hide context entries, or a legend-only panel
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)
 

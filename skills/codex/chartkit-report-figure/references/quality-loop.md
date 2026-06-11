@@ -32,12 +32,14 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ006 | info | Missing `evidence_hierarchy` | Add `hero` / `supporting` / `context` lists |
 | CKQ105 | warning | Small-sample or many-group `full_violin` | Use `layout: "raincloud"`, `layout: "auto"`, or `layout: "box_strip"` |
 | CKQ108 | warning | Only red/green distinguish groups | Add labels, markers, or line styles as second channel |
-| CKQ111 | warning/info | Mixed display language | Read `suggestions`; translate listed visible labels, declare official identifiers in `language_policy`, or hide internal keys that are not meant to display |
+| CKQ111 | warning/info | Mixed display language | Read `suggestions`; translate listed visible labels, declare exact `official_terms` only for immutable product/model/gene/ticker/acronym identifiers, or hide internal keys that are not meant to display. Never fix ordinary metric words such as `Burn`, `Churn`, `margin`, or `conversion` by adding them to `official_terms` |
 | CKQ112 | info/warning | Dense raw time axis | Read `suggestions`; aggregate to `daily_mean_band`, choose `representative_window`, or document intentional `downsample` |
 | CKQ113 | warning | Scatter uses unordered `top_mover` | Use `extreme` with `series` and `axis`, or `mean_delta` for paired groups |
-| CKQ115 | warning | Placeholder visible series labels | Use source-derived display labels, or hide raw/context series from legends and direct labels |
+| CKQ115 | warning | Placeholder visible series labels | Use source-derived display labels, or hide raw/background/internal-context series from legends and direct labels |
 | CKQ116 | warning | Too many manual text annotations | Read `suggestions`; convert value labels to computed `data.insights`, use `events` / `intervals`, keep 1-3 earned labels, or move prose to `caption` / report body |
-| CKQ117 | warning | Too many computed insights | Read `suggestions`; cap visible cues, rank by `priority` / `importance`, demote context cues, or move temporal cues into `events` / `intervals` |
+| CKQ117 | info | Too many computed insights | Read `suggestions`; cap visible cues, rank by `priority` / `importance`, demote context cues, or move temporal cues into `events` / `intervals` |
+| CKQ118 | warning | Misplaced computed insights | Move top-level `insights`, `data_insights`, or literal `"data.insights"` keys into `data.insights` |
+| CKQ119 | warning | Dense forest interval | Keep the claim-carrying top rows, switch many-entity comparisons to matrix/profile views, or split by group |
 | CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
 | CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |
 | CKQ403 | warning | Rainbow colormap | Replace with sequential or diverging palette |
@@ -51,7 +53,7 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ102 | warning | Text labels overlap | Rotate labels, reduce tick count, or use direct labels |
 | CKQ103 | warning | Tick density too high | Read `suggestions`; use sparse ticks, aggregate/group categories, choose a representative window, or use a wider profile before rotating labels by habit |
 | CKQ104 | warning | Legend overlaps data | Read `suggestions`; use direct labels, move legend outside with margin, hide raw/context entries, or reserve a legend-only panel |
-| CKQ107 | warning | Text contrast too low (WCAG < 2.5) | Darken text or lighten background |
+| CKQ107 | warning | Text contrast too low (WCAG < 2.5) | Read the reported text snippet; use readable theme text for axis/tick/legend/annotation text. In dual-axis charts, keep low-contrast accent colors on marks/spines, not tick labels or axis titles |
 | CKQ108 | warning | Computed insight labels overlap | Reduce insight count or let renderer lane/offset them |
 | CKQ109 | warning | Computed insight label falls outside plot area | Use automatic placement or allow more margin/range |
 | CKQ110 | warning | Computed insight label covers key data evidence | Let ChartKit auto-place it, move callout outward, or remove a lower-value insight |

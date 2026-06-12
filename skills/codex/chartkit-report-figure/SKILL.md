@@ -224,6 +224,8 @@ different scales. Use bar for discrete aggregates, area for background magnitude
 quantity, and line/step for rates, indices, states, or continuous measurements.
 For mixed thresholds or baselines, use `data.reference_lines`; set `axis: "right"` for a right-axis
 threshold instead of adding a fake constant series.
+Never write `data_reference_lines`, top-level `reference_lines`, or other invented reference-line
+fields. Reference/threshold lines always live under the `data` object as `data.reference_lines`.
 If the x field contains real dates, months, timestamps, or event windows (`date`, `month`,
 `timestamp`, `time`, `week`, `year`), prefer `type: "time_series"` over generic `line`.
 For `mixed` charts with a true time domain, put ISO dates/datetimes in `data.x`; the renderer will
@@ -448,6 +450,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Too many manual text annotations → read CKQ116 `suggestions`; replace fixed labels with `data.insights`, move temporal cues to `data.events` / `data.intervals`, keep only 1-3 earned labels, or move narrative prose to `caption` / report body
 - Too many computed insights → CKQ117 is informational: ChartKit auto-caps visible cues; add `priority` / `importance`, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals` when the chosen visible cues are not the right ones
 - Misplaced computed insights → move top-level `insights`, `data_insights`, or literal `"data.insights"` keys into `data.insights`; otherwise the renderer cannot compute or place them
+- Unknown `data_reference_lines` or top-level `reference_lines` schema error → move the threshold/baseline rule into `data.reference_lines`; do not delete meaningful reference evidence unless the figure no longer needs it
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
 - Mixed display language → read CKQ111 `suggestions`; translate listed visible labels, declare exact `official_terms` only for immutable identifiers, or hide internal keys

@@ -40,6 +40,7 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ117 | info | Too many computed insights | Read `suggestions`; cap visible cues, rank by `priority` / `importance`, demote context cues, or move temporal cues into `events` / `intervals` |
 | CKQ118 | warning | Misplaced computed insights | Move top-level `insights`, `data_insights`, or literal `"data.insights"` keys into `data.insights` |
 | CKQ119 | warning | Dense forest interval | Keep the claim-carrying top rows, switch many-entity comparisons to matrix/profile views, or split by group |
+| schema error | error | Unknown `data_reference_lines` / top-level `reference_lines` | Move threshold or baseline lines into `data.reference_lines`, e.g. `{"data": {"reference_lines": [{"intercept": 1.0, "axis": "right", "label": "效率阈值"}]}}` |
 | CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
 | CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |
 | CKQ403 | warning | Rainbow colormap | Replace with sequential or diverging palette |

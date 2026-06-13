@@ -48,6 +48,11 @@ Use the returned `example_cards` before writing a spec:
 - `reference/*.png`: the visual target style; inspect it before writing your spec.
 - `notes/*.md`: visual strategy, when to use the pattern, and what to avoid.
 
+Reference files and task data should be read from the current working directory, typically
+`./examples`, `./task.md`, and the CSV path in the task. Do not run broad filesystem searches
+such as `find /` to locate ChartKit examples; if a referenced local file is missing, continue
+from the atlas output and the files already present in the workspace.
+
 Do not start from a blank JSON unless no example card is relevant. Start from the nearest card,
 then replace the contract and data with the current user's analysis.
 
@@ -268,7 +273,7 @@ should not be connected. For a visual reference line encoded as a series, set `m
 `connect: true`, and `linestyle: "--"`. If you want the renderer to compute the diagonal from the
 axis range, use `data.reference_lines: [{"slope": 1, "intercept": 0, "label": "Perfect calibration",
 "style": "--", "show_legend": false}]`.
-For `line` uncertainty bands, use `series[].sem` or `series[].band` for half-width bands around
+For `line` and `time_series` uncertainty bands, use `series[].sem` or `series[].band` for half-width bands around
 `values`; use `series[].low` plus `series[].high` for absolute lower/upper bounds. Do not claim a
 confidence or prediction band in the caption or insight text unless the series includes one of
 those interval encodings.
@@ -313,8 +318,8 @@ Do not leave `layout: "auto"` when the matched reference card has an explicit la
 **Theme:**
 - `business-cn` — default, CJK-ready serif, A4 reports
 - `nature` — Times New Roman + Songti/Noto Serif CJK, compact journal figures
-- `energy` — energy/finance reports
-- `minimal` — clean minimal
+
+`profile` controls the physical output slot only. It does not switch themes. Use `style.theme` or CLI `--theme` when a figure needs a different visual contract.
 
 **Axis value formatting:**
 If the plotted values are ratios/proportions but the reader should see percentages, set

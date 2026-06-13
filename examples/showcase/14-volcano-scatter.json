@@ -3,7 +3,6 @@
   "type": "scatter",
   "figure_mode": "data_figure",
   "profile": "nature.double_column",
-  "style": {"theme": "nature"},
   "caption": "Volcano scatter identifies significant up- and down-regulated features with effect and p-value thresholds.",
   "contract": {
     "conclusion": "The treatment shifts a small set of features beyond both effect-size and significance thresholds.",

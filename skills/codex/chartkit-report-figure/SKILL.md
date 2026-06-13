@@ -247,6 +247,12 @@ window. If raw density is intentionally kept, document it with `data.aggregation
 appears in `chart-quality.json`, read its `suggestions` array and apply one of the proposed
 spec-level fixes such as `data.aggregation: "daily_mean_band"`,
 `data.representative_window`, or documented `data.downsample`.
+Do not collapse minute/hourly source logs into a categorical `bar` just because the source can be
+aggregated. If temporal shape is part of the evidence, preserve it with `time_series`, `mixed`,
+`area`, or a time-by-category heatmap. If the user truly wants a period/category summary bar, make
+the decision explicit with `data.allow_temporal_collapse: true` and a machine-readable
+`data.aggregation` such as `period_mean_by_group`; otherwise CKQ123 will ask you to preserve the
+temporal shape or document the collapse.
 For dense forest/interval charts, avoid turning the figure into a long table. If an interval spec
 has dozens of rows, keep only the claim-carrying top/bottom rows, switch many-entity comparisons
 to heatmap/bubble matrix/profile/ranked-bar forms, or split by group. CKQ119 will warn when a
@@ -267,6 +273,11 @@ when each point has both an effect size and a p-value and the claim depends on
 effect/significance thresholds; when many points are auto-numbered, set `label_named_only: true`
 and add `label` only to real named hits; use `label_top_per_side` when both up/down sides need
 balanced labels. Do not add trend lines or cluster ellipses to volcano plots.
+Do not create six or more scatter series merely to expose every source-target relationship in the
+legend. That produces a fragmented side key, especially in compact `nature` figures. Collapse
+small relationship classes into a few semantic groups, hide context series from the legend, or use
+`network_matrix` / `heatmap` when pairwise structure is the evidence. Only set
+`legend.allow_fragmented: true` when every entry is decision-relevant and the profile has room.
 For ordered agreement/calibration curves (for example predicted probability vs observed rate by
 decile or cohort), `scatter` series may set `connect: true`; ordinary unordered scatter points
 should not be connected. For a visual reference line encoded as a series, set `marker: false`,
@@ -319,11 +330,15 @@ Do not leave `layout: "auto"` when the matched reference card has an explicit la
 - `business-cn` — default, CJK-ready serif, A4 reports
 - `nature` — Times New Roman + Songti/Noto Serif CJK, compact journal figures
 
-`profile` controls the physical output slot only. It does not switch themes. Use `style.theme` or CLI `--theme` when a figure needs a different visual contract.
+`profile` controls the physical output slot only. It does not switch themes. Theme is selected at
+runtime with CLI `--theme`; do not put `"theme"`, `"theme_id"`, or `style.theme` inside
+`figure.json`. The same spec should be able to render under `business-cn` or `nature` without
+editing the data contract.
 
 **Axis value formatting:**
 If the plotted values are ratios/proportions but the reader should see percentages, set
-`yAxis.format` (and `y2Axis.format` for right-axis mixed charts) to `.0%`, `.1%`, or `{:.1%}`.
+`xAxis.format`, `yAxis.format` (and `y2Axis.format` for right-axis mixed charts) to `.0%`,
+`.1%`, or `{:.1%}`.
 Do not rely on a label such as `rate (%)` while leaving tick labels as decimals like `0.08`.
 For already-percent values such as `85.1`, keep the axis label as `(%)` and do not use percent
 formatting, otherwise the ticks will read as `8510%`.
@@ -448,18 +463,22 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Missing `contract` → add `contract` block (CKQ001)
 - Missing `profile` → add `profile` (CKQ002)
 - Missing series `role` → add `role` to each series (CKQ005)
+- Theme embedded in spec → remove `theme` / `style.theme` and pass the selected visual contract with CLI `--theme` (CKQ121)
 - Dense x tick labels → read CKQ103 `suggestions`; use sparse ticks, aggregate/group categories, choose a representative window, or move to a wider profile before rotating labels by habit
 - Dense raw time axis → aggregate, choose a typical period/representative window, or document intentional downsampling (CKQ112)
+- High-frequency source collapsed to categorical bar → preserve temporal shape, or explicitly set `data.allow_temporal_collapse: true` with `data.aggregation` when a summary bar is intended (CKQ123)
 - Dense forest interval → keep top rows, use matrix/profile/ranked-bar forms, or split into grouped panels (CKQ119)
 - Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
 - Too many manual text annotations → read CKQ116 `suggestions`; replace fixed labels with `data.insights`, move temporal cues to `data.events` / `data.intervals`, keep only 1-3 earned labels, or move narrative prose to `caption` / report body
 - Too many computed insights → CKQ117 is informational: ChartKit auto-caps visible cues; add `priority` / `importance`, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals` when the chosen visible cues are not the right ones
 - Misplaced computed insights → move top-level `insights`, `data_insights`, or literal `"data.insights"` keys into `data.insights`; otherwise the renderer cannot compute or place them
 - Unknown `data_reference_lines` or top-level `reference_lines` schema error → move the threshold/baseline rule into `data.reference_lines`; do not delete meaningful reference evidence unless the figure no longer needs it
+- Invalid reference-line style → use `--`, `:`, `-.`, `solid`, `dashed`, `dashdot`, or `dotted`; keep semantics in label/role, not custom style text (CKQ122)
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
 - Mixed display language → read CKQ111 `suggestions`; translate listed visible labels, declare exact `official_terms` only for immutable identifiers, or hide internal keys
 - Legend overlaps data → apply CKQ104 `suggestions`: direct labels, outside legend, hide context entries, or a legend-only panel
+- Fragmented scatter legend → reduce relationship groups, hide context legend entries, or switch pairwise evidence to network_matrix/heatmap (CKQ124)
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)
 
 For composite figures, see `references/composite-grammar.md`.

@@ -40,6 +40,10 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ117 | info | Too many computed insights | Read `suggestions`; cap visible cues, rank by `priority` / `importance`, demote context cues, or move temporal cues into `events` / `intervals` |
 | CKQ118 | warning | Misplaced computed insights | Move top-level `insights`, `data_insights`, or literal `"data.insights"` keys into `data.insights` |
 | CKQ119 | warning | Dense forest interval | Keep the claim-carrying top rows, switch many-entity comparisons to matrix/profile views, or split by group |
+| CKQ121 | warning | Theme embedded in spec | Remove `theme`, `theme_id`, or `style.theme`; select the visual contract with CLI `--theme` |
+| CKQ122 | warning | Invalid reference-line style | Use supported styles `--`, `:`, `-.`, `solid`, `dashed`, `dashdot`, or `dotted`; keep semantics in label/role |
+| CKQ123 | warning | High-frequency source collapsed to categorical bar | Preserve temporal shape with `time_series`/`mixed`/`area`/heatmap, or explicitly set `data.allow_temporal_collapse: true` plus `data.aggregation` |
+| CKQ124 | warning | Fragmented scatter legend | Reduce relationship groups, hide context legend entries, or switch pairwise evidence to `network_matrix`/heatmap |
 | schema error | error | Unknown `data_reference_lines` / top-level `reference_lines` | Move threshold or baseline lines into `data.reference_lines`, e.g. `{"data": {"reference_lines": [{"intercept": 1.0, "axis": "right", "label": "效率阈值"}]}}` |
 | CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
 | CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |

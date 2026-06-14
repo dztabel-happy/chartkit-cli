@@ -73,6 +73,39 @@ chart-output/chart-manifest.json
 chart-output/build-result.json
 ```
 
+## A4 Report Sizing
+
+For standalone business-report figures, use `profile: "report_a4.full_width"` by default.
+This profile is a report slot and typography contract, not a command to stretch every chart
+to the same final width.
+
+ChartKit exports a tight visible figure with stable physical dimensions and records the sizing
+contract in `chart-manifest.json` and `build-result.json`:
+
+```json
+{
+  "layout": {
+    "slot_width_mm": 170,
+    "slot_height_mm": 96,
+    "rendered_width_mm": 148.1,
+    "rendered_height_mm": 79.5,
+    "recommended_insert_width_mm": 148.1,
+    "recommended_insert_height_mm": 79.5,
+    "max_insert_width_mm": 170,
+    "max_insert_height_mm": 96,
+    "scale_policy": "natural_size_within_slot",
+    "scale_factor": 1
+  }
+}
+```
+
+Report systems should insert ChartKit figures at `recommended_insert_width_mm` when that metadata
+is available. They should not enlarge every figure to `slot_width_mm`; enlarging changes font size,
+line weight, marker size, and the visual density that ChartKit designed for the report.
+
+Use the slot limit only as a maximum: figures may be scaled down if they exceed the A4 report slot,
+but should otherwise be inserted at their natural rendered physical size.
+
 ## Chart Types
 
 Built-in single-chart types include:
@@ -104,7 +137,13 @@ The agent must inspect `chart-quality.json` and iterate until `quality.ok` is tr
 
 ## Showcase
 
-The npm package includes a few-shot showcase library at `examples/showcase`. Each card has a rendered reference image, the matching declarative spec, source data, prompt, and notes. Agents can inspect it through `chart-kit atlas` and use these examples as the visual standard before writing a new `figure.json`.
+The npm package includes a few-shot showcase library at `examples/showcase`. This is a single-figure
+A4 report showcase: the cards teach agents how to choose a polished standalone data figure for a
+report, not how to create dashboards, slides, or multi-panel paper composites.
+
+Each card has a rendered reference image, the matching declarative spec, source data, prompt, and
+notes. Agents can inspect it through `chart-kit atlas` and use these examples as the visual standard
+before writing a new `figure.json`.
 
 | | | |
 |---|---|---|

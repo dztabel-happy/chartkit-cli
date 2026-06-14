@@ -4,6 +4,13 @@ These examples are intentionally single data figures, not slide-like diagrams.
 They are used to judge whether the default CLI output is polished enough for an
 A4 report without hand-tuning every plot.
 
+Every current showcase spec should use `profile: "report_a4.full_width"`.
+That means the figure is designed for a standalone A4 report slot, but it does
+not mean the exported visible image must be stretched to the full slot width.
+ChartKit records both the slot and the natural rendered size in the manifest;
+report systems should insert the figure at the recommended natural width and
+only scale down when it would exceed the A4 slot.
+
 The set should include both simple grammar checks and denser report-grade
 figures. Simple examples prove the default encodings are stable; dense examples
 show that ChartKit still looks polished when the data resembles a real analysis

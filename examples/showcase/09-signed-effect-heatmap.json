@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "heatmap",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "caption": "Signed feature effect matrix across validation cohorts.",
   "contract": {
     "conclusion": "Most cohorts improve on accuracy and robustness metrics while latency and cost remain trade-offs.",

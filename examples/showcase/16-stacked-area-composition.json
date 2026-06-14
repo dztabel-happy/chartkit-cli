@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "area",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "stacked",
   "caption": "Stacked composition trajectory across sixteen ordered planning windows with a reserve bulge during transition.",
   "contract": {

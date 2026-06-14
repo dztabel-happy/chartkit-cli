@@ -16,6 +16,6 @@ Avoid dual axes for decoration or for measures that can be normalized into one s
 ## Spec Anchors
 - `type`: `mixed`
 - `layout`: `default`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `trend`
 - source: `examples/showcase/source/11-mixed-dual-axis.csv`

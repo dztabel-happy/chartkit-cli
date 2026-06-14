@@ -14,6 +14,6 @@ Avoid when intervals are not comparable or when the baseline has no interpretive
 ## Spec Anchors
 - `type`: `interval`
 - `layout`: `forest`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `comparison`
 - source: `examples/showcase/source/05-forest-interval.csv`

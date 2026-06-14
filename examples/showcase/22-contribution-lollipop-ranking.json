@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "contribution",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "lollipop",
   "orientation": "horizontal",
   "caption": "Ranked signed effect estimates with uncertainty intervals relative to zero.",
@@ -30,6 +30,14 @@
   },
   "data": {
     "reference": 0,
+    "label_mode": "extremes",
+    "label_format": "{:+.3f}",
+    "label_positive_count": 2,
+    "label_negative_count": 2,
+    "marker_size": 44,
+    "stem_width": 1.35,
+    "interval_width": 0.9,
+    "interval_alpha": 0.52,
     "items": [
       {
         "label": "Forecast quality",

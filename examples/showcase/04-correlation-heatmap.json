@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "heatmap",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "caption": "Upper-triangular feature correlation matrix with block structure.",
   "contract": {
     "conclusion": "Feature groups form three positive blocks with weaker cross-block correlation; the matrix is exported as a report-width panel rather than a square thumbnail.",

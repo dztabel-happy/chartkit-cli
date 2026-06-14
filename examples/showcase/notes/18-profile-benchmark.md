@@ -3,6 +3,8 @@
 ## Visual Strategy
 Use profile bars instead of a decorative spider plot when metrics are heterogeneous. Range lines and grouped rows make the benchmark readable in reports. Metric groups help the reader scan the evidence as blocks rather than as an undifferentiated KPI list.
 
+For full-width profile bars, keep the legend close to the top of the plot rather than hanging below the axis. The reader should scan methods first, then move down through evidence blocks.
+
 The intended conclusion is: The proposed model dominates most quality and robustness metrics while the compact variant remains strongest on latency and unit cost.
 
 ## Use When
@@ -14,6 +16,6 @@ Avoid classic polar radar when readers need exact comparison; prefer profile_bar
 ## Spec Anchors
 - `type`: `radar`
 - `layout`: `profile_bar`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `comparison`
 - source: `examples/showcase/source/18-profile-benchmark.csv`

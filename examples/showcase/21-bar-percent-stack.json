@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "bar",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "stacked_percent",
   "orientation": "horizontal",
   "caption": "Composition share by segment, ordered from core-load-heavy to flexible-heavy portfolios.",

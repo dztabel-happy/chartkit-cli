@@ -14,6 +14,6 @@ Avoid when density shape, tails, or modality are the main evidence; use violin f
 ## Spec Anchors
 - `type`: `distribution`
 - `layout`: `box_strip`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `distribution`
 - source: `examples/showcase/source/01-distribution-box-strip.csv`

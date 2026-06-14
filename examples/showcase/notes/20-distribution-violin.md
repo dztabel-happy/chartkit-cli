@@ -16,6 +16,6 @@ Avoid when there are too few observations per group and density shape is not par
 ## Spec Anchors
 - `type`: `distribution`
 - `layout`: `raincloud`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `distribution`
 - source: `examples/showcase/source/20-distribution-violin.csv`

@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "scatter",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "caption": "Agreement between model score and observed outcome across two cohorts.",
   "contract": {
     "conclusion": "Higher model scores align with stronger observed outcomes across both cohorts, with the proposed cohort shifted upward.",

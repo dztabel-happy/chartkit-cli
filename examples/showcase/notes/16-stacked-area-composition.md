@@ -14,6 +14,6 @@ Avoid stacking unrelated series; area implies accumulation or composition.
 ## Spec Anchors
 - `type`: `area`
 - `layout`: `stacked`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `composition`
 - source: `examples/showcase/source/16-stacked-area-composition.csv`

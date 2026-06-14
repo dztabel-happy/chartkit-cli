@@ -14,6 +14,6 @@ Avoid labeling every event; sparse context is more report-grade than a timeline 
 ## Spec Anchors
 - `type`: `time_series`
 - `layout`: `default`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `uncertainty`
 - source: `examples/showcase/source/24-time-series-error-band.csv`

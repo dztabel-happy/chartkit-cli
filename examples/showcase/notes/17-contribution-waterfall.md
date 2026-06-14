@@ -3,6 +3,8 @@
 ## Visual Strategy
 Use waterfall for additive contribution accounting. Start and final states should be stable anchors; intermediate steps should show signed increments with restrained labels. Delta labels are usually clearer than cumulative labels for the non-anchor steps.
 
+For full-width report figures, short category labels should stay horizontal. Rotate labels only when they are genuinely long or visually dense; otherwise the exhibit starts to look cramped even on a wide slot.
+
 The intended conclusion is: Data depth and calibration drive most of the gain, while execution constraints remove a smaller but visible amount before the final score.
 
 ## Use When
@@ -14,6 +16,6 @@ Avoid using contribution charts for unrelated categories that do not add to a co
 ## Spec Anchors
 - `type`: `contribution`
 - `layout`: `waterfall`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `composition`
 - source: `examples/showcase/source/17-contribution-waterfall.csv`

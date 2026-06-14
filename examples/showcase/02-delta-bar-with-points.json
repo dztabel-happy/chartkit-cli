@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "bar",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "grouped",
   "orientation": "horizontal",
   "caption": "Ranked metric lift relative to the incumbent baseline; points show monthly observations.",

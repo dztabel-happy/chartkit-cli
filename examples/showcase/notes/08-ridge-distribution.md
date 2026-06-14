@@ -14,6 +14,6 @@ Avoid when there are too few observations per group, when there are only two gro
 ## Spec Anchors
 - `type`: `distribution`
 - `layout`: `ridge`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `distribution`
 - source: `examples/showcase/source/08-ridge-distribution.csv`

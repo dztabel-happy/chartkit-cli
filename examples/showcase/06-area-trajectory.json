@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "area",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "area",
   "caption": "Weekly contribution trajectory during deployment with recovery after a mid-window dip.",
   "contract": {
@@ -61,6 +61,37 @@
       "",
       "",
       "W32"
+    ],
+    "intervals": [
+      {
+        "start": "W14",
+        "end": "W18",
+        "label": "incident window",
+        "alpha": 0.08
+      }
+    ],
+    "events": [
+      {
+        "at": "W17",
+        "series": "Contribution",
+        "label": "temporary dip",
+        "xytext": [
+          7,
+          -12
+        ],
+        "va": "top",
+        "alpha": 0.55
+      },
+      {
+        "at": "W29",
+        "series": "Contribution",
+        "label": "recovery plateau",
+        "xytext": [
+          7,
+          10
+        ],
+        "alpha": 0.55
+      }
     ],
     "line_overlay": true,
     "direct_labels": true,

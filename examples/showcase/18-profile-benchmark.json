@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "radar",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "profile_bar",
   "caption": "Multi-metric profile benchmark with metric-specific normalization.",
   "contract": {
@@ -203,11 +203,12 @@
     ]
   },
   "legend": {
-    "position": "upper center",
+    "position": "outside_top",
     "bbox_to_anchor": [
       0.5,
-      -0.16
+      1.06
     ],
+    "borderaxespad": 0,
     "ncol": 4
   }
 }

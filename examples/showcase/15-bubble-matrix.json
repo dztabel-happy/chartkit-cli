@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "network_matrix",
   "figure_mode": "data_figure",
-  "profile": "nature.double_column",
+  "profile": "report_a4.full_width",
   "caption": "Bubble matrix encodes off-diagonal interaction strength by circle area and color.",
   "contract": {
     "conclusion": "The strongest ligand-receptor interactions concentrate between immune and stromal compartments.",

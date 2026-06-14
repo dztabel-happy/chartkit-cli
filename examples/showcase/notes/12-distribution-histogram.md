@@ -16,6 +16,6 @@ Avoid when there are too few observations per group, or when the message is only
 ## Spec Anchors
 - `type`: `distribution`
 - `layout`: `hist`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `distribution`
 - source: `examples/showcase/source/12-distribution-histogram.csv`

@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "time_series",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "caption": "Timestamped monthly performance trajectory with deployment event and stabilization window.",
   "contract": {
     "conclusion": "The proposed series separates after deployment, dips briefly during migration, and recovers to a higher trajectory.",

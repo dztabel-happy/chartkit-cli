@@ -14,6 +14,6 @@ Avoid if exact numeric lookup is the main task; tables are better for that.
 ## Spec Anchors
 - `type`: `heatmap`
 - `layout`: `default`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `diagnostic`
 - source: `examples/showcase/source/09-signed-effect-heatmap.csv`

@@ -16,6 +16,6 @@ Avoid using volcano for generic correlation or model agreement. Avoid covariance
 - `data.volcano`: effect/p-value contract
 - `data.volcano.label_named_only`: avoid generic auto-id labels
 - `data.volcano.label_top_per_side`: balanced sparse hit labels
-- `profile`: `nature.double_column`
+- `profile`: `report_a4.full_width`
 - `role`: `diagnostic`
 - source: `examples/showcase/source/volcano-scatter.csv`

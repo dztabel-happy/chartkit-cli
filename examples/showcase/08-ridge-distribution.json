@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "distribution",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "caption": "Ordered score distributions across model families, with median ticks showing the shift.",
   "layout": "ridge",
   "contract": {

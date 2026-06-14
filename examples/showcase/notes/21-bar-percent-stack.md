@@ -14,6 +14,6 @@ Avoid tiny category counts with no variability layer; the result will look like 
 ## Spec Anchors
 - `type`: `bar`
 - `layout`: `stacked_percent`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `composition`
 - source: `examples/showcase/source/21-bar-percent-stack.csv`

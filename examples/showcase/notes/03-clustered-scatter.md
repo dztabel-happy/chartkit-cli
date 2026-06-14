@@ -14,7 +14,7 @@ Avoid turning annotations into a label cloud. Do not add horizontal or vertical 
 ## Spec Anchors
 - `type`: `scatter`
 - `layout`: `default`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `correlation`
 - `data.ellipse_scales`: compact covariance contours
 - source: `examples/showcase/source/03-clustered-scatter.csv`

@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "line",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "caption": "Validation trajectory across deployment checkpoints.",
   "contract": {
     "conclusion": "The proposed configuration reaches the strongest final validation score while all variants converge late in training.",

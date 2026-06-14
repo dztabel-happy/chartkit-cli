@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "contribution",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "waterfall",
   "orientation": "vertical",
   "caption": "Sequential waterfall decomposition of validation accuracy gain with signed component deltas.",

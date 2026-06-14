@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "mixed",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "caption": "Dual-axis interval volume and normalized rate with repeated seasonal pullbacks.",
   "legend": {
     "show": false

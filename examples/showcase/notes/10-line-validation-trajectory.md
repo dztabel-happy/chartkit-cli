@@ -14,6 +14,6 @@ Avoid spaghetti charts; direct labels and semantic emphasis work only while the 
 ## Spec Anchors
 - `type`: `line`
 - `layout`: `default`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `trend`
 - source: `examples/showcase/source/10-line-validation-trajectory.csv`

@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "interval",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "forest",
   "orientation": "horizontal",
   "caption": "Bootstrap confidence intervals for factor-level monthly return effects.",

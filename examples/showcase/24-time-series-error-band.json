@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "time_series",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "caption": "Monthly forecast trajectory with uncertainty band and observed validation line.",
   "contract": {
     "conclusion": "Forecast uncertainty widens during migration, then narrows as observed performance stabilizes above the baseline trajectory.",

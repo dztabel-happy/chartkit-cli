@@ -14,6 +14,6 @@ Avoid tiny category counts with no variability layer; the result will look like 
 ## Spec Anchors
 - `type`: `bar`
 - `layout`: `grouped`
-- `profile`: `report_a4.compact`
+- `profile`: `report_a4.full_width`
 - `role`: `comparison`
 - source: `examples/showcase/source/07-benchmark-score-bars.csv`

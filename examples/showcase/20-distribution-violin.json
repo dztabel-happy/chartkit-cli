@@ -2,7 +2,7 @@
   "version": "0.1",
   "type": "distribution",
   "figure_mode": "data_figure",
-  "profile": "report_a4.compact",
+  "profile": "report_a4.full_width",
   "layout": "raincloud",
   "caption": "Raincloud distribution comparison with density, raw observations, and quartile structure.",
   "contract": {

@@ -44,6 +44,9 @@
       {
         "name": "Core load",
         "color": "#315B7D",
+        "value_labels": true,
+        "value_format": "{:.0f}%",
+        "label_position": "in_bar",
         "values": [
           48,
           46,
@@ -58,6 +61,9 @@
       {
         "name": "Flexible",
         "color": "#65B9B3",
+        "value_labels": true,
+        "value_format": "{:.0f}%",
+        "label_position": "in_bar",
         "values": [
           17,
           18,

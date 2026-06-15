@@ -125,18 +125,22 @@ usually has at most 1-3 earned callouts. If you need more, compute the strongest
 `data.insights`, use `data.events`/`data.intervals` for temporal evidence, or move explanation to
 the report body. ChartKit auto-caps rendered computed insights by evidence priority, so it is safe
 to provide several candidate insights as metadata, but only the strongest few should become visible.
-Add `priority` / `importance` when the visual hierarchy matters. ChartKit defaults to a sparse
-point-label budget because labels can easily cover the evidence.
+Add `importance` when the visual hierarchy matters. Prefer named importance levels for LLM-authored
+specs because they are unambiguous: `claim_critical` > `supporting` > `context`. Use `rank` only
+when you mean ordinal order where `rank: 1` is first/highest priority. `priority` is a numeric score
+where larger values are stronger; avoid small sequences such as `priority: 1` / `priority: 2` unless
+you intentionally mean 2 is stronger than 1. ChartKit defaults to a sparse point-label budget because
+labels can easily cover the evidence.
 When the claim genuinely needs more than one point callout, declare the budget explicitly and use
-priorities instead of adding manual text:
+importance/rank instead of adding manual text:
 
 ```json
 {
   "insight_layout": {"max_marks": 3, "max_point_labels": 2},
   "data": {
     "insights": [
-      {"kind": "extreme", "series": "Daily return", "mode": "min", "label": "Worst day", "priority": 2},
-      {"kind": "extreme", "series": "Daily return", "mode": "max", "label": "Best day", "priority": 1}
+      {"kind": "extreme", "series": "Daily return", "mode": "min", "label": "Worst day", "importance": "claim_critical"},
+      {"kind": "extreme", "series": "Daily return", "mode": "max", "label": "Best day", "importance": "supporting"}
     ]
   }
 }
@@ -144,6 +148,9 @@ priorities instead of adding manual text:
 
 Do not raise `max_point_labels` merely because more labels are available. Use it only when the
 second or third label is part of the evidence hierarchy.
+If you already have an ordered insight list and `1` means the most important item, write `rank: 1`,
+`rank: 2`, etc. Do not encode that as `priority: 1`, `priority: 2`; CKQ125 will warn because
+ChartKit treats larger numeric priority as stronger.
 
 For a single-series categorical bar/ranking chart, `top_mover` marks the largest category value
 by default. Use `mode: "min"` with wording such as "Largest reduction" when lower values are
@@ -394,9 +401,22 @@ Do not write statistics as `{"field": "n", "value": "..."}` rows. Each `statisti
 describe one plotted evidence unit and include at least `n_definition`, `center`, and one of
 `spread`, `interval`, or `test`.
 
-When rendering a distribution from raw observations, you may bind directly to the CSV instead of
-copying every observation into `data.series`. Use this only when the CSV rows are already the
-observations to plot:
+Prefer source binding over copying long raw arrays into the JSON spec when the renderer supports
+the user's data shape. The spec should describe column names, visual roles, labels, and insights;
+the CSV should remain the reproducible data source. This keeps figures rerenderable when the data
+changes and avoids huge, brittle `figure.json` files. Use inline `data.series` only when you have
+computed a true aggregate or transformed table that the renderer cannot derive from the source.
+
+Supported source-binding patterns:
+
+- `distribution`: raw observation rows with `value_col` and optional `group_col`.
+- `scatter`: paired continuous observations with `x_col`, `y_col`, and optional `group_col`.
+- `time_series`: timestamped rows with `timestamp_col`, `value_col`, and optional `group_col`.
+- `heatmap`: wide matrix CSV with `row_col` and optional `value_cols`; numeric columns become
+  matrix columns in CSV order when `value_cols` is omitted.
+
+When rendering a distribution from raw observations, bind directly to the CSV instead of copying
+every observation into `data.series` when the CSV rows are already the observations to plot:
 
 ```json
 {
@@ -412,6 +432,60 @@ observations to plot:
       "Dose A": "低剂量组",
       "Dose B": "高剂量组"
     }
+  }
+}
+```
+
+If you need semantic colors or roles for source-bound groups, keep `data.source` and add a
+style-only `data.series` skeleton. Do not copy values/points into the skeleton. This style-only
+skeleton works for `distribution`, `scatter`, and `time_series` source binding:
+
+```json
+{
+  "data": {
+    "source": "input.csv",
+    "value_col": "score",
+    "group_col": "arm",
+    "group_order": ["Control", "Dose A", "Dose B"],
+    "series": [
+      {"name": "Control", "role": "baseline"},
+      {"name": "Dose B", "role": "ours", "color": "#315B7D"}
+    ]
+  }
+}
+```
+
+For scatter source binding, use:
+
+```json
+{
+  "type": "scatter",
+  "data": {
+    "source": "observations.csv",
+    "x_col": "model_score",
+    "y_col": "observed_outcome",
+    "group_col": "cohort",
+    "group_order": ["Baseline", "Ours"],
+    "series": [
+      {"name": "Baseline", "role": "baseline"},
+      {"name": "Ours", "role": "ours"}
+    ]
+  }
+}
+```
+
+For heatmap source binding, use a wide matrix CSV instead of copying every cell into `values`:
+
+```json
+{
+  "type": "heatmap",
+  "data": {
+    "source": "matrix.csv",
+    "row_col": "cohort",
+    "value_cols": ["calib", "recall", "precision", "auc"],
+    "label": "Delta score",
+    "colormap": "RdBu_r",
+    "symmetric": true
   }
 }
 ```
@@ -471,7 +545,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Dense forest interval → keep top rows, use matrix/profile/ranked-bar forms, or split into grouped panels (CKQ119)
 - Placeholder series names → replace `Series 1` / `Line A` / `S01` with source-derived labels, or hide raw/context series (CKQ115)
 - Too many manual text annotations → read CKQ116 `suggestions`; replace fixed labels with `data.insights`, move temporal cues to `data.events` / `data.intervals`, keep only 1-3 earned labels, or move narrative prose to `caption` / report body
-- Too many computed insights → CKQ117 is informational: ChartKit auto-caps visible cues; add `priority` / `importance`, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals` when the chosen visible cues are not the right ones
+- Too many computed insights → CKQ117 is informational: ChartKit auto-caps visible cues; add named `importance`, use `rank` when 1 means first, demote secondary cues to `role: "context"`, or move temporal cues into `data.events` / `data.intervals` when the chosen visible cues are not the right ones
 - Misplaced computed insights → move top-level `insights`, `data_insights`, or literal `"data.insights"` keys into `data.insights`; otherwise the renderer cannot compute or place them
 - Unknown `data_reference_lines` or top-level `reference_lines` schema error → move the threshold/baseline rule into `data.reference_lines`; do not delete meaningful reference evidence unless the figure no longer needs it
 - Invalid reference-line style → use `--`, `:`, `-.`, `solid`, `dashed`, `dashdot`, or `dotted`; keep semantics in label/role, not custom style text (CKQ122)
@@ -480,6 +554,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Mixed display language → read CKQ111 `suggestions`; translate listed visible labels, declare exact `official_terms` only for immutable identifiers, or hide internal keys
 - Legend overlaps data → apply CKQ104 `suggestions`: direct labels, outside legend, hide context entries, or a legend-only panel
 - Fragmented scatter legend → reduce relationship groups, hide context legend entries, or switch pairwise evidence to network_matrix/heatmap (CKQ124)
+- Rank-like computed insight priority → use `rank` when 1 means first, use named `importance`, or use larger numeric priority scores such as 100/60/20 (CKQ125)
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)
 
 For composite figures, see `references/composite-grammar.md`.

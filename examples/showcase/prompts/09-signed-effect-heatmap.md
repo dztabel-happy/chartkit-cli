@@ -7,6 +7,7 @@ I need to show signed metric changes across cohorts, including benefits and oper
 ## ChartKit choice
 
 Use `type: "heatmap"` with a diverging colormap for signed deltas. Group columns when metrics naturally separate into quality, operations, and generalization blocks.
+When the data is already a wide matrix CSV, bind it with `data.source`, `data.row_col`, and `data.value_cols` rather than copying every cell into `data.values`.
 
 ## Avoid
 

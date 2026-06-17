@@ -17,3 +17,5 @@ Avoid when the ranking variable is arbitrary; the cumulative curve needs a real 
 - `profile`: `report_a4.full_width`
 - `role`: `ranking`
 - source: `examples/showcase/source/13-ranked-contribution-pareto.csv`
+- source binding: `data.source`, `label_col: date`, `value_col: daily_net_profit_wan`
+- inline `data.items` is reserved for short examples, not daily/transaction-level records.

@@ -15,6 +15,10 @@ colors negative and positive bars separately, shades the negative tail, draws
 P25/P50/P75 guides, and overlays the cumulative positive contribution share on
 the right axis.
 
+For observation-level data, keep the rows in CSV and bind them with
+`data.source`, `label_col`, and `value_col` instead of inlining every item into
+the spec. Use `items` only for short hand-written examples.
+
 ## Avoid
 
 Do not use this chart for ordinary chronological trends; use `line`,

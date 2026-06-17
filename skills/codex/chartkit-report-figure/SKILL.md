@@ -330,6 +330,10 @@ value to an end value; use `label_mode: "delta"` when intermediate labels should
 own contribution. For independent signed effects, use lollipop/dumbbell/interval/ranked
 contribution instead of waterfall. For lollipop effect estimates, include `low`/`high` or `ci`
 when the source provides uncertainty intervals.
+For `ranked_contribution`, use `data.source` with `label_col` and `value_col` whenever the source
+contains observation-level rows (for example days, transactions, cohorts, or SKUs). Do not inline
+hundreds of `data.items`; inline items are only for short hand-written examples. `label_col` is the
+row label used for extremes/ticks, and `value_col` is the signed contribution being sorted.
 
 For `distribution`, choose the layout deliberately:
 - `layout: "box_strip"` when exact repeated observations, fold-level points, spread/overlap, and a compact summary box are the evidence. Use it explicitly for box-and-strip reference cards; do not replace it with a violin just because there are enough samples.

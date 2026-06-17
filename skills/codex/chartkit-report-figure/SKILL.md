@@ -29,6 +29,20 @@ Before writing anything, answer these questions:
 2. **What claim should the figure prove?** If the user has not stated a claim, infer one from the data and confirm.
 3. **Who is the audience and output format?** A4 business report, academic paper, or presentation?
 
+Before choosing a chart family, make a quick evidence inventory:
+
+- List the meaningful measures in the source data and classify them as magnitude, rate, share,
+  uncertainty, distribution, relationship, or event/context.
+- Identify the primary decision metric and any secondary metric that materially changes the
+  interpretation. Do not discard fields such as target, margin, burn, conversion, wait time,
+  or risk merely because one showcase card can plot the first numeric column.
+- Compare the strongest evidence questions: absolute trend, plan-vs-actual gap, share shift,
+  efficiency/rate, ranked driver, matrix relationship, or distribution. Choose the one that best
+  answers the user's likely decision, not the one that is easiest to render.
+- If useful fields are intentionally not shown, make that explicit in the `contract.conclusion`
+  or caption by narrowing the claim. A single data figure can focus, but it should not pretend
+  unexplored metrics were analyzed.
+
 From the answers, decide:
 - `conclusion` — one sentence with a verb: "Group A outperforms B on all three metrics"
 - `role` — what kind of evidence: `trend` | `comparison` | `distribution` | `correlation` | `composition` | `uncertainty` | `timeline` | `ranking` | `diagnostic`
@@ -55,6 +69,12 @@ from the atlas output and the files already present in the workspace.
 
 Do not start from a blank JSON unless no example card is relevant. Start from the nearest card,
 then replace the contract and data with the current user's analysis.
+
+Atlas is a retrieval aid, not a decision substitute. Do not automatically use the first card if
+the data contains a stronger evidence question. For example, a monthly channel CSV with revenue,
+target, margin, and burn can justify a mixed plan-vs-efficiency figure, a contribution/ranking
+figure, or a composition figure depending on the claim. Pick the card whose visual grammar matches
+the selected evidence question after the inventory above.
 
 Reference cards are visual examples only. Never copy their source rows, dates, labels, or values
 into the user's figure. Load and use the current task's source CSV values.

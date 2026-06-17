@@ -135,6 +135,12 @@ chart-kit build figure.json --out outputs/figure-name --theme business-cn --form
 
 The agent must inspect `chart-quality.json` and iterate until `quality.ok` is true unless the user accepts a known tradeoff.
 
+Before querying `chart-kit atlas`, the agent should inspect the current data fields and choose the
+strongest evidence question: trend, plan-vs-actual gap, composition/share shift, efficiency/rate,
+ranked driver, matrix relationship, or distribution. Atlas is a few-shot retrieval aid, not a
+chart-type checklist or a command to use the first similar card. Showcase examples teach visual
+grammar and evidence structure; the final spec must still be driven by the user's data and claim.
+
 ## Showcase
 
 The npm package includes a few-shot showcase library at `examples/showcase`. This is a single-figure

@@ -254,6 +254,10 @@ Prefer one **hero panel** that carries the primary conclusion. Supporting panels
 | Multiple panel types | `composite` |
 | Anything not covered above | `custom_python` |
 
+Do not treat two numeric columns as an automatic scatter plot. First preserve time, process,
+matrix, composition, or category structure when that structure carries the evidence; use `scatter`
+when the relationship, threshold, calibration, agreement, density, or outlier pattern is the claim.
+
 When the user or source fields signal composition or structure (`mix`, `composition`, `structure`,
 `share`, `portfolio`, `product mix`, `销售结构`, `构成`, `占比`, product/category by region, or
 two categorical dimensions plus a value/rate), first check whether the strongest evidence is a

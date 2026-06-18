@@ -106,6 +106,12 @@ line weight, marker size, and the visual density that ChartKit designed for the 
 Use the slot limit only as a maximum: figures may be scaled down if they exceed the A4 report slot,
 but should otherwise be inserted at their natural rendered physical size.
 
+Side-by-side or half-column report exhibits are layout decisions for the report layer, not ChartKit
+single-figure profiles. If a user asks for "the right chart" or "one chart that ReportKit will place
+beside another chart later", still generate a standalone `report_a4.full_width` ChartKit figure.
+Use `report_a4.compact` only for an explicit small inset, page-margin figure, thumbnail, sparkline,
+or compact slot.
+
 ## Chart Types
 
 Built-in single-chart types include:
@@ -140,6 +146,9 @@ strongest evidence question: trend, plan-vs-actual gap, composition/share shift,
 ranked driver, matrix relationship, or distribution. Atlas is a few-shot retrieval aid, not a
 chart-type checklist or a command to use the first similar card. Showcase examples teach visual
 grammar and evidence structure; the final spec must still be driven by the user's data and claim.
+Do not inherit a compact profile from an example card merely because the final report page will
+place charts side by side. Reference cards teach grammar; the user's delivery slot controls
+`profile`.
 
 ## Showcase
 

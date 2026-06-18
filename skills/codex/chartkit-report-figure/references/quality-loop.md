@@ -45,6 +45,7 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ123 | warning | High-frequency source collapsed to categorical bar | Preserve temporal shape with `time_series`/`mixed`/`area`/heatmap, or explicitly set `data.allow_temporal_collapse: true` plus `data.aggregation` |
 | CKQ124 | warning | Fragmented scatter legend | Reduce relationship groups, hide context legend entries, or switch pairwise evidence to `network_matrix`/heatmap |
 | CKQ125 | warning | Rank-like computed insight priority | Use `rank` when 1 means first/highest priority, use named `importance`, or use larger numeric priority scores such as 100/60/20 |
+| CKQ126 | warning | `report_a4.compact` used for side-by-side / half-column report layout | Use `report_a4.full_width` for the standalone ChartKit figure and let ReportKit arrange paired exhibits; keep `report_a4.compact` only for explicit inset/small-figure slots |
 | schema error | error | Unknown `data_reference_lines` / top-level `reference_lines` | Move threshold or baseline lines into `data.reference_lines`, e.g. `{"data": {"reference_lines": [{"intercept": 1.0, "axis": "right", "label": "效率阈值"}]}}` |
 | CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
 | CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |

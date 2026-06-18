@@ -81,8 +81,18 @@ into the user's figure. Load and use the current task's source CSV values.
 When a reference card matches the user's evidence need, carry over its chart `type` and explicit
 `layout`, but choose `profile` from the user's delivery slot. For standalone A4 report charts,
 default to `report_a4.full_width` unless the user explicitly asks for a smaller slot such as a
-half-width figure, compact inset, side-by-side report panel, or paper single-column figure.
+compact inset or paper single-column figure. Side-by-side report panels belong in the report
+layout layer, not in a standalone ChartKit profile.
 Reference card profile is a visual clue only; it must not override the user's report slot.
+Words such as "right-side chart", "left panel", "half-column", "side-by-side", "will be placed
+beside another chart", or "ReportKit will arrange it later" describe the report layout, not the
+ChartKit physical profile. Generate the requested standalone chart as `report_a4.full_width`.
+Use `report_a4.compact` only when the user explicitly says small inset, page-margin figure,
+thumbnail, sparkline, or compact slot.
+`examples/showcase` cards teach full-width A4 standalone figures. Do not create a
+side-by-side exhibit by simply shrinking a standalone showcase card. Those layouts
+need paired evidence design, shared headings, restrained labels, and often a shared legend or
+caption rhythm outside the individual chart.
 
 Do not equate "clean" with "less information." Add information cues when they are earned by the
 current data and claim: thresholds with business meaning, event windows, percentile markers,
@@ -352,10 +362,14 @@ Do not leave `layout: "auto"` when the matched reference card has an explicit la
 |---|---|---|
 | `report_a4.full_width` | 170 × 96 mm | Default A4 report |
 | `report_a4.wide` | 180 × 100 mm | Wide A4 slot |
-| `report_a4.half_width` | 82 × 62 mm | Two-column slot |
-| `report_a4.compact` | 120 × 72 mm | Compact inset |
+| `report_a4.compact` | 120 × 72 mm | Explicit compact inset / small figure slot only |
 | `nature.single_column` | 89 × 65 mm | Journal single-column |
 | `nature.double_column` | 183 × 110 mm | Journal double-column |
+
+Side-by-side report exhibits belong in the report layout layer. Do not model
+them as one narrow standalone ChartKit figure.
+If the user asks for "the right chart" or "one side of a later side-by-side report page", still use
+`report_a4.full_width` for the ChartKit output unless they explicitly say it is a small inset.
 
 **Theme:**
 - `business-cn` — default, CJK-ready serif, A4 reports
@@ -365,6 +379,11 @@ Do not leave `layout: "auto"` when the matched reference card has an explicit la
 runtime with CLI `--theme`; do not put `"theme"`, `"theme_id"`, or `style.theme` inside
 `figure.json`. The same spec should be able to render under `business-cn` or `nature` without
 editing the data contract.
+
+For compact bubble matrices, color and bubble size both encode interaction strength by default.
+ChartKit suppresses the redundant size legend in compact profiles unless `force_size_legend: true`
+is set; prefer keeping the colorbar and a small group key instead of stacking multiple side
+legends into an 82 mm panel.
 
 **Axis value formatting:**
 If the plotted values are ratios/proportions but the reader should see percentages, set

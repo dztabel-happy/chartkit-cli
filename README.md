@@ -4,6 +4,14 @@ ChartKit renders declarative chart specs into polished report-grade figures.
 
 It is designed for LLMs and agents at the final visualization step: the agent prepares the data and chart intent, writes `figure.json`, then calls `chart-kit` to produce stable SVG/PDF/PNG/TIFF artifacts.
 
+Default workflow:
+
+```text
+LLM analyzes data -> ChartKit builds one report-grade figure -> ReportKit inserts it at natural physical size
+```
+
+For A4 report delivery, ChartKit records the visible rendered size and the recommended physical insert size in `chart-manifest.json` and `build-result.json`. ReportKit or any other report system should use those values instead of stretching every chart to the full page slot.
+
 ## Install
 
 ```bash

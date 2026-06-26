@@ -6,8 +6,13 @@ This repository is the public ChartKit entry point.
 
 - `package.json`
 - `npm/chart-kit.cjs`
-- `skills/codex/chartkit-report-figure`
+- `skills/chartkit-report-figure`
 - public README and usage docs
+
+The skill is a single Agent Skills standard package. Codex users install it into
+`.agents/skills/chartkit-report-figure`; Claude Code users install the same
+directory into `.claude/skills/chartkit-report-figure`. The repository does not
+maintain separate `skills/codex` or `skills/claude` copies.
 
 ## Excluded
 

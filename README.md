@@ -138,9 +138,34 @@ Built-in single-chart types include:
 
 `composite` supports report/paper-style multi-panel figures. `custom_python` and `custom_r` are trusted local-script escape hatches when a built-in renderer would reduce quality.
 
-## Agent Usage
+## Agent Skill
 
-Use the bundled skill at `skills/codex/chartkit-report-figure` so agents follow the intended loop:
+ChartKit ships one standards-compatible Agent Skill at `skills/chartkit-report-figure`.
+It is not Codex-only or Claude-only: Codex and Claude Code use the same `SKILL.md`
+and references, then discover it from their own local skill directories.
+
+Install for a Codex project:
+
+```bash
+mkdir -p .agents/skills
+cp -R node_modules/@dztabel/chartkit/skills/chartkit-report-figure .agents/skills/
+```
+
+This creates `.agents/skills/chartkit-report-figure`.
+
+Install for a Claude Code project:
+
+```bash
+mkdir -p .claude/skills
+cp -R node_modules/@dztabel/chartkit/skills/chartkit-report-figure .claude/skills/
+```
+
+This creates `.claude/skills/chartkit-report-figure`.
+
+For a global npm install, replace `node_modules/@dztabel/chartkit` with
+`$(npm root -g)/@dztabel/chartkit`.
+
+The shared Agent Skill makes agents follow the intended loop:
 
 ```bash
 chart-kit validate figure.json --theme business-cn

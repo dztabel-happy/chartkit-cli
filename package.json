@@ -15,7 +15,7 @@
   },
   "files": [
     "npm/chart-kit.cjs",
-    "skills/codex/chartkit-report-figure",
+    "skills/chartkit-report-figure",
     "examples/showcase"
   ],
   "engines": {

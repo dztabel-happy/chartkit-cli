@@ -1,15 +1,15 @@
 <h1 align="center">ChartKit</h1>
 
-<p align="center">面向 Agent 的正式报告配图工具</p>
+<p align="center">A formal report figure tool for agents</p>
 
 <p align="center">
-  <a href="README.en.md">English</a>
+  <a href="README.zh-CN.md">中文</a>
   ·
-  <a href="#安装">安装</a>
+  <a href="#installation">Installation</a>
   ·
-  <a href="#快速开始">快速开始</a>
+  <a href="#quick-start">Quick Start</a>
   ·
-  <a href="#效果预览">效果预览</a>
+  <a href="#preview">Preview</a>
 </p>
 
 <p align="center">
@@ -19,57 +19,57 @@
 
 ---
 
-ChartKit 是面向 Agent 的正式报告配图工具。
+ChartKit is a report figure tool for agents.
 
-用户提供数据、资料或图表目标，Agent 负责整理数据和判断图表意图，ChartKit 负责把最终图表导出为可直接放入报告的 SVG、PDF、PNG 和 TIFF 图片。
+Users provide data, source materials, or a chart goal. The agent organizes the data and decides the chart intent. ChartKit exports the final figure as SVG, PDF, PNG, and TIFF images that can be inserted into formal reports.
 
-用户可以提供任意可被 Agent 读取和理解的资料，例如：
+Users can provide any material an agent can read and understand, such as:
 
-- Excel、CSV、JSON、PDF、网页、截图或已有报告。
-- 项目数据、经营数据、调研资料、实验结果或指标摘要。
-- 一个明确的分析目标，由 Agent 自行检索、整理数据并选择图表。
+- Excel, CSV, JSON, PDF, web pages, screenshots, or existing reports.
+- Project data, business data, research materials, experiment results, or metric summaries.
+- A clear analysis goal that the agent can research, organize, and turn into a chart.
 
-## 效果预览
+## Preview
 
-以下截图展示 ChartKit 的默认报告配图效果。
+These screenshots show ChartKit's default report figure output.
 
 | | | |
 |:---:|:---:|:---:|
-| <sub><strong>分布箱线图</strong></sub> | <sub><strong>差异柱状图</strong></sub> | <sub><strong>聚类散点图</strong></sub> |
-| <img src="examples/showcase/reference/01-distribution-box-strip.png" alt="ChartKit 分布箱线图" width="260"> | <img src="examples/showcase/reference/02-delta-bar-with-points.png" alt="ChartKit 差异柱状图" width="260"> | <img src="examples/showcase/reference/03-clustered-scatter.png" alt="ChartKit 聚类散点图" width="260"> |
-| <sub><strong>相关性热力图</strong></sub> | <sub><strong>区间森林图</strong></sub> | <sub><strong>面积趋势图</strong></sub> |
-| <img src="examples/showcase/reference/04-correlation-heatmap.png" alt="ChartKit 相关性热力图" width="260"> | <img src="examples/showcase/reference/05-forest-interval.png" alt="ChartKit 区间森林图" width="260"> | <img src="examples/showcase/reference/06-area-trajectory.png" alt="ChartKit 面积趋势图" width="260"> |
-| <sub><strong>基准柱状图</strong></sub> | <sub><strong>岭线分布图</strong></sub> | <sub><strong>效应热力图</strong></sub> |
-| <img src="examples/showcase/reference/07-benchmark-score-bars.png" alt="ChartKit 基准柱状图" width="260"> | <img src="examples/showcase/reference/08-ridge-distribution.png" alt="ChartKit 岭线分布图" width="260"> | <img src="examples/showcase/reference/09-signed-effect-heatmap.png" alt="ChartKit 效应热力图" width="260"> |
-| <sub><strong>验证趋势图</strong></sub> | <sub><strong>双轴组合图</strong></sub> | <sub><strong>分布直方图</strong></sub> |
-| <img src="examples/showcase/reference/10-line-validation-trajectory.png" alt="ChartKit 验证趋势图" width="260"> | <img src="examples/showcase/reference/11-mixed-dual-axis.png" alt="ChartKit 双轴组合图" width="260"> | <img src="examples/showcase/reference/12-distribution-histogram.png" alt="ChartKit 分布直方图" width="260"> |
-| <sub><strong>帕累托贡献图</strong></sub> | <sub><strong>火山散点图</strong></sub> | <sub><strong>气泡矩阵图</strong></sub> |
-| <img src="examples/showcase/reference/13-ranked-contribution-pareto.png" alt="ChartKit 帕累托贡献图" width="260"> | <img src="examples/showcase/reference/14-volcano-scatter.png" alt="ChartKit 火山散点图" width="260"> | <img src="examples/showcase/reference/15-bubble-matrix.png" alt="ChartKit 气泡矩阵图" width="260"> |
-| <sub><strong>堆叠面积图</strong></sub> | <sub><strong>瀑布贡献图</strong></sub> | <sub><strong>雷达基准图</strong></sub> |
-| <img src="examples/showcase/reference/16-stacked-area-composition.png" alt="ChartKit 堆叠面积图" width="260"> | <img src="examples/showcase/reference/17-contribution-waterfall.png" alt="ChartKit 瀑布贡献图" width="260"> | <img src="examples/showcase/reference/18-profile-benchmark.png" alt="ChartKit 雷达基准图" width="260"> |
-| <sub><strong>事件时间序列图</strong></sub> | <sub><strong>小提琴分布图</strong></sub> | <sub><strong>百分比堆叠图</strong></sub> |
-| <img src="examples/showcase/reference/19-time-series-events.png" alt="ChartKit 事件时间序列图" width="260"> | <img src="examples/showcase/reference/20-distribution-violin.png" alt="ChartKit 小提琴分布图" width="260"> | <img src="examples/showcase/reference/21-bar-percent-stack.png" alt="ChartKit 百分比堆叠图" width="260"> |
-| <sub><strong>棒棒糖排名图</strong></sub> | <sub><strong>斜率图</strong></sub> | <sub><strong>误差带时间序列图</strong></sub> |
-| <img src="examples/showcase/reference/22-contribution-lollipop-ranking.png" alt="ChartKit 棒棒糖排名图" width="260"> | <img src="examples/showcase/reference/23-line-slopegraph.png" alt="ChartKit 斜率图" width="260"> | <img src="examples/showcase/reference/24-time-series-error-band.png" alt="ChartKit 误差带时间序列图" width="260"> |
+| <sub><strong>Distribution box plot</strong></sub> | <sub><strong>Delta bar chart</strong></sub> | <sub><strong>Clustered scatter plot</strong></sub> |
+| <img src="examples/showcase/reference/01-distribution-box-strip.png" alt="ChartKit distribution box plot" width="260"> | <img src="examples/showcase/reference/02-delta-bar-with-points.png" alt="ChartKit delta bar chart" width="260"> | <img src="examples/showcase/reference/03-clustered-scatter.png" alt="ChartKit clustered scatter plot" width="260"> |
+| <sub><strong>Correlation heatmap</strong></sub> | <sub><strong>Forest interval plot</strong></sub> | <sub><strong>Area trajectory chart</strong></sub> |
+| <img src="examples/showcase/reference/04-correlation-heatmap.png" alt="ChartKit correlation heatmap" width="260"> | <img src="examples/showcase/reference/05-forest-interval.png" alt="ChartKit forest interval plot" width="260"> | <img src="examples/showcase/reference/06-area-trajectory.png" alt="ChartKit area trajectory chart" width="260"> |
+| <sub><strong>Benchmark bar chart</strong></sub> | <sub><strong>Ridge distribution plot</strong></sub> | <sub><strong>Signed effect heatmap</strong></sub> |
+| <img src="examples/showcase/reference/07-benchmark-score-bars.png" alt="ChartKit benchmark bar chart" width="260"> | <img src="examples/showcase/reference/08-ridge-distribution.png" alt="ChartKit ridge distribution plot" width="260"> | <img src="examples/showcase/reference/09-signed-effect-heatmap.png" alt="ChartKit signed effect heatmap" width="260"> |
+| <sub><strong>Validation line chart</strong></sub> | <sub><strong>Dual-axis mixed chart</strong></sub> | <sub><strong>Distribution histogram</strong></sub> |
+| <img src="examples/showcase/reference/10-line-validation-trajectory.png" alt="ChartKit validation line chart" width="260"> | <img src="examples/showcase/reference/11-mixed-dual-axis.png" alt="ChartKit dual-axis mixed chart" width="260"> | <img src="examples/showcase/reference/12-distribution-histogram.png" alt="ChartKit distribution histogram" width="260"> |
+| <sub><strong>Ranked Pareto contribution</strong></sub> | <sub><strong>Volcano scatter plot</strong></sub> | <sub><strong>Bubble matrix</strong></sub> |
+| <img src="examples/showcase/reference/13-ranked-contribution-pareto.png" alt="ChartKit ranked Pareto contribution chart" width="260"> | <img src="examples/showcase/reference/14-volcano-scatter.png" alt="ChartKit volcano scatter plot" width="260"> | <img src="examples/showcase/reference/15-bubble-matrix.png" alt="ChartKit bubble matrix" width="260"> |
+| <sub><strong>Stacked area chart</strong></sub> | <sub><strong>Contribution waterfall</strong></sub> | <sub><strong>Radar benchmark profile</strong></sub> |
+| <img src="examples/showcase/reference/16-stacked-area-composition.png" alt="ChartKit stacked area chart" width="260"> | <img src="examples/showcase/reference/17-contribution-waterfall.png" alt="ChartKit contribution waterfall chart" width="260"> | <img src="examples/showcase/reference/18-profile-benchmark.png" alt="ChartKit radar benchmark profile" width="260"> |
+| <sub><strong>Event time series</strong></sub> | <sub><strong>Violin distribution plot</strong></sub> | <sub><strong>Percent stacked bar</strong></sub> |
+| <img src="examples/showcase/reference/19-time-series-events.png" alt="ChartKit event time series chart" width="260"> | <img src="examples/showcase/reference/20-distribution-violin.png" alt="ChartKit violin distribution plot" width="260"> | <img src="examples/showcase/reference/21-bar-percent-stack.png" alt="ChartKit percent stacked bar chart" width="260"> |
+| <sub><strong>Lollipop ranking chart</strong></sub> | <sub><strong>Slopegraph</strong></sub> | <sub><strong>Error-band time series</strong></sub> |
+| <img src="examples/showcase/reference/22-contribution-lollipop-ranking.png" alt="ChartKit lollipop ranking chart" width="260"> | <img src="examples/showcase/reference/23-line-slopegraph.png" alt="ChartKit slopegraph" width="260"> | <img src="examples/showcase/reference/24-time-series-error-band.png" alt="ChartKit error-band time series chart" width="260"> |
 
-## 安装
+## Installation
 
-### 1. 安装 CLI
+### 1. Install the CLI
 
 ```bash
 npm install -g @dztabel/chartkit
 chart-kit --version
 ```
 
-出现类似输出代表 CLI 安装成功：
+Output like this means the CLI is installed:
 
 ```text
 chart-kit 0.1.43
 ```
 
-### 2. 安装 Agent skill（二选一）
+### 2. Install one Agent skill
 
-ChartKit 使用同一份 `skills/chartkit-report-figure` skill，分别安装到 Codex 或 Claude Code 的 skill 目录。
+ChartKit uses the same `skills/chartkit-report-figure` skill for Codex and Claude Code. Install it into the skill directory for your agent.
 
 #### 2.1 Codex
 
@@ -80,19 +80,19 @@ cd chartkit-cli
 node -e "const fs=require('fs'),os=require('os'),path=require('path');const src=path.join(process.cwd(),'skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.agents','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Codex skill installed');"
 ```
 
-检查 Codex skill 是否安装成功，在终端中输入：
+Check the Codex skill installation:
 
 ```bash
 node -e "const fs=require('fs'),os=require('os'),path=require('path');const p=path.join(os.homedir(),'.agents','skills','chartkit-report-figure','SKILL.md');if(!fs.existsSync(p))process.exit(1);console.log('Codex skill installed');"
 ```
 
-出现以下输出代表成功：
+Expected output:
 
 ```text
 Codex skill installed
 ```
 
-打开 Codex 后输入 `$chartkit-report-figure`。能按 `Tab` 选中该 skill，代表可用。若未出现，按 `Cmd+K` / `Ctrl+K` 选择 `Force Reload Skills`，或重新打开 Codex。
+Open Codex and type `$chartkit-report-figure`. If the skill can be selected with `Tab`, it is ready. If it does not appear, press `Cmd+K` / `Ctrl+K`, choose `Force Reload Skills`, or reopen Codex.
 
 #### 2.2 Claude Code
 
@@ -103,62 +103,62 @@ cd chartkit-cli
 node -e "const fs=require('fs'),os=require('os'),path=require('path');const src=path.join(process.cwd(),'skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.claude','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Claude Code skill installed');"
 ```
 
-检查 Claude Code skill 是否安装成功，在终端中输入：
+Check the Claude Code skill installation:
 
 ```bash
 node -e "const fs=require('fs'),os=require('os'),path=require('path');const p=path.join(os.homedir(),'.claude','skills','chartkit-report-figure','SKILL.md');if(!fs.existsSync(p))process.exit(1);console.log('Claude Code skill installed');"
 ```
 
-出现以下输出代表成功：
+Expected output:
 
 ```text
 Claude Code skill installed
 ```
 
-打开 Claude Code 后输入 `/chartkit-report-figure`。能选中该 skill，代表可用。若未出现，输入 `/reload-skills` 后重试；旧版本 Claude Code 可重新打开窗口。
+Open Claude Code and type `/chartkit-report-figure`. If the skill can be selected, it is ready. If it does not appear, run `/reload-skills` and try again. Older Claude Code versions may need a window restart.
 
-## 快速开始
+## Quick Start
 
-### 1. 用户带数据生成报告配图
-
-```text
-$chartkit-report-figure 请读取我上传的销售 Excel，做一张适合放进经营复盘报告的收入趋势对比图。
-/chartkit-report-figure 请读取我上传的销售 Excel，做一张适合放进经营复盘报告的收入趋势对比图。
-```
-
-### 2. 用户只给分析目标，Agent 自行整理数据
+### 1. User provides data and asks for a report figure
 
 ```text
-$chartkit-report-figure 请调研近三年国内储能装机数据，做一张适合行业研究报告使用的趋势图。
-/chartkit-report-figure 请调研近三年国内储能装机数据，做一张适合行业研究报告使用的趋势图。
+$chartkit-report-figure Please read my uploaded sales Excel file and make a revenue trend comparison chart for a business review report.
+/chartkit-report-figure Please read my uploaded sales Excel file and make a revenue trend comparison chart for a business review report.
 ```
 
-### 3. 用户已有明确结论，Agent 选择合适图表表达
+### 2. User gives only an analysis goal, and the agent gathers the data
 
 ```text
-$chartkit-report-figure 请围绕“渠道 C 是本季度增长的主要来源”这个结论，选择合适图表并导出正式报告配图。
-/chartkit-report-figure 请围绕“渠道 C 是本季度增长的主要来源”这个结论，选择合适图表并导出正式报告配图。
+$chartkit-report-figure Please research China's energy storage installations over the past three years and make a trend chart for an industry research report.
+/chartkit-report-figure Please research China's energy storage installations over the past three years and make a trend chart for an industry research report.
 ```
 
-### 4. 用户基于反馈迭代图表
+### 3. User has a conclusion, and the agent chooses the right chart
 
 ```text
-$chartkit-report-figure 请把刚才生成的图改成更适合管理层阅读的版本，突出前三个贡献因素并重新导出。
-/chartkit-report-figure 请把刚才生成的图改成更适合管理层阅读的版本，突出前三个贡献因素并重新导出。
+$chartkit-report-figure Please build a formal report figure around this conclusion: "Channel C was the main source of growth this quarter."
+/chartkit-report-figure Please build a formal report figure around this conclusion: "Channel C was the main source of growth this quarter."
 ```
 
-Agent 会完成资料读取、数据整理、图表选择、图片导出和质量检查。
+### 4. User revises a generated figure
 
-## 技术细节
+```text
+$chartkit-report-figure Please make the chart more suitable for executives, highlight the top three contribution factors, and export it again.
+/chartkit-report-figure Please make the chart more suitable for executives, highlight the top three contribution factors, and export it again.
+```
 
-Agent 会自动整理图表 spec，并调用：
+The agent handles material reading, data organization, chart selection, image export, and quality checks.
+
+## Technical Details
+
+The agent organizes a chart spec and calls:
 
 ```bash
 chart-kit validate figure.json --theme business-cn
 chart-kit build figure.json --out ./chart-output --theme business-cn --format all
 ```
 
-ChartKit 输出：
+ChartKit outputs:
 
 ```text
 chart-output/chart.svg
@@ -170,26 +170,26 @@ chart-output/chart-manifest.json
 chart-output/build-result.json
 ```
 
-内置图表类型包括：
+Built-in chart types:
 
-- 折线图 / 时间序列图：`line` / `time_series`
-- 柱状图：`bar`
-- 散点图：`scatter`
-- 热力图 / 矩阵图：`heatmap` / `network_matrix`
-- 分布图：`distribution`
-- 区间图 / 森林图：`interval`
-- 面积图：`area`
-- 贡献图 / 瀑布图 / 排名图：`contribution`
-- 雷达图 / 能力剖面图：`radar`
-- 图像板：`image_plate`
-- 机制图 / 流程图：`schematic`
-- 多面板组合图：`composite`
+- Line chart / time series chart: `line` / `time_series`
+- Bar chart: `bar`
+- Scatter plot: `scatter`
+- Heatmap / matrix chart: `heatmap` / `network_matrix`
+- Distribution plot: `distribution`
+- Interval plot / forest plot: `interval`
+- Area chart: `area`
+- Contribution chart / waterfall chart / ranking chart: `contribution`
+- Radar chart / capability profile: `radar`
+- Image plate: `image_plate`
+- Schematic / process chart: `schematic`
+- Multi-panel composite figure: `composite`
 
-## 排障
+## Troubleshooting
 
-当前公开测试版支持 macOS Apple Silicon、Linux x64 和 Windows x64。
+The current public beta supports macOS Apple Silicon, Linux x64, and Windows x64.
 
-如果全局 npm 安装跳过了 optional dependencies，显式安装对应平台包：
+If a global npm install skips optional dependencies, install the platform package explicitly:
 
 ```bash
 # macOS Apple Silicon
@@ -202,19 +202,19 @@ npm install -g @dztabel/chartkit @dztabel/chartkit-linux-x64
 npm install -g @dztabel/chartkit @dztabel/chartkit-win32-x64
 ```
 
-构建失败时，提交 issue 请附：
+When reporting a build failure, include:
 
 - `chart-kit --version`
 - `chart-output/chart-quality.json`
 - `chart-output/build-result.json`
-- 可复现问题的最小数据或图表需求
+- The smallest reproducible data sample or chart request
 
-## 仓库范围
+## Repository Scope
 
-本公开仓库包含 npm wrapper 元数据、命令 shim、公开 skill、文档和 showcase 预览资产。
+This public repository contains npm wrapper metadata, the command shim, public skill files, docs, and showcase preview assets.
 
-渲染器源码、schemas、主题、字体、视觉回归样例和平台二进制不包含在本仓库中。平台二进制通过 npm 平台包分发。
+Renderer source code, schemas, themes, fonts, visual regression samples, and platform binaries are not included in this repository. Platform binaries are distributed through npm platform packages.
 
-## 许可
+## License
 
-ChartKit 以专有 CLI 二进制形式通过 npm 分发。本仓库提供用于安装和使用 CLI 的公开 wrapper、skill 和文档。
+ChartKit is distributed through npm as a proprietary CLI binary. This repository provides the public wrapper, skill, and docs for installing and using the CLI.

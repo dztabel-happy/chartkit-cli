@@ -1,6 +1,23 @@
-# ChartKit
+<h1 align="center">ChartKit</h1>
 
-[English README](README.en.md)
+<p align="center">面向 Agent 的正式报告配图工具</p>
+
+<p align="center">
+  <a href="README.en.md">English</a>
+  ·
+  <a href="#安装">安装</a>
+  ·
+  <a href="#快速开始">快速开始</a>
+  ·
+  <a href="#效果预览">效果预览</a>
+</p>
+
+<p align="center">
+  <img alt="npm" src="https://img.shields.io/npm/v/@dztabel/chartkit?label=npm">
+  <img alt="platforms" src="https://img.shields.io/badge/platform-macOS%20arm64%20%7C%20Linux%20x64%20%7C%20Windows%20x64-blue">
+</p>
+
+---
 
 ChartKit 是面向 Agent 的正式报告配图工具。
 
@@ -17,7 +34,7 @@ ChartKit 是面向 Agent 的正式报告配图工具。
 以下截图展示 ChartKit 的默认报告配图效果。
 
 | | | |
-|---|---|---|
+|:---:|:---:|:---:|
 | <img src="examples/showcase/reference/01-distribution-box-strip.png" alt="ChartKit 分布箱线图" width="260"><br>**分布箱线图** | <img src="examples/showcase/reference/02-delta-bar-with-points.png" alt="ChartKit 差异柱状图" width="260"><br>**差异柱状图** | <img src="examples/showcase/reference/03-clustered-scatter.png" alt="ChartKit 聚类散点图" width="260"><br>**聚类散点图** |
 | <img src="examples/showcase/reference/04-correlation-heatmap.png" alt="ChartKit 相关性热力图" width="260"><br>**相关性热力图** | <img src="examples/showcase/reference/05-forest-interval.png" alt="ChartKit 区间森林图" width="260"><br>**区间森林图** | <img src="examples/showcase/reference/06-area-trajectory.png" alt="ChartKit 面积趋势图" width="260"><br>**面积趋势图** |
 | <img src="examples/showcase/reference/07-benchmark-score-bars.png" alt="ChartKit 基准柱状图" width="260"><br>**基准柱状图** | <img src="examples/showcase/reference/08-ridge-distribution.png" alt="ChartKit 岭线分布图" width="260"><br>**岭线分布图** | <img src="examples/showcase/reference/09-signed-effect-heatmap.png" alt="ChartKit 效应热力图" width="260"><br>**效应热力图** |
@@ -29,7 +46,7 @@ ChartKit 是面向 Agent 的正式报告配图工具。
 
 ## 安装
 
-1. 安装 CLI：
+### 1. 安装 CLI
 
 ```bash
 npm install -g @dztabel/chartkit
@@ -42,11 +59,11 @@ chart-kit --version
 chart-kit 0.1.43
 ```
 
-2. 安装 Agent skill（二选一）。
+### 2. 安装 Agent skill（二选一）
 
 ChartKit 使用同一份 `skills/chartkit-report-figure` skill，分别安装到 Codex 或 Claude Code 的 skill 目录。
 
-2.1 Codex：
+#### 2.1 Codex
 
 ```bash
 git clone https://github.com/dztabel-happy/chartkit-cli.git
@@ -69,7 +86,7 @@ Codex skill installed
 
 打开 Codex 后输入 `$chartkit-report-figure`。能按 `Tab` 选中该 skill，代表可用。若未出现，按 `Cmd+K` / `Ctrl+K` 选择 `Force Reload Skills`，或重新打开 Codex。
 
-2.2 Claude Code：
+#### 2.2 Claude Code
 
 ```bash
 git clone https://github.com/dztabel-happy/chartkit-cli.git
@@ -94,28 +111,28 @@ Claude Code skill installed
 
 ## 快速开始
 
-1. 用户带数据生成报告配图。
+### 1. 用户带数据生成报告配图
 
 ```text
 $chartkit-report-figure 请读取我上传的销售 Excel，做一张适合放进经营复盘报告的收入趋势对比图。
 /chartkit-report-figure 请读取我上传的销售 Excel，做一张适合放进经营复盘报告的收入趋势对比图。
 ```
 
-2. 用户只给分析目标，Agent 自行整理数据。
+### 2. 用户只给分析目标，Agent 自行整理数据
 
 ```text
 $chartkit-report-figure 请调研近三年国内储能装机数据，做一张适合行业研究报告使用的趋势图。
 /chartkit-report-figure 请调研近三年国内储能装机数据，做一张适合行业研究报告使用的趋势图。
 ```
 
-3. 用户已有明确结论，Agent 选择合适图表表达。
+### 3. 用户已有明确结论，Agent 选择合适图表表达
 
 ```text
 $chartkit-report-figure 请围绕“渠道 C 是本季度增长的主要来源”这个结论，选择合适图表并导出正式报告配图。
 /chartkit-report-figure 请围绕“渠道 C 是本季度增长的主要来源”这个结论，选择合适图表并导出正式报告配图。
 ```
 
-4. 用户基于反馈迭代图表。
+### 4. 用户基于反馈迭代图表
 
 ```text
 $chartkit-report-figure 请把刚才生成的图改成更适合管理层阅读的版本，突出前三个贡献因素并重新导出。

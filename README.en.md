@@ -1,6 +1,23 @@
-# ChartKit
+<h1 align="center">ChartKit</h1>
 
-[中文 README](README.md)
+<p align="center">A formal report figure tool for agents</p>
+
+<p align="center">
+  <a href="README.md">中文</a>
+  ·
+  <a href="#installation">Installation</a>
+  ·
+  <a href="#quick-start">Quick Start</a>
+  ·
+  <a href="#preview">Preview</a>
+</p>
+
+<p align="center">
+  <img alt="npm" src="https://img.shields.io/npm/v/@dztabel/chartkit?label=npm">
+  <img alt="platforms" src="https://img.shields.io/badge/platform-macOS%20arm64%20%7C%20Linux%20x64%20%7C%20Windows%20x64-blue">
+</p>
+
+---
 
 ChartKit is a report figure tool for agents.
 
@@ -17,7 +34,7 @@ Users can provide any material an agent can read and understand, such as:
 These screenshots show ChartKit's default report figure output.
 
 | | | |
-|---|---|---|
+|:---:|:---:|:---:|
 | <img src="examples/showcase/reference/01-distribution-box-strip.png" alt="ChartKit distribution box plot" width="260"><br>**Distribution box plot** | <img src="examples/showcase/reference/02-delta-bar-with-points.png" alt="ChartKit delta bar chart" width="260"><br>**Delta bar chart** | <img src="examples/showcase/reference/03-clustered-scatter.png" alt="ChartKit clustered scatter plot" width="260"><br>**Clustered scatter plot** |
 | <img src="examples/showcase/reference/04-correlation-heatmap.png" alt="ChartKit correlation heatmap" width="260"><br>**Correlation heatmap** | <img src="examples/showcase/reference/05-forest-interval.png" alt="ChartKit forest interval plot" width="260"><br>**Forest interval plot** | <img src="examples/showcase/reference/06-area-trajectory.png" alt="ChartKit area trajectory chart" width="260"><br>**Area trajectory chart** |
 | <img src="examples/showcase/reference/07-benchmark-score-bars.png" alt="ChartKit benchmark bar chart" width="260"><br>**Benchmark bar chart** | <img src="examples/showcase/reference/08-ridge-distribution.png" alt="ChartKit ridge distribution plot" width="260"><br>**Ridge distribution plot** | <img src="examples/showcase/reference/09-signed-effect-heatmap.png" alt="ChartKit signed effect heatmap" width="260"><br>**Signed effect heatmap** |
@@ -29,7 +46,7 @@ These screenshots show ChartKit's default report figure output.
 
 ## Installation
 
-1. Install the CLI:
+### 1. Install the CLI
 
 ```bash
 npm install -g @dztabel/chartkit
@@ -42,11 +59,11 @@ Output like this means the CLI is installed:
 chart-kit 0.1.43
 ```
 
-2. Install the Agent skill. Choose one path.
+### 2. Install one Agent skill
 
 ChartKit uses the same `skills/chartkit-report-figure` skill for Codex and Claude Code. Install it into the skill directory for your agent.
 
-2.1 Codex:
+#### 2.1 Codex
 
 ```bash
 git clone https://github.com/dztabel-happy/chartkit-cli.git
@@ -69,7 +86,7 @@ Codex skill installed
 
 Open Codex and type `$chartkit-report-figure`. If the skill can be selected with `Tab`, it is ready. If it does not appear, press `Cmd+K` / `Ctrl+K`, choose `Force Reload Skills`, or reopen Codex.
 
-2.2 Claude Code:
+#### 2.2 Claude Code
 
 ```bash
 git clone https://github.com/dztabel-happy/chartkit-cli.git
@@ -94,28 +111,28 @@ Open Claude Code and type `/chartkit-report-figure`. If the skill can be selecte
 
 ## Quick Start
 
-1. User provides data and asks for a report figure.
+### 1. User provides data and asks for a report figure
 
 ```text
 $chartkit-report-figure Please read my uploaded sales Excel file and make a revenue trend comparison chart for a business review report.
 /chartkit-report-figure Please read my uploaded sales Excel file and make a revenue trend comparison chart for a business review report.
 ```
 
-2. User gives only an analysis goal, and the agent gathers the data.
+### 2. User gives only an analysis goal, and the agent gathers the data
 
 ```text
 $chartkit-report-figure Please research China's energy storage installations over the past three years and make a trend chart for an industry research report.
 /chartkit-report-figure Please research China's energy storage installations over the past three years and make a trend chart for an industry research report.
 ```
 
-3. User has a conclusion, and the agent chooses the right chart.
+### 3. User has a conclusion, and the agent chooses the right chart
 
 ```text
 $chartkit-report-figure Please build a formal report figure around this conclusion: "Channel C was the main source of growth this quarter."
 /chartkit-report-figure Please build a formal report figure around this conclusion: "Channel C was the main source of growth this quarter."
 ```
 
-4. User revises a generated figure.
+### 4. User revises a generated figure
 
 ```text
 $chartkit-report-figure Please make the chart more suitable for executives, highlight the top three contribution factors, and export it again.

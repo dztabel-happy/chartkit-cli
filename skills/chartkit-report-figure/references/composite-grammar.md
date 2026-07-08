@@ -1,119 +1,121 @@
-# Composite Grammar
+# Composite Grammar — Small Multiples
 
-Use `type: "composite"` when one figure needs multiple evidence panels.
+A composite is **one chart type repeated across facets**: a uniform grid of the
+same small figure, one cell per facet (one month, one cohort, one site). It is
+*not* a way to pack several different charts into one frame.
 
-## When to use composite
+If you need several *different* evidence types, produce several **separate**
+figures and let the report place them — do not reach for `composite`.
 
-- The figure contract requires more than one evidence type to support the conclusion
-- A single chart type cannot carry the full argument
-- The archetype is `asymmetric_evidence`, `evidence_matrix`, `schematic_led_composite`, or `clinical_triptych`
+## The one rule
 
-## Grid layout
+**Compose only sparse facets of the same chart; never shrink a dense or complex
+figure into a cell.** Everything below follows from this.
 
-Prefer explicit `grid` layout when you need exact row/column/span control:
+- **Uniform grid.** Every cell is the same chart type and the same size —
+  四平八稳, symmetric, aligned. A plain `rows × cols` grid, no hero cells, no spans.
+- **Width-bounded, height-flexible.** Width is fixed by the report profile (a Word
+  column). The grid grows *downward* by adding rows; it never grows wider.
+- **Low per-cell density.** A cell is ~⅓ of a column. Keep each facet to a few
+  series and few points so it stays legible at that size.
+- **Shared scale, one legend.** Facets are meant to be compared, so they share a
+  y-scale, and the key is drawn once for the whole figure, not per cell.
+- **Same quality as a single figure.** Each cell is drawn by the *standalone*
+  renderer, so any single-figure improvement propagates to composites for free.
 
-```json
-"layout": {
-  "kind": "grid",
-  "rows": 2,
-  "cols": 3,
-  "width_ratios": [1.25, 1.0, 0.08],
-  "height_ratios": [1.0, 1.0],
-  "wspace": 0.32,
-  "hspace": 0.42
-}
-```
-
-Use `layout.kind: "evidence"` only when ChartKit should derive proportions from
-`contract.evidence_hierarchy` automatically.
-
-## Panel placement
-
-Each panel sets `row`, `col`, `rowspan` (optional), `colspan` (optional):
-
-```json
-{"id": "hero", "row": 0, "col": 0, "rowspan": 2, "type": "time_series", "data": {...}}
-```
-
-Write `contract.panel_map` before placing panels so every panel answers a distinct question.
-
-## Special panel kinds
-
-**Legend-only panel** — use when a legend would cover data:
-```json
-{"id": "legend", "row": 1, "col": 2, "kind": "legend"}
-```
-
-**Shared colorbar** — for multiple heatmaps sharing one scale:
-```json
-"shared_colorbar": {"label": "Correlation"},
-"panels": [
-  {"id": "h1", "row": 0, "col": 0, "type": "heatmap", "data": {...}},
-  {"id": "h2", "row": 0, "col": 1, "type": "heatmap", "data": {...}},
-  {"id": "cb", "row": 0, "col": 2, "kind": "colorbar"}
-]
-```
-
-## Full composite example
+## The facet grammar
 
 ```json
 {
   "version": "0.1",
   "type": "composite",
+  "layout": "small_multiples",
   "profile": "report_a4.full_width",
-  "contract": {
-    "conclusion": "The model improves accuracy while preserving calibration.",
-    "role": "diagnostic",
-    "archetype": "asymmetric_evidence",
-    "panel_map": {
-      "trend": "Primary accuracy trend over training",
-      "matrix": "Feature correlation structure"
-    },
-    "evidence_hierarchy": {
-      "hero": ["trend"],
-      "supporting": ["matrix"],
-      "context": ["legend", "colorbar"]
-    }
-  },
-  "layout": {
-    "kind": "grid",
-    "rows": 2,
-    "cols": 3,
-    "width_ratios": [1.2, 1.0, 0.08],
-    "height_ratios": [1.0, 1.0]
-  },
-  "panel_labels": true,
-  "shared_colorbar": {"label": "Correlation"},
-  "panels": [
-    {"id": "trend", "row": 0, "col": 0, "rowspan": 2, "type": "time_series",
-     "data": {"timestamps": [], "series": []}},
-    {"id": "matrix", "row": 0, "col": 1, "type": "heatmap",
-     "data": {"values": [], "x_labels": [], "y_labels": []}},
-    {"id": "legend", "row": 1, "col": 1, "kind": "legend"},
-    {"id": "colorbar", "row": 0, "col": 2, "rowspan": 2, "kind": "colorbar"}
-  ]
+  "columns": 3,
+  "share_y": true,
+  "facet": {
+    "base": { /* the shared chart spec: type, axes, styling, annotations */ },
+    "panels": [ /* one entry per facet; each overrides a slice of base */ ]
+  }
 }
 ```
 
-## Panel type combinations that work well
+- `facet.base` is a normal single-chart spec (its `type` is the chart type for
+  every cell). Put everything the facets share here: axis labels, styling,
+  reference lines.
+- `facet.panels[]` each carry a `title` (the cell caption) and a `data` block that
+  is *merged into* `base.data` — so a panel supplies only its facet-specific
+  series/values and inherits the rest.
+- `columns` sets the grid width (default `min(3, n)`, capped at 3). Rows are
+  derived: `ceil(n / columns)`.
+- `share_y` (default `true`) shares the y-scale across all cells.
 
-- `scatter` — embedding or agreement structure
-- `distribution` with `layout: "ridge"` — score distributions across groups
-- `heatmap` — correlation or similarity matrix
-- `joint_scatter` — model-vs-human or prediction-vs-observation
-- `radar` — multi-metric tradeoffs
-- `convergence` — training or optimization dynamics
-- `interval` — uncertainty intervals or forest plots
-- `area` — cumulative or stacked composition
-- `contribution` — waterfall or dumbbell narratives
-- `network_matrix` — adjacency or similarity with group annotations
-- `image_plate` — representative image evidence
-- `schematic` — mechanism/workflow primitives (supporting, not hero in data figures)
+The engine draws the shared legend once in a reserved top band, shares the
+y-limits, shows the x-axis only on the bottom row and the y-axis only on the left
+column, and hides any trailing empty cells.
 
-## Composite panel rules
+## Worked example — monthly small multiples
 
-- Every panel must be legible as a standalone mini-figure
-- The whole grid reads as one evidence hierarchy
-- Do not combine unrelated panels just because the grid allows it
-- Panel labels: bottom-centered `(a)`, `(b)` — never bare upper-left `a`, `b`
-- If panels repeat the same evidence question, merge or replace one (triggers CKQ404)
+```json
+{
+  "version": "0.1",
+  "type": "composite",
+  "layout": "small_multiples",
+  "profile": "report_a4.full_width",
+  "columns": 3,
+  "share_y": true,
+  "title": "储能日内净调度功率 · 分月对比（2025 H1）",
+  "caption": "各月代表日逐小时净出力；灰线为计划、蓝线为实际；六格共享纵轴以便跨月比较。",
+  "contract": {
+    "conclusion": "各月形态一致：夜间充电、晚高峰放电；实际贴合计划。",
+    "role": "comparison",
+    "archetype": "quantitative_grid",
+    "statistics": [{"n_definition": "hourly net power, one representative day/month", "center": "value", "interval": "not applicable"}],
+    "source_data": [{"path": "source/dispatch-composite.csv"}]
+  },
+  "facet": {
+    "base": {
+      "type": "line",
+      "data": {"x": ["00", "01", "…", "23"]},
+      "xAxis": {"label": "小时"},
+      "yAxis": {"label": "净出力（MW）"},
+      "annotations": [{"type": "hline", "value": 0, "color": "#9aa4ad", "linewidth": 0.6}]
+    },
+    "panels": [
+      {"title": "1月 · 冬季高峰", "data": {"series": [
+        {"name": "计划出力", "role": "baseline", "values": []},
+        {"name": "实际出力", "role": "ours", "values": []}
+      ]}},
+      {"title": "2月 · 冬末", "data": {"series": [ /* … */ ]}}
+    ]
+  }
+}
+```
+
+See `examples/dispatch-composite.json` for the full, buildable version.
+
+## The composition quality gate (`CKC0xx`)
+
+`validate` and `build` report a `composition` section, separate from the
+single-figure checks:
+
+- **CKC001** (error): facets mix chart types — a grid must repeat one type.
+- **CKC002** (warning): a cell carries more than 4 series — too dense for a cell.
+- **CKC003** (warning): a cell holds more than 120 data points — show it on its own.
+- **CKC004** (warning): fewer than 2 facets (use a single figure) or more than 12
+  (cells become unreadable).
+- **CKC005** (info): `share_y` disabled on comparable facets loses comparability.
+
+The single-figure size check (**CKQ101**) is automatically exempt for composites:
+they are width-bounded but height-flexible by design.
+
+## Removed: the legacy `panels` grammar
+
+The old free-form composite — `panels[]` with `row`/`col`/`rowspan`, `layout:
+{kind: grid|evidence}`, hero cells, `shared_colorbar`, legend/colorbar panel
+kinds, `panel_map`, and `evidence_hierarchy` panel references — **no longer
+exists**. `type: composite` without a `facet` block is rejected. Do not emit it.
+
+(`panels` / `panel_map` / `panel_label_policy` survive only as *author metadata*
+for custom-backend figures that draw their own multi-panel layout; the builtin
+composite engine ignores them.)

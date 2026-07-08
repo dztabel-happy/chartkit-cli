@@ -233,7 +233,14 @@ regions, trend lines, endpoints, or important bars. Prefer the automatic placeme
 | `evidence_matrix` | Multiple evidence types for one claim in a grid |
 | `asymmetric_mixed_modality` | Mixed modalities with unequal evidential weight |
 
-Prefer one **hero panel** that carries the primary conclusion. Supporting panels answer narrower questions. Do not use equal-sized panels when the evidence is not equally important.
+The archetype describes the *evidence*, not a single frame. ChartKit renders **one
+figure per evidence unit**. When several evidence types support a claim
+(`asymmetric_evidence`, `evidence_matrix`, `clinical_triptych`, …), produce
+**separate figures** and let the report place them — there is no asymmetric
+hero/supporting composite. The only built-in multi-panel figure is the uniform
+**small-multiples composite**: the *same* chart repeated across facets (months,
+cohorts, sites), used when one comparison axis (`quantitative_grid`) is best shown
+faceted. See `references/composite-grammar.md`.
 
 ## Step 3 — Select chart type and profile
 
@@ -251,7 +258,8 @@ Prefer one **hero panel** that carries the primary conclusion. Supporting panels
 | Training or optimization curves | `convergence` |
 | Representative images | `image_plate` |
 | Workflow / mechanism | `schematic` (supporting only, not hero in a data figure) |
-| Multiple panel types | `composite` |
+| Same chart repeated across facets (months, cohorts, sites) | `composite` (small multiples) |
+| Several *different* evidence types | separate figures — not one composite |
 | Anything not covered above | `custom_python` |
 
 Do not treat two numeric columns as an automatic scatter plot. First preserve time, process,
@@ -564,7 +572,7 @@ Legend/direct-label protocol:
 - For grouped `bar` charts with four or more visible series, do not place the legend as a wide strip over the plotting area. Omit `legend.position` and let ChartKit default to a right-side legend, or set `legend: {"position": "outside_right", "frameon": false}` explicitly.
 - For `scatter`, do not set `legend.position` to `direct_label` or `bottom`. Use `outside_right` for long legends, or let the compact outside legend collapse above the plot for short legends. For a few connected calibration/agreement series, either use `legend: {"mode": "direct"}` or set per-series `direct_label: true`; do not add duplicate endpoint insight labels unless they add new evidence. If QA reports legend/data overlap on a dense scatter, increase `profile` to `report_a4.full_width` or reduce legend entries; do not guess unsupported legend positions.
 - For a legend above the plot, use `position: "upper center"` with `bbox_to_anchor` and let ChartKit choose the column count from the available width. Do not set `legend.ncol` by copying a showcase card; only set it when the user explicitly asks for a fixed multi-row legend. If a top legend has enough room, ChartKit should keep it on one row; if it does not, it will wrap.
-- If CKQ104 reports a legend/data overlap, read its `suggestions` array and apply the first suitable strategy: direct labels for a few line-like series, outside legend with reserved margin, hide raw/context/background legend entries, or a legend-only panel for composites.
+- If CKQ104 reports a legend/data overlap, read its `suggestions` array and apply the first suitable strategy: direct labels for a few line-like series, an outside legend with reserved margin, or hiding raw/context/background legend entries.
 - For horizontal ranked bars, let computed `top_mover`/`extreme` labels attach to the bar endpoint; do not manually add diagonal arrows unless there is a specific outlier story.
 - For bubble matrices, keep the colorbar, group key, size key, and threshold note in the side legend. Write the threshold as one explanatory rule line such as `emphasize >= 0.25` or `突出 >= 0.25`; do not turn it into a fake legend symbol, short line, or separate "threshold" subsection. Do not put the threshold note under the main matrix when a side legend exists.
 - For bubble matrix group legends, never expose internal group keys such as `acute`, `stromal`, or `diagnostic` as display labels in a localized report. Add `data.group_labels` or `groups: {key: {color, label}}` instead of renaming the binding keys.
@@ -599,7 +607,7 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 - Small-sample or many-group `full_violin` → use `raincloud`, `box_strip`, or `auto`; keep `full_violin` only when the complete symmetric silhouette is the explicit evidence (CKQ105)
 - Red/green only coding → add labels or markers as second channel (CKQ108)
 - Mixed display language → read CKQ111 `suggestions`; translate listed visible labels, declare exact `official_terms` only for immutable identifiers, or hide internal keys
-- Legend overlaps data → apply CKQ104 `suggestions`: direct labels, outside legend, hide context entries, or a legend-only panel
+- Legend overlaps data → apply CKQ104 `suggestions`: direct labels, outside legend, or hide context entries
 - Fragmented scatter legend → reduce relationship groups, hide context legend entries, or switch pairwise evidence to network_matrix/heatmap (CKQ124)
 - Rank-like computed insight priority → use `rank` when 1 means first, use named `importance`, or use larger numeric priority scores such as 100/60/20 (CKQ125)
 - Insight label covers data evidence → let ChartKit auto-place it, move the callout outward, or remove a lower-value insight (CKQ110)
@@ -625,7 +633,7 @@ chart-kit doctor
 - `data_figure` means axes and data marks dominate. Schematics support data — they do not replace it.
 - No metric cards, PPT headlines, dashboard chrome, explanatory paragraphs inside panels, or bare `a` / `b` / `c` panel labels.
   No metric cards means no KPI tiles, large numbers in boxes, workflow cards, or slide-deck summary strips inside the figure.
-- Panel labels must be bottom-centered parenthesized: `(a)`, `(b)`, `(c)`.
-- If two panels answer the same evidence question, merge them or replace one.
+- Panel labels (for custom multi-panel figures) must be bottom-centered parenthesized: `(a)`, `(b)`, `(c)`. Small-multiples cells are labelled by their facet (e.g. the month), not `(a)`/`(b)`.
+- Small-multiples composites repeat the *same* chart across facets; keep each cell sparse and share the scale (see the `CKC0xx` composition gate). For different evidence types, use separate figures.
 - Do not use rainbow colormaps (`jet`, `rainbow`).
 - Custom scripts (`custom_python`) must still declare `contract`, `profile`, and pass the quality loop.

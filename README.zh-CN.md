@@ -183,7 +183,7 @@ chart-output/build-result.json
 - 雷达图 / 能力剖面图：`radar`
 - 图像板：`image_plate`
 - 机制图 / 流程图：`schematic`
-- 多面板组合图：`composite`
+- 小多图组合（同一种图按月/队列等 facet 重复）：`composite`
 
 ## 排障
 

@@ -27,7 +27,7 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ001 | warning | Missing `contract` | Add `contract` with `conclusion`, `role`, `archetype` |
 | CKQ002 | warning | Missing `profile` | Add `profile` (e.g. `"report_a4.full_width"`) |
 | CKQ003 | info | Unknown `archetype` value | Use one of the eight standard archetypes |
-| CKQ004 | warning | More than 8 series — panel too dense | Split into multiple panels or aggregate groups |
+| CKQ004 | warning | More than 8 series — figure too dense | Group, direct-label, aggregate, or split the evidence |
 | CKQ005 | warning | Series missing `role` or explicit color | Add `role` to each series |
 | CKQ006 | info | Missing `evidence_hierarchy` | Add `hero` / `supporting` / `context` lists |
 | CKQ105 | warning | Small-sample or many-group `full_violin` | Use `layout: "raincloud"`, `layout: "auto"`, or `layout: "box_strip"` |
@@ -48,18 +48,28 @@ chart-kit build figure.json --out outputs/figure-name --format all
 | CKQ126 | warning | `report_a4.compact` used for side-by-side / half-column report layout | Use `report_a4.full_width` for the standalone ChartKit figure and let ReportKit arrange paired exhibits; keep `report_a4.compact` only for explicit inset/small-figure slots |
 | schema error | error | Unknown `data_reference_lines` / top-level `reference_lines` | Move threshold or baseline lines into `data.reference_lines`, e.g. `{"data": {"reference_lines": [{"intercept": 1.0, "axis": "right", "label": "效率阈值"}]}}` |
 | CKQ301 | warning | Missing `source_data` in paper mode | Add `source_data` block or set `{inline: true}` |
-| CKQ401 | warning | Schematic dominates a `data_figure` | Reduce schematic area below 60%; add data panels |
+| CKQ401 | warning | Standalone `schematic` in a `data_figure` | Use schematic as support, or make it a separate mechanism figure |
 | CKQ403 | warning | Rainbow colormap | Replace with sequential or diverging palette |
-| CKQ404 | warning | Two panels answer the same evidence question | Merge panels or replace one with different evidence |
+| CKQ404 | warning | `contract.panel_map` repeats the same evidence question | Give each entry a distinct question |
+
+**Composition-level (facet small-multiples composites only):**
+
+| Code | Severity | Problem | Fix |
+|---|---|---|---|
+| CKC001 | error | Facets mix chart types | Set one chart type on `facet.base`; a grid repeats one chart |
+| CKC002 | warning | A cell carries more than 4 series | Compose only sparse facets; reduce series per cell |
+| CKC003 | warning | A cell holds more than 120 data points | Too dense for a cell — show that figure on its own |
+| CKC004 | warning | Fewer than 2 or more than 12 facets | Use a single figure, or split the grid |
+| CKC005 | info | `share_y` disabled on comparable facets | Enable `share_y` unless the scales genuinely differ |
 
 **Figure-level (fix after build):**
 
 | Code | Severity | Problem | Fix |
 |---|---|---|---|
-| CKQ101 | warning | Figure size does not match profile | Do not override `figsize` manually; let profile control it |
+| CKQ101 | warning | Figure size does not match profile | Do not override `figsize` manually; let profile control it (small-multiples composites are exempt — they grow in rows) |
 | CKQ102 | warning | Text labels overlap | Rotate labels, reduce tick count, or use direct labels |
 | CKQ103 | warning | Tick density too high | Read `suggestions`; use sparse ticks, aggregate/group categories, choose a representative window, or use a wider profile before rotating labels by habit |
-| CKQ104 | warning | Legend overlaps data | Read `suggestions`; use direct labels, move legend outside with margin, hide raw/context entries, or reserve a legend-only panel |
+| CKQ104 | warning | Legend overlaps data | Read `suggestions`; use direct labels, move legend outside with margin, or hide raw/context entries |
 | CKQ107 | warning | Text contrast too low (WCAG < 2.5) | Read the reported text snippet; use readable theme text for axis/tick/legend/annotation text. In dual-axis charts, keep low-contrast accent colors on marks/spines, not tick labels or axis titles |
 | CKQ108 | warning | Computed insight labels overlap | Reduce insight count or let renderer lane/offset them |
 | CKQ109 | warning | Computed insight label falls outside plot area | Use automatic placement or allow more margin/range |

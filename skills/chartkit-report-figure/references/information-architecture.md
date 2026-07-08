@@ -1,6 +1,16 @@
 # Information Architecture
 
-Every panel must answer a distinct evidence question. The figure is a visual argument, not a
+> **How this maps to ChartKit today.** ChartKit renders **one figure per evidence
+> unit**. The multi-panel "visual argument" below is the argument of a *report
+> section* — realize each panel as a **separate figure** and let the report place
+> them in that order. There is no built-in asymmetric hero/supporting composite.
+> The only built-in multi-panel figure is the uniform **small-multiples composite**
+> (the *same* chart faceted across months/cohorts/sites) — see
+> `references/composite-grammar.md`. Read "panel (a), (b), …" below as "figure 1,
+> 2, …" of a section, and `evidence_hierarchy` as *contract metadata* that records
+> the argument, not a layout directive.
+
+Every figure must answer a distinct evidence question. A figure is a visual argument, not a
 collection of charts. The caption and report body carry prose; the figure carries evidence.
 
 ## Panel ordering principle
@@ -73,12 +83,13 @@ Declare which panels carry which weight:
 }
 ```
 
-- `hero` — one panel; largest or most prominent position; carries the primary conclusion
-- `supporting` — validate, contextualize, or add a second evidence type; visually quieter than hero
-- `context` — non-data panels (legend, colorbar, scale bar); keep minimal
+- `hero` — the figure that carries the primary conclusion; place it first / largest in the report section
+- `supporting` — validate, contextualize, or add a second evidence type; smaller or later figures
+- `context` — non-data aids (legend, colorbar, scale bar); keep minimal
 
-The hero panel gets the largest position in the layout (`rowspan` or `colspan`). Supporting panels
-get equal or smaller positions. Context panels get a narrow column or row.
+This records the argument as contract metadata. It no longer drives an in-figure
+layout (there is no `rowspan`/`colspan` composite): the *report* orders the hero
+figure ahead of its supporting figures.
 
 ## Single-panel figures
 

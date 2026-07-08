@@ -183,7 +183,7 @@ Built-in chart types:
 - Radar chart / capability profile: `radar`
 - Image plate: `image_plate`
 - Schematic / process chart: `schematic`
-- Multi-panel composite figure: `composite`
+- Small-multiples composite (same chart faceted across months/cohorts): `composite`
 
 ## Troubleshooting
 

@@ -51,6 +51,8 @@ ChartKit 是面向 Agent 的正式报告配图工具。
 | <img src="examples/showcase/reference/19-time-series-events.png" alt="ChartKit 事件时间序列图" width="260"> | <img src="examples/showcase/reference/20-distribution-violin.png" alt="ChartKit 小提琴分布图" width="260"> | <img src="examples/showcase/reference/21-bar-percent-stack.png" alt="ChartKit 百分比堆叠图" width="260"> |
 | <sub><strong>棒棒糖排名图</strong></sub> | <sub><strong>斜率图</strong></sub> | <sub><strong>误差带时间序列图</strong></sub> |
 | <img src="examples/showcase/reference/22-contribution-lollipop-ranking.png" alt="ChartKit 棒棒糖排名图" width="260"> | <img src="examples/showcase/reference/23-line-slopegraph.png" alt="ChartKit 斜率图" width="260"> | <img src="examples/showcase/reference/24-time-series-error-band.png" alt="ChartKit 误差带时间序列图" width="260"> |
+| <sub><strong>占比环形图</strong></sub> | <sub><strong>小多图组合</strong></sub> | |
+| <img src="examples/showcase/reference/25-proportion-donut.png" alt="ChartKit 占比环形图" width="260"> | <img src="examples/showcase/reference/26-composite-solar-curtailment.png" alt="ChartKit 小多图组合" width="260"> | |
 
 ## 安装
 
@@ -64,20 +66,17 @@ chart-kit --version
 出现类似输出代表 CLI 安装成功：
 
 ```text
-chart-kit 0.1.45
+chart-kit 0.1.46
 ```
 
 ### 2. 安装 Agent skill（二选一）
 
-ChartKit 使用同一份 `skills/chartkit-report-figure` skill，分别安装到 Codex 或 Claude Code 的 skill 目录。
+skill 随 npm 包一起发布，安装到本地的 skill 永远与刚安装的 CLI 版本一致。下面的命令会把它从全局 npm 包复制到你的 agent skill 目录（升级 CLI 后重新执行一次即可）。
 
 #### 2.1 Codex
 
 ```bash
-git clone https://github.com/dztabel-happy/chartkit-cli.git
-cd chartkit-cli
-
-node -e "const fs=require('fs'),os=require('os'),path=require('path');const src=path.join(process.cwd(),'skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.agents','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Codex skill installed');"
+node -e "const cp=require('child_process'),fs=require('fs'),os=require('os'),path=require('path');const root=cp.execSync('npm root -g').toString().trim();const src=path.join(root,'@dztabel','chartkit','skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.agents','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Codex skill installed from: '+src);"
 ```
 
 检查 Codex skill 是否安装成功，在终端中输入：
@@ -97,10 +96,7 @@ Codex skill installed
 #### 2.2 Claude Code
 
 ```bash
-git clone https://github.com/dztabel-happy/chartkit-cli.git
-cd chartkit-cli
-
-node -e "const fs=require('fs'),os=require('os'),path=require('path');const src=path.join(process.cwd(),'skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.claude','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Claude Code skill installed');"
+node -e "const cp=require('child_process'),fs=require('fs'),os=require('os'),path=require('path');const root=cp.execSync('npm root -g').toString().trim();const src=path.join(root,'@dztabel','chartkit','skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.claude','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Claude Code skill installed from: '+src);"
 ```
 
 检查 Claude Code skill 是否安装成功，在终端中输入：

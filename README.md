@@ -51,6 +51,8 @@ These screenshots show ChartKit's default report figure output.
 | <img src="examples/showcase/reference/19-time-series-events.png" alt="ChartKit event time series chart" width="260"> | <img src="examples/showcase/reference/20-distribution-violin.png" alt="ChartKit violin distribution plot" width="260"> | <img src="examples/showcase/reference/21-bar-percent-stack.png" alt="ChartKit percent stacked bar chart" width="260"> |
 | <sub><strong>Lollipop ranking chart</strong></sub> | <sub><strong>Slopegraph</strong></sub> | <sub><strong>Error-band time series</strong></sub> |
 | <img src="examples/showcase/reference/22-contribution-lollipop-ranking.png" alt="ChartKit lollipop ranking chart" width="260"> | <img src="examples/showcase/reference/23-line-slopegraph.png" alt="ChartKit slopegraph" width="260"> | <img src="examples/showcase/reference/24-time-series-error-band.png" alt="ChartKit error-band time series chart" width="260"> |
+| <sub><strong>Proportion donut</strong></sub> | <sub><strong>Composite small multiples</strong></sub> | |
+| <img src="examples/showcase/reference/25-proportion-donut.png" alt="ChartKit proportion donut" width="260"> | <img src="examples/showcase/reference/26-composite-solar-curtailment.png" alt="ChartKit composite small multiples" width="260"> | |
 
 ## Installation
 
@@ -64,20 +66,17 @@ chart-kit --version
 Output like this means the CLI is installed:
 
 ```text
-chart-kit 0.1.45
+chart-kit 0.1.46
 ```
 
 ### 2. Install one Agent skill
 
-ChartKit uses the same `skills/chartkit-report-figure` skill for Codex and Claude Code. Install it into the skill directory for your agent.
+The skill ships inside the npm package, so the copy you install always matches the CLI version you just installed. The commands below copy it from the global npm package into your agent's skill directory (re-run them after upgrading the CLI).
 
 #### 2.1 Codex
 
 ```bash
-git clone https://github.com/dztabel-happy/chartkit-cli.git
-cd chartkit-cli
-
-node -e "const fs=require('fs'),os=require('os'),path=require('path');const src=path.join(process.cwd(),'skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.agents','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Codex skill installed');"
+node -e "const cp=require('child_process'),fs=require('fs'),os=require('os'),path=require('path');const root=cp.execSync('npm root -g').toString().trim();const src=path.join(root,'@dztabel','chartkit','skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.agents','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Codex skill installed from: '+src);"
 ```
 
 Check the Codex skill installation:
@@ -97,10 +96,7 @@ Open Codex and type `$chartkit-report-figure`. If the skill can be selected with
 #### 2.2 Claude Code
 
 ```bash
-git clone https://github.com/dztabel-happy/chartkit-cli.git
-cd chartkit-cli
-
-node -e "const fs=require('fs'),os=require('os'),path=require('path');const src=path.join(process.cwd(),'skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.claude','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Claude Code skill installed');"
+node -e "const cp=require('child_process'),fs=require('fs'),os=require('os'),path=require('path');const root=cp.execSync('npm root -g').toString().trim();const src=path.join(root,'@dztabel','chartkit','skills','chartkit-report-figure');const dest=path.join(os.homedir(),'.claude','skills','chartkit-report-figure');fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSync(path.dirname(dest),{recursive:true});fs.cpSync(src,dest,{recursive:true});console.log('Claude Code skill installed from: '+src);"
 ```
 
 Check the Claude Code skill installation:

@@ -1,0 +1,39 @@
+{
+ "version": "0.1",
+ "type": "proportion",
+ "figure_mode": "data_figure",
+ "profile": "report_a4.full_width",
+ "caption": "Annual generation mix by source; the four smallest sources are grouped into Other.",
+ "contract": {
+  "conclusion": "Coal still supplies about a third of annual generation, but wind and solar together already contribute 22.4% of the mix.",
+  "role": "composition",
+  "archetype": "quantitative_grid",
+  "evidence_hierarchy": {
+   "hero": "share of annual generation"
+  },
+  "statistics": [
+   {
+    "panel": "main",
+    "n_definition": "nine generation sources, annual totals",
+    "center": "share of total generation",
+    "interval": "not applicable"
+   }
+  ],
+  "source_data": [
+   {
+    "panel": "main",
+    "path": "source/25-proportion-donut.csv"
+   }
+  ]
+ },
+ "data": {
+  "source": "source/25-proportion-donut.csv",
+  "label_col": "source",
+  "value_col": "twh",
+  "max_slices": 6,
+  "center": {
+   "label": "Total generation",
+   "value_format": "{:,.0f} TWh"
+  }
+ }
+}

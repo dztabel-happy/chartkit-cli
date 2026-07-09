@@ -6,13 +6,16 @@ This repository is the public ChartKit entry point.
 
 - `package.json`
 - `npm/chart-kit.cjs`
-- `skills/chartkit-report-figure`
+- `examples/showcase` — reference specs, prompts, notes, and preview PNGs (synced from the core repo)
 - public README and usage docs
 
-The skill is a single Agent Skills standard package. Codex users install it into
-`.agents/skills/chartkit-report-figure`; Claude Code users install the same
-directory into `.claude/skills/chartkit-report-figure`. The repository does not
-maintain separate `skills/codex` or `skills/claude` copies.
+## The skill is not checked in here
+
+The `chartkit-report-figure` skill ships **inside the npm package** and is installed
+from there (see the README install commands), so the local skill always matches the
+installed CLI version. Codex users copy it into `~/.agents/skills/chartkit-report-figure`;
+Claude Code users copy the same directory into `~/.claude/skills/chartkit-report-figure`.
+This repository deliberately keeps no second copy — one source, no drift.
 
 ## Excluded
 
@@ -20,20 +23,9 @@ maintain separate `skills/codex` or `skills/claude` copies.
 - `schemas/`
 - `themes/`
 - `fonts/`
-- `examples/`
 - `tests/`
 - private audit docs
-- visual regression images
-- platform binaries before npm platform-package publishing
 
-## Distribution Model
-
-`@dztabel/chartkit` is a thin wrapper. It resolves the current platform package and executes the bundled `chart-kit` binary.
-
-Platform packages:
-
-- `@dztabel/chartkit-darwin-arm64`
-- `@dztabel/chartkit-linux-x64`
-- `@dztabel/chartkit-win32-x64`
-
-The core repository builds the binaries and prepares platform packages. The public repository only documents and exposes the installation surface.
+Everything here that mirrors the core repo (`examples/showcase`, `npm/chart-kit.cjs`,
+version strings) is written by the core repo's `scripts/sync_pub_repo.py`; do not edit
+those files by hand in this repository.

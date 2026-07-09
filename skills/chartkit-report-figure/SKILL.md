@@ -386,6 +386,8 @@ If the user asks for "the right chart" or "one side of a later side-by-side repo
 **Theme:**
 - `business-cn` — default, CJK-ready serif, A4 reports
 - `nature` — Times New Roman + Songti/Noto Serif CJK, compact journal figures
+- `energy` — legacy energy-domain palette (prefer `business-cn` for new figures)
+- `minimal` — legacy minimal palette (prefer `business-cn` for new figures)
 
 `profile` controls the physical output slot only. It does not switch themes. Theme is selected at
 runtime with CLI `--theme`; do not put `"theme"`, `"theme_id"`, or `style.theme` inside
@@ -615,6 +617,24 @@ Iterate until `quality.ok` is `true`. The most common fixes:
 For composite figures, see `references/composite-grammar.md`.
 For panel map guidance, see `references/information-architecture.md`.
 For the full CKQ fix list, see `references/quality-loop.md`.
+
+## Step 6 — Hand off the figure
+
+ChartKit's deliverable is exactly two things: **one image file** (PNG/SVG/PDF/TIFF)
+and **one caption line**. Nothing else.
+
+- **Boundary.** ChartKit owns everything *inside* the image rectangle (data →
+  pixels). A report tool such as DocxKit or ReportKit owns everything *outside* it:
+  placement, figure numbering, the `图N` / `Figure N` caption label, cross-references,
+  and the table of contents. Do not bake a figure number, "Figure 1:" prefix, or
+  surrounding prose into the plotted area — that belongs to the document.
+- **Handoff.** Render into the report's asset directory (e.g. `assets/`) and give the
+  document tool the image path plus the caption string. The caption lives in
+  `spec.caption` and is emitted outside the data area, so it travels as text the
+  document can number and place.
+- **Zero coupling.** Composition happens at the file-system / agent layer. ChartKit
+  does not import or call DocxKit, and DocxKit does not call ChartKit; they meet only
+  at `image file + caption`. See `docs/chartkit-docxkit-boundary.md`.
 
 ## Environment check
 

@@ -386,8 +386,6 @@ If the user asks for "the right chart" or "one side of a later side-by-side repo
 **Theme:**
 - `business-cn` — default, CJK-ready serif, A4 reports
 - `nature` — Times New Roman + Songti/Noto Serif CJK, compact journal figures
-- `energy` — legacy energy-domain palette (prefer `business-cn` for new figures)
-- `minimal` — legacy minimal palette (prefer `business-cn` for new figures)
 
 `profile` controls the physical output slot only. It does not switch themes. Theme is selected at
 runtime with CLI `--theme`; do not put `"theme"`, `"theme_id"`, or `style.theme` inside

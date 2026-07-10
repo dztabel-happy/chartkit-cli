@@ -66,7 +66,7 @@ chart-kit --version
 出现类似输出代表 CLI 安装成功：
 
 ```text
-chart-kit 0.1.47
+chart-kit 0.1.48
 ```
 
 ### 2. 安装 Agent skill（二选一）

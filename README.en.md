@@ -66,7 +66,7 @@ chart-kit --version
 Output like this means the CLI is installed:
 
 ```text
-chart-kit 0.1.47
+chart-kit 0.1.48
 ```
 
 ### 2. Install one Agent skill

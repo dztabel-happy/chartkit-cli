@@ -166,20 +166,22 @@ chart-output/chart-manifest.json
 chart-output/build-result.json
 ```
 
-内置图表类型包括：
+图表类型包括：
 
-- 折线图 / 时间序列图：`line` / `time_series`
+- 折线 / 时间序列 / 双轴混合 / 面积图：`line` / `time_series` / `mixed` / `area`
 - 柱状图：`bar`
 - 散点图：`scatter`
 - 热力图 / 矩阵图：`heatmap` / `network_matrix`
 - 分布图：`distribution`
 - 区间图 / 森林图：`interval`
-- 面积图：`area`
-- 贡献图 / 瀑布图 / 排名图：`contribution`
+- 贡献图 / 瀑布图 / 排名图：`contribution` / `ranked_contribution`
+- 占比快照：`proportion`
 - 雷达图 / 能力剖面图：`radar`
 - 图像板：`image_plate`
 - 机制图 / 流程图：`schematic`
 - 小多图组合（同一种图按月/队列等 facet 重复）：`composite`
+- 对比 preset：`scaling_comparison` / `ablation_heatmap`
+- 可信本地脚本 backend：`custom_python` / `custom_r`
 
 ## 排障
 

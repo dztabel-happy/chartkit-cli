@@ -166,20 +166,22 @@ chart-output/chart-manifest.json
 chart-output/build-result.json
 ```
 
-Built-in chart types:
+Chart types:
 
-- Line chart / time series chart: `line` / `time_series`
+- Line / time series / mixed / area: `line` / `time_series` / `mixed` / `area`
 - Bar chart: `bar`
 - Scatter plot: `scatter`
 - Heatmap / matrix chart: `heatmap` / `network_matrix`
 - Distribution plot: `distribution`
 - Interval plot / forest plot: `interval`
-- Area chart: `area`
-- Contribution chart / waterfall chart / ranking chart: `contribution`
+- Contribution / waterfall / ranking: `contribution` / `ranked_contribution`
+- Proportion snapshot: `proportion`
 - Radar chart / capability profile: `radar`
 - Image plate: `image_plate`
 - Schematic / process chart: `schematic`
 - Small-multiples composite (same chart faceted across months/cohorts): `composite`
+- Comparison presets: `scaling_comparison` / `ablation_heatmap`
+- Trusted local script backends: `custom_python` / `custom_r`
 
 ## Troubleshooting
 

@@ -66,7 +66,7 @@ chart-kit --version
 出现类似输出代表 CLI 安装成功：
 
 ```text
-chart-kit 0.1.46
+chart-kit 0.1.47
 ```
 
 ### 2. 安装 Agent skill（二选一）
@@ -207,10 +207,10 @@ npm install -g @dztabel/chartkit @dztabel/chartkit-win32-x64
 
 ## 仓库范围
 
-本公开仓库包含 npm wrapper 元数据、命令 shim、公开 skill、文档和 showcase 预览资产。
+公开 GitHub 仓库包含 npm wrapper 元数据、命令 shim、用户文档和 showcase 预览资产；npm 包同时包含与 CLI 版本一致的 Agent skill。
 
 渲染器源码、schemas、主题、字体、视觉回归样例和平台二进制不包含在本仓库中。平台二进制通过 npm 平台包分发。
 
 ## 许可
 
-ChartKit 以专有 CLI 二进制形式通过 npm 分发。本仓库提供用于安装和使用 CLI 的公开 wrapper、skill 和文档。
+ChartKit 以专有 CLI 二进制形式通过 npm 分发。公开仓库提供用于安装和评估 CLI 的 wrapper、文档和 showcase 资产。

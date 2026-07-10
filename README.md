@@ -66,7 +66,7 @@ chart-kit --version
 Output like this means the CLI is installed:
 
 ```text
-chart-kit 0.1.46
+chart-kit 0.1.47
 ```
 
 ### 2. Install one Agent skill
@@ -207,10 +207,10 @@ When reporting a build failure, include:
 
 ## Repository Scope
 
-This public repository contains npm wrapper metadata, the command shim, public skill files, docs, and showcase preview assets.
+The public GitHub repository contains npm wrapper metadata, the command shim, user documentation, and showcase preview assets. The npm package also includes the version-matched agent skill.
 
 Renderer source code, schemas, themes, fonts, visual regression samples, and platform binaries are not included in this repository. Platform binaries are distributed through npm platform packages.
 
 ## License
 
-ChartKit is distributed through npm as a proprietary CLI binary. This repository provides the public wrapper, skill, and docs for installing and using the CLI.
+ChartKit is distributed through npm as a proprietary CLI binary. The public repository provides the wrapper, documentation, and showcase assets for installing and evaluating the CLI.

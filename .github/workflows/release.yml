@@ -1,0 +1,177 @@
+# ChartKit release build — runs in the PUBLIC repo so GitHub-hosted runners are
+# free (no private-repo minute quota, no 10x macOS multiplier).
+#
+# Security model (do not weaken):
+# - The private core is checked out via a read-only deploy key (CORE_DEPLOY_KEY);
+#   no persistent copy of core source ever lands in this repo's git history.
+# - Logs here are world-readable. Therefore this workflow runs NO pytest and
+#   uploads NO artifacts: a test traceback would print core source lines. The
+#   full test suite + gates run in scripts/release_preflight.py on the maintainer
+#   machine BEFORE dispatching this workflow (mandatory, see core docs/RELEASING.md).
+#   Steps here only emit version strings, file names, and binary smoke JSON.
+# - Actions are pinned to full commit SHAs. Trigger is workflow_dispatch only
+#   (publish defaults to "false"); fork PRs cannot trigger it or read secrets.
+name: Release platform packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish npm packages after successful builds"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build-platform:
+    name: Build ${{ matrix.platform }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: darwin-arm64
+            os: macos-14
+            binary: dist/chart-kit
+            package-dir: npm/platform-packages/darwin-arm64
+          - platform: linux-x64
+            os: ubuntu-latest
+            binary: dist/chart-kit
+            package-dir: npm/platform-packages/linux-x64
+          - platform: windows-x64
+            os: windows-latest
+            binary: dist/chart-kit.exe
+            package-dir: npm/platform-packages/windows-x64
+
+    steps:
+      # Private core, read-only deploy key. This is the working tree we build from.
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          repository: dztabel-happy/chartkit-cli-core
+          ssh-key: ${{ secrets.CORE_DEPLOY_KEY }}
+
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.14"
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+
+      # The shipped binary must build against the SAME locked environment the
+      # baselines were tested with (uv.lock pins matplotlib==3.11.0). pyinstaller
+      # is a build-only tool, added into the locked venv rather than pyproject.
+      - name: Sync locked environment
+        run: uv sync --locked --extra dev
+
+      # Metadata-only gate: prints version strings only. The full pytest suite is
+      # deliberately NOT run here (public logs) — it is mandatory in the local
+      # release_preflight.py before this workflow is dispatched.
+      - name: Check release metadata
+        run: uv run --locked python scripts/release_preflight.py --metadata-only
+
+      - name: Install binary build tool
+        run: uv pip install pyinstaller==6.20.0
+
+      - name: Build binary
+        run: uv run python scripts/build_binary.py
+
+      - name: Check binary version
+        shell: bash
+        run: '"${{ matrix.binary }}" --version'
+
+      - name: Smoke test chart build
+        shell: bash
+        run: |
+          mkdir -p build/ci-smoke
+          "${{ matrix.binary }}" build examples/basic-line.json --out build/ci-smoke/out --theme business-cn --format all
+          test -s build/ci-smoke/out/chart.png
+          test -s build/ci-smoke/out/chart.svg
+          test -s build/ci-smoke/out/chart.pdf
+
+      - name: Prepare npm platform package
+        run: python scripts/prepare_npm_platform_package.py --platform "${{ matrix.platform }}" --binary "${{ matrix.binary }}"
+
+      - name: Pack platform package
+        run: npm pack --json
+        working-directory: ${{ matrix.package-dir }}
+
+      - name: Smoke test npm installation
+        shell: bash
+        run: |
+          package_tgz="$(ls "${{ matrix.package-dir }}"/*.tgz | head -n 1)"
+          mkdir -p build/npm-smoke-public/npm build/npm-smoke-public/skills
+          cp package.json build/npm-smoke-public/package.json
+          cp npm/chart-kit.cjs build/npm-smoke-public/npm/chart-kit.cjs
+          cp -R skills/chartkit-report-figure build/npm-smoke-public/skills/chartkit-report-figure
+          main_tgz="$(cd build/npm-smoke-public && npm pack --json | node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync(0,'utf8')); console.log(process.cwd() + '/' + p[0].filename)")"
+          prefix="$(mktemp -d)"
+          npm install --prefix "$prefix" "$main_tgz" "$package_tgz"
+          "$prefix/node_modules/.bin/chart-kit" --version
+          test -f "$prefix/node_modules/@dztabel/chartkit/skills/chartkit-report-figure/SKILL.md"
+          "$prefix/node_modules/.bin/chart-kit" build examples/basic-line.json --out "$prefix/out" --theme business-cn --format all
+          test -s "$prefix/out/chart.png"
+          test -s "$prefix/out/chart.svg"
+          test -s "$prefix/out/chart.pdf"
+          test -s "$prefix/out/chart.tiff"
+
+      # No upload-artifact: publish artefacts go to npm only. Keeping copies in
+      # Actions storage leaked quota and adds a needless exposure surface.
+
+      - name: Publish platform package
+        if: ${{ github.event.inputs.publish == 'true' }}
+        shell: bash
+        run: |
+          package_id="$(node -p "const p=require('./package.json'); p.name + '@' + p.version")"
+          if npm view "$package_id" version >/dev/null 2>&1; then
+            echo "$package_id already exists on npm; skipping publish."
+          else
+            npm publish
+          fi
+        working-directory: ${{ matrix.package-dir }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-main:
+    name: Publish main npm package
+    runs-on: ubuntu-latest
+    needs: build-platform
+    if: ${{ github.event.inputs.publish == 'true' }}
+
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          repository: dztabel-happy/chartkit-cli-core
+          ssh-key: ${{ secrets.CORE_DEPLOY_KEY }}
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Pack main package
+        run: npm pack --json
+
+      - name: Publish main package
+        shell: bash
+        run: |
+          package_id="$(node -p "const p=require('./package.json'); p.name + '@' + p.version")"
+          if npm view "$package_id" version >/dev/null 2>&1; then
+            echo "$package_id already exists on npm; skipping publish."
+          else
+            npm publish
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -66,7 +66,7 @@ chart-kit --version
 Output like this means the CLI is installed:
 
 ```text
-chart-kit 0.1.49
+chart-kit 0.1.50
 ```
 
 ### 2. Install one Agent skill
@@ -200,7 +200,7 @@ npm install -g @dztabel/chartkit @dztabel/chartkit-linux-x64
 npm install -g @dztabel/chartkit @dztabel/chartkit-win32-x64
 ```
 
-When reporting a build failure, include:
+When reporting a build failure, [open an issue](https://github.com/dztabel-happy/chartkit-cli/issues) and include:
 
 - `chart-kit --version`
 - `chart-output/chart-quality.json`

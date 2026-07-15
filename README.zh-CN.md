@@ -66,7 +66,7 @@ chart-kit --version
 出现类似输出代表 CLI 安装成功：
 
 ```text
-chart-kit 0.1.49
+chart-kit 0.1.50
 ```
 
 ### 2. 安装 Agent skill（二选一）
@@ -200,7 +200,7 @@ npm install -g @dztabel/chartkit @dztabel/chartkit-linux-x64
 npm install -g @dztabel/chartkit @dztabel/chartkit-win32-x64
 ```
 
-构建失败时，提交 issue 请附：
+构建失败时，请在 [Issues](https://github.com/dztabel-happy/chartkit-cli/issues) 提交并附：
 
 - `chart-kit --version`
 - `chart-output/chart-quality.json`

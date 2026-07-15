@@ -159,7 +159,12 @@ jobs:
         shell: bash
         run: |
           package_id="$(node -p "const p=require('./package.json'); p.name + '@' + p.version")"
-          if npm view "$package_id" version >/dev/null 2>&1; then
+          if published_git_head="$(npm view "$package_id" gitHead 2>/dev/null)"; then
+            local_git_head="$(git rev-parse HEAD)"
+            if [[ -z "$published_git_head" || "$published_git_head" != "$local_git_head" ]]; then
+              echo "$package_id already exists from a different commit ($published_git_head != $local_git_head)." >&2
+              exit 1
+            fi
             echo "$package_id already exists on npm; skipping publish."
           else
             npm publish
@@ -193,7 +198,12 @@ jobs:
         shell: bash
         run: |
           package_id="$(node -p "const p=require('./package.json'); p.name + '@' + p.version")"
-          if npm view "$package_id" version >/dev/null 2>&1; then
+          if published_git_head="$(npm view "$package_id" gitHead 2>/dev/null)"; then
+            local_git_head="$(git rev-parse HEAD)"
+            if [[ -z "$published_git_head" || "$published_git_head" != "$local_git_head" ]]; then
+              echo "$package_id already exists from a different commit ($published_git_head != $local_git_head)." >&2
+              exit 1
+            fi
             echo "$package_id already exists on npm; skipping publish."
           else
             npm publish

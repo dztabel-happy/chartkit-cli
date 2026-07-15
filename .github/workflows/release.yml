@@ -24,6 +24,10 @@ on:
         options:
           - "false"
           - "true"
+      core_ref:
+        description: "Exact chartkit-cli-core commit, tag, or branch to resolve once"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -32,9 +36,28 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+  resolve-core-ref:
+    name: Resolve private core commit
+    runs-on: ubuntu-latest
+    outputs:
+      core_sha: ${{ steps.resolve.outputs.core_sha }}
+
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          repository: dztabel-happy/chartkit-cli-core
+          ssh-key: ${{ secrets.CORE_DEPLOY_KEY }}
+          ref: ${{ inputs.core_ref }}
+
+      - name: Resolve immutable core commit
+        id: resolve
+        shell: bash
+        run: echo "core_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
   build-platform:
     name: Build ${{ matrix.platform }}
     runs-on: ${{ matrix.os }}
+    needs: resolve-core-ref
     strategy:
       fail-fast: false
       matrix:
@@ -58,6 +81,7 @@ jobs:
         with:
           repository: dztabel-happy/chartkit-cli-core
           ssh-key: ${{ secrets.CORE_DEPLOY_KEY }}
+          ref: ${{ needs.resolve-core-ref.outputs.core_sha }}
 
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
@@ -147,7 +171,7 @@ jobs:
   publish-main:
     name: Publish main npm package
     runs-on: ubuntu-latest
-    needs: build-platform
+    needs: [resolve-core-ref, build-platform]
     if: ${{ github.event.inputs.publish == 'true' }}
 
     steps:
@@ -155,6 +179,7 @@ jobs:
         with:
           repository: dztabel-happy/chartkit-cli-core
           ssh-key: ${{ secrets.CORE_DEPLOY_KEY }}
+          ref: ${{ needs.resolve-core-ref.outputs.core_sha }}
 
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:

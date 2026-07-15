@@ -10,14 +10,16 @@ const pythonPath = process.env.PYTHONPATH
 const forceSource = process.env.CHARTKIT_FORCE_SOURCE === "1";
 const bundledBinary = forceSource ? null : findBundledBinary();
 
-const result = bundledBinary ? runBundledBinary(bundledBinary) : runPythonPrototypeIfAvailable();
+if (require.main === module) {
+  const result = bundledBinary ? runBundledBinary(bundledBinary) : runPythonPrototypeIfAvailable();
 
-if (result.error) {
-  console.error(`chart-kit: failed to start: ${result.error.message}`);
-  process.exit(1);
+  if (result.error) {
+    console.error(`chart-kit: failed to start: ${result.error.message}`);
+    process.exit(1);
+  }
+
+  process.exit(result.status ?? 1);
 }
-
-process.exit(result.status ?? 1);
 
 function findBundledBinary() {
   const platformBinary = findPlatformPackageBinary();
@@ -79,21 +81,12 @@ function findPlatformPackageBinary() {
   }
 }
 
-function platformPackageName() {
-  const arch = process.arch === "x64" ? "x64" : process.arch === "arm64" ? "arm64" : null;
-  if (!arch) {
-    return null;
-  }
-  if (process.platform === "darwin") {
-    return `@dztabel/chartkit-darwin-${arch}`;
-  }
-  if (process.platform === "linux") {
-    return `@dztabel/chartkit-linux-${arch}`;
-  }
-  if (process.platform === "win32") {
-    return `@dztabel/chartkit-win32-${arch}`;
-  }
-  return null;
+function platformPackageName(platform = process.platform, arch = process.arch) {
+  return {
+    "darwin/arm64": "@dztabel/chartkit-darwin-arm64",
+    "linux/x64": "@dztabel/chartkit-linux-x64",
+    "win32/x64": "@dztabel/chartkit-win32-x64",
+  }[`${platform}/${arch}`] || null;
 }
 
 function runBundledBinary(binary) {
@@ -177,3 +170,5 @@ function selectPython() {
   console.error("chart-kit: set CHART_KIT_PYTHON to a compatible Python interpreter.");
   process.exit(1);
 }
+
+module.exports = { platformPackageName };

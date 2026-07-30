@@ -150,6 +150,8 @@ function packageVersion() {
 function utf8Env() {
   return {
     ...process.env,
+    // CHARTKIT_PACKAGE_ROOT lets `chart-kit sync-skill` (and atlas card paths)
+    // locate the packaged skills/ and examples/ directories.
     CHARTKIT_PACKAGE_ROOT: process.env.CHARTKIT_PACKAGE_ROOT || packageRoot,
     PYTHONUTF8: process.env.PYTHONUTF8 || "1",
     PYTHONIOENCODING: process.env.PYTHONIOENCODING || "utf-8",

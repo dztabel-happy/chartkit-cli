@@ -27,11 +27,24 @@ function findBundledBinary() {
     return platformBinary;
   }
 
+  // onedir layout: dist/chart-kit/ is the bundle directory and the executable
+  // lives inside it. The bare dist/chart-kit entries cover the legacy onefile
+  // layout; isExecutableFile() rejects the directory of the onedir layout.
+  const exeName = process.platform === "win32" ? "chart-kit.exe" : "chart-kit";
   const candidates = [
-    path.join(packageRoot, "dist", process.platform === "win32" ? "chart-kit.exe" : "chart-kit"),
+    path.join(packageRoot, "dist", "chart-kit", exeName),
+    path.join(packageRoot, "dist", exeName),
     path.join(packageRoot, "dist", "chart-kit"),
   ];
-  return candidates.find((candidate) => fs.existsSync(candidate));
+  return candidates.find((candidate) => isExecutableFile(candidate));
+}
+
+function isExecutableFile(candidate) {
+  try {
+    return fs.statSync(candidate).isFile();
+  } catch (_) {
+    return false;
+  }
 }
 
 function findPackageRoot() {
@@ -75,7 +88,7 @@ function findPlatformPackageBinary() {
     const packageJson = require.resolve(`${packageName}/package.json`, { paths: [packageRoot] });
     const platformRoot = path.dirname(packageJson);
     const binary = path.join(platformRoot, process.platform === "win32" ? "chart-kit.exe" : "chart-kit");
-    return fs.existsSync(binary) ? binary : null;
+    return isExecutableFile(binary) ? binary : null;
   } catch (_) {
     return null;
   }

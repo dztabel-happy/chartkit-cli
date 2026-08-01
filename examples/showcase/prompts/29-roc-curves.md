@@ -12,7 +12,7 @@ Use `type: "line"` with `layout: "roc"` and `xAxis.scale: "numeric"`. The `roc` 
 
 **ChartKit never computes AUC.** It plots the coordinates you give it. Compute the AUC upstream and carry it in the series `label` so the legend reads `Model — AUC 0.93`; the `name` stays the plain model identifier.
 
-Ask for a square canvas with `style.height_mm`, not a new profile. The equal aspect makes the *data area* square; without a taller canvas the square box just leaves a wide empty margin. Put the legend below the axes: ROC curves span the full plot box, so any in-plot legend sits on data.
+Ask for a square canvas with `style.height_mm`, not a new profile. Pick the profile by the *width* the square needs: a square at `report_a4.full_width` is 170×170 mm, which no report page can carry — a single-column profile is what a square figure wants. Put the legend in the lower-right corner, inside the axes: on an ROC plot that corner is the one region no curve reaches.
 
 ## Avoid
 

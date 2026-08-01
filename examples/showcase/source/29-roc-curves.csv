@@ -1,193 +1,641 @@
 model,fpr,tpr,auc
-Ours (gated ensemble),0.0000,0.0000,0.934
-Ours (gated ensemble),0.0000,0.1000,0.934
-Ours (gated ensemble),0.0019,0.1952,0.934
-Ours (gated ensemble),0.0044,0.2857,0.934
-Ours (gated ensemble),0.0089,0.3714,0.934
-Ours (gated ensemble),0.0133,0.4548,0.934
-Ours (gated ensemble),0.0215,0.5262,0.934
-Ours (gated ensemble),0.0291,0.5976,0.934
-Ours (gated ensemble),0.0380,0.6667,0.934
-Ours (gated ensemble),0.0525,0.7119,0.934
-Ours (gated ensemble),0.0665,0.7619,0.934
-Ours (gated ensemble),0.0873,0.7857,0.934
-Ours (gated ensemble),0.1025,0.8286,0.934
-Ours (gated ensemble),0.1222,0.8571,0.934
-Ours (gated ensemble),0.1462,0.8667,0.934
-Ours (gated ensemble),0.1715,0.8738,0.934
-Ours (gated ensemble),0.1937,0.8905,0.934
-Ours (gated ensemble),0.2177,0.9024,0.934
-Ours (gated ensemble),0.2399,0.9190,0.934
-Ours (gated ensemble),0.2671,0.9190,0.934
-Ours (gated ensemble),0.2899,0.9357,0.934
-Ours (gated ensemble),0.3120,0.9524,0.934
-Ours (gated ensemble),0.3367,0.9619,0.934
-Ours (gated ensemble),0.3633,0.9619,0.934
-Ours (gated ensemble),0.3892,0.9667,0.934
-Ours (gated ensemble),0.4146,0.9714,0.934
-Ours (gated ensemble),0.4411,0.9738,0.934
-Ours (gated ensemble),0.4652,0.9833,0.934
-Ours (gated ensemble),0.4924,0.9833,0.934
-Ours (gated ensemble),0.5196,0.9833,0.934
-Ours (gated ensemble),0.5456,0.9857,0.934
-Ours (gated ensemble),0.5722,0.9881,0.934
-Ours (gated ensemble),0.5987,0.9881,0.934
-Ours (gated ensemble),0.6253,0.9905,0.934
-Ours (gated ensemble),0.6513,0.9929,0.934
-Ours (gated ensemble),0.6778,0.9952,0.934
-Ours (gated ensemble),0.7044,0.9952,0.934
-Ours (gated ensemble),0.7316,0.9952,0.934
-Ours (gated ensemble),0.7589,0.9952,0.934
-Ours (gated ensemble),0.7842,1.0000,0.934
-Ours (gated ensemble),0.8114,1.0000,0.934
-Ours (gated ensemble),0.8380,1.0000,0.934
-Ours (gated ensemble),0.8652,1.0000,0.934
-Ours (gated ensemble),0.8918,1.0000,0.934
-Ours (gated ensemble),0.9190,1.0000,0.934
-Ours (gated ensemble),0.9456,1.0000,0.934
-Ours (gated ensemble),0.9728,1.0000,0.934
-Ours (gated ensemble),1.0000,1.0000,0.934
-Gradient boosting,0.0000,0.0000,0.874
-Gradient boosting,0.0013,0.0952,0.874
-Gradient boosting,0.0044,0.1857,0.874
-Gradient boosting,0.0101,0.2643,0.874
-Gradient boosting,0.0196,0.3310,0.874
-Gradient boosting,0.0304,0.3905,0.874
-Gradient boosting,0.0405,0.4548,0.874
-Gradient boosting,0.0538,0.5048,0.874
-Gradient boosting,0.0677,0.5548,0.874
-Gradient boosting,0.0835,0.5952,0.874
-Gradient boosting,0.1025,0.6262,0.874
-Gradient boosting,0.1165,0.6762,0.874
-Gradient boosting,0.1348,0.7071,0.874
-Gradient boosting,0.1551,0.7333,0.874
-Gradient boosting,0.1709,0.7738,0.874
-Gradient boosting,0.1930,0.7929,0.874
-Gradient boosting,0.2139,0.8143,0.874
-Gradient boosting,0.2348,0.8381,0.874
-Gradient boosting,0.2582,0.8500,0.874
-Gradient boosting,0.2829,0.8595,0.874
-Gradient boosting,0.3082,0.8667,0.874
-Gradient boosting,0.3316,0.8786,0.874
-Gradient boosting,0.3551,0.8929,0.874
-Gradient boosting,0.3797,0.9000,0.874
-Gradient boosting,0.4038,0.9119,0.874
-Gradient boosting,0.4285,0.9190,0.874
-Gradient boosting,0.4538,0.9262,0.874
-Gradient boosting,0.4772,0.9381,0.874
-Gradient boosting,0.5038,0.9405,0.874
-Gradient boosting,0.5291,0.9476,0.874
-Gradient boosting,0.5551,0.9500,0.874
-Gradient boosting,0.5804,0.9571,0.874
-Gradient boosting,0.6051,0.9643,0.874
-Gradient boosting,0.6304,0.9714,0.874
-Gradient boosting,0.6570,0.9714,0.874
-Gradient boosting,0.6842,0.9714,0.874
-Gradient boosting,0.7089,0.9786,0.874
-Gradient boosting,0.7342,0.9857,0.874
-Gradient boosting,0.7614,0.9857,0.874
-Gradient boosting,0.7861,0.9929,0.874
-Gradient boosting,0.8127,0.9952,0.874
-Gradient boosting,0.8392,0.9952,0.874
-Gradient boosting,0.8658,0.9976,0.874
-Gradient boosting,0.8924,0.9976,0.874
-Gradient boosting,0.9190,1.0000,0.874
-Gradient boosting,0.9456,1.0000,0.874
-Gradient boosting,0.9728,1.0000,0.874
-Gradient boosting,1.0000,1.0000,0.874
-Logistic regression,0.0000,0.0000,0.804
-Logistic regression,0.0063,0.0762,0.804
-Logistic regression,0.0127,0.1548,0.804
-Logistic regression,0.0215,0.2214,0.804
-Logistic regression,0.0316,0.2857,0.804
-Logistic regression,0.0437,0.3405,0.804
-Logistic regression,0.0570,0.3929,0.804
-Logistic regression,0.0734,0.4310,0.804
-Logistic regression,0.0892,0.4738,0.804
-Logistic regression,0.1051,0.5143,0.804
-Logistic regression,0.1253,0.5405,0.804
-Logistic regression,0.1430,0.5762,0.804
-Logistic regression,0.1608,0.6095,0.804
-Logistic regression,0.1785,0.6452,0.804
-Logistic regression,0.1956,0.6810,0.804
-Logistic regression,0.2196,0.6929,0.804
-Logistic regression,0.2392,0.7190,0.804
-Logistic regression,0.2601,0.7429,0.804
-Logistic regression,0.2823,0.7595,0.804
-Logistic regression,0.3063,0.7714,0.804
-Logistic regression,0.3291,0.7881,0.804
-Logistic regression,0.3538,0.7952,0.804
-Logistic regression,0.3778,0.8071,0.804
-Logistic regression,0.3994,0.8262,0.804
-Logistic regression,0.4228,0.8405,0.804
-Logistic regression,0.4449,0.8571,0.804
-Logistic regression,0.4696,0.8667,0.804
-Logistic regression,0.4943,0.8738,0.804
-Logistic regression,0.5184,0.8857,0.804
-Logistic regression,0.5430,0.8952,0.804
-Logistic regression,0.5671,0.9048,0.804
-Logistic regression,0.5930,0.9095,0.804
-Logistic regression,0.6171,0.9190,0.804
-Logistic regression,0.6405,0.9333,0.804
-Logistic regression,0.6658,0.9381,0.804
-Logistic regression,0.6924,0.9405,0.804
-Logistic regression,0.7177,0.9452,0.804
-Logistic regression,0.7430,0.9524,0.804
-Logistic regression,0.7690,0.9571,0.804
-Logistic regression,0.7949,0.9595,0.804
-Logistic regression,0.8215,0.9619,0.804
-Logistic regression,0.8468,0.9667,0.804
-Logistic regression,0.8722,0.9738,0.804
-Logistic regression,0.8962,0.9833,0.804
-Logistic regression,0.9222,0.9881,0.804
-Logistic regression,0.9462,0.9976,0.804
-Logistic regression,0.9734,0.9976,0.804
-Logistic regression,1.0000,1.0000,0.804
-LACE index,0.0000,0.0000,0.739
-LACE index,0.0095,0.0643,0.739
-LACE index,0.0190,0.1310,0.739
-LACE index,0.0323,0.1810,0.739
-LACE index,0.0475,0.2262,0.739
-LACE index,0.0646,0.2619,0.739
-LACE index,0.0861,0.2833,0.739
-LACE index,0.1038,0.3167,0.739
-LACE index,0.1222,0.3500,0.739
-LACE index,0.1367,0.3952,0.739
-LACE index,0.1538,0.4333,0.739
-LACE index,0.1728,0.4643,0.739
-LACE index,0.1918,0.4929,0.739
-LACE index,0.2114,0.5214,0.739
-LACE index,0.2304,0.5500,0.739
-LACE index,0.2519,0.5714,0.739
-LACE index,0.2709,0.6000,0.739
-LACE index,0.2918,0.6238,0.739
-LACE index,0.3101,0.6548,0.739
-LACE index,0.3297,0.6833,0.739
-LACE index,0.3487,0.7143,0.739
-LACE index,0.3709,0.7310,0.739
-LACE index,0.3905,0.7595,0.739
-LACE index,0.4108,0.7833,0.739
-LACE index,0.4335,0.8000,0.739
-LACE index,0.4582,0.8071,0.739
-LACE index,0.4823,0.8190,0.739
-LACE index,0.5063,0.8286,0.739
-LACE index,0.5297,0.8429,0.739
-LACE index,0.5538,0.8548,0.739
-LACE index,0.5741,0.8786,0.739
-LACE index,0.5994,0.8857,0.739
-LACE index,0.6241,0.8929,0.739
-LACE index,0.6494,0.9000,0.739
-LACE index,0.6722,0.9143,0.739
-LACE index,0.6968,0.9238,0.739
-LACE index,0.7215,0.9310,0.739
-LACE index,0.7462,0.9405,0.739
-LACE index,0.7703,0.9524,0.739
-LACE index,0.7937,0.9643,0.739
-LACE index,0.8184,0.9738,0.739
-LACE index,0.8443,0.9762,0.739
-LACE index,0.8684,0.9881,0.739
-LACE index,0.8930,0.9952,0.739
-LACE index,0.9196,0.9976,0.739
-LACE index,0.9462,0.9976,0.739
-LACE index,0.9734,0.9976,0.739
-LACE index,1.0000,1.0000,0.739
+Ours (gated ensemble),0.00000,0.00000,0.919
+Ours (gated ensemble),0.00000,0.01429,0.919
+Ours (gated ensemble),0.00000,0.02857,0.919
+Ours (gated ensemble),0.00000,0.03810,0.919
+Ours (gated ensemble),0.00000,0.05238,0.919
+Ours (gated ensemble),0.00000,0.06667,0.919
+Ours (gated ensemble),0.00000,0.07619,0.919
+Ours (gated ensemble),0.00127,0.09048,0.919
+Ours (gated ensemble),0.00127,0.10000,0.919
+Ours (gated ensemble),0.00127,0.11429,0.919
+Ours (gated ensemble),0.00127,0.12857,0.919
+Ours (gated ensemble),0.00127,0.13810,0.919
+Ours (gated ensemble),0.00127,0.15238,0.919
+Ours (gated ensemble),0.00127,0.16667,0.919
+Ours (gated ensemble),0.00127,0.17619,0.919
+Ours (gated ensemble),0.00127,0.19048,0.919
+Ours (gated ensemble),0.00127,0.20000,0.919
+Ours (gated ensemble),0.00127,0.21429,0.919
+Ours (gated ensemble),0.00127,0.22857,0.919
+Ours (gated ensemble),0.00127,0.23810,0.919
+Ours (gated ensemble),0.00127,0.25238,0.919
+Ours (gated ensemble),0.00127,0.26667,0.919
+Ours (gated ensemble),0.00127,0.27619,0.919
+Ours (gated ensemble),0.00127,0.29048,0.919
+Ours (gated ensemble),0.00506,0.30000,0.919
+Ours (gated ensemble),0.00633,0.30952,0.919
+Ours (gated ensemble),0.00633,0.32381,0.919
+Ours (gated ensemble),0.00633,0.33333,0.919
+Ours (gated ensemble),0.00633,0.34762,0.919
+Ours (gated ensemble),0.00633,0.36190,0.919
+Ours (gated ensemble),0.00633,0.37143,0.919
+Ours (gated ensemble),0.00759,0.38571,0.919
+Ours (gated ensemble),0.00759,0.39524,0.919
+Ours (gated ensemble),0.00759,0.40952,0.919
+Ours (gated ensemble),0.00759,0.42381,0.919
+Ours (gated ensemble),0.00886,0.43333,0.919
+Ours (gated ensemble),0.01013,0.44286,0.919
+Ours (gated ensemble),0.01519,0.45238,0.919
+Ours (gated ensemble),0.01772,0.46190,0.919
+Ours (gated ensemble),0.01899,0.47619,0.919
+Ours (gated ensemble),0.02152,0.48571,0.919
+Ours (gated ensemble),0.02278,0.49524,0.919
+Ours (gated ensemble),0.02405,0.50476,0.919
+Ours (gated ensemble),0.02532,0.51905,0.919
+Ours (gated ensemble),0.02911,0.52857,0.919
+Ours (gated ensemble),0.02911,0.53810,0.919
+Ours (gated ensemble),0.02911,0.55238,0.919
+Ours (gated ensemble),0.03418,0.55714,0.919
+Ours (gated ensemble),0.03797,0.56667,0.919
+Ours (gated ensemble),0.03924,0.58095,0.919
+Ours (gated ensemble),0.04304,0.59048,0.919
+Ours (gated ensemble),0.04304,0.60000,0.919
+Ours (gated ensemble),0.04810,0.60952,0.919
+Ours (gated ensemble),0.05316,0.61429,0.919
+Ours (gated ensemble),0.05570,0.62381,0.919
+Ours (gated ensemble),0.05570,0.63810,0.919
+Ours (gated ensemble),0.05696,0.64762,0.919
+Ours (gated ensemble),0.06203,0.65714,0.919
+Ours (gated ensemble),0.06329,0.66667,0.919
+Ours (gated ensemble),0.06456,0.68095,0.919
+Ours (gated ensemble),0.06582,0.69048,0.919
+Ours (gated ensemble),0.07215,0.69524,0.919
+Ours (gated ensemble),0.08101,0.70000,0.919
+Ours (gated ensemble),0.08354,0.70952,0.919
+Ours (gated ensemble),0.08608,0.71905,0.919
+Ours (gated ensemble),0.09114,0.72857,0.919
+Ours (gated ensemble),0.09494,0.73810,0.919
+Ours (gated ensemble),0.09873,0.74762,0.919
+Ours (gated ensemble),0.10000,0.75714,0.919
+Ours (gated ensemble),0.10380,0.76667,0.919
+Ours (gated ensemble),0.10506,0.77619,0.919
+Ours (gated ensemble),0.10759,0.78571,0.919
+Ours (gated ensemble),0.11519,0.79048,0.919
+Ours (gated ensemble),0.12025,0.80000,0.919
+Ours (gated ensemble),0.12532,0.80952,0.919
+Ours (gated ensemble),0.12911,0.81429,0.919
+Ours (gated ensemble),0.13797,0.81905,0.919
+Ours (gated ensemble),0.15063,0.81905,0.919
+Ours (gated ensemble),0.15823,0.82381,0.919
+Ours (gated ensemble),0.16582,0.82857,0.919
+Ours (gated ensemble),0.17342,0.83333,0.919
+Ours (gated ensemble),0.17848,0.84286,0.919
+Ours (gated ensemble),0.18354,0.85238,0.919
+Ours (gated ensemble),0.18481,0.86190,0.919
+Ours (gated ensemble),0.19114,0.86667,0.919
+Ours (gated ensemble),0.20253,0.86667,0.919
+Ours (gated ensemble),0.20886,0.87619,0.919
+Ours (gated ensemble),0.21392,0.88095,0.919
+Ours (gated ensemble),0.22152,0.88571,0.919
+Ours (gated ensemble),0.23418,0.88571,0.919
+Ours (gated ensemble),0.23797,0.89524,0.919
+Ours (gated ensemble),0.24557,0.90000,0.919
+Ours (gated ensemble),0.25823,0.90000,0.919
+Ours (gated ensemble),0.26582,0.90476,0.919
+Ours (gated ensemble),0.27848,0.90476,0.919
+Ours (gated ensemble),0.28608,0.90952,0.919
+Ours (gated ensemble),0.29114,0.91905,0.919
+Ours (gated ensemble),0.29873,0.92381,0.919
+Ours (gated ensemble),0.30506,0.92857,0.919
+Ours (gated ensemble),0.31266,0.93333,0.919
+Ours (gated ensemble),0.32025,0.93810,0.919
+Ours (gated ensemble),0.33038,0.94286,0.919
+Ours (gated ensemble),0.34051,0.94286,0.919
+Ours (gated ensemble),0.34937,0.94762,0.919
+Ours (gated ensemble),0.36076,0.94762,0.919
+Ours (gated ensemble),0.37342,0.94762,0.919
+Ours (gated ensemble),0.37722,0.95714,0.919
+Ours (gated ensemble),0.38987,0.95714,0.919
+Ours (gated ensemble),0.39367,0.96667,0.919
+Ours (gated ensemble),0.40506,0.96667,0.919
+Ours (gated ensemble),0.41772,0.96667,0.919
+Ours (gated ensemble),0.43038,0.96667,0.919
+Ours (gated ensemble),0.44177,0.97143,0.919
+Ours (gated ensemble),0.45063,0.97143,0.919
+Ours (gated ensemble),0.46329,0.97143,0.919
+Ours (gated ensemble),0.47595,0.97143,0.919
+Ours (gated ensemble),0.48608,0.97619,0.919
+Ours (gated ensemble),0.49620,0.97619,0.919
+Ours (gated ensemble),0.50886,0.97619,0.919
+Ours (gated ensemble),0.52152,0.97619,0.919
+Ours (gated ensemble),0.52911,0.98095,0.919
+Ours (gated ensemble),0.53671,0.98571,0.919
+Ours (gated ensemble),0.54937,0.98571,0.919
+Ours (gated ensemble),0.56203,0.98571,0.919
+Ours (gated ensemble),0.57468,0.98571,0.919
+Ours (gated ensemble),0.58734,0.98571,0.919
+Ours (gated ensemble),0.59494,0.99048,0.919
+Ours (gated ensemble),0.60759,0.99048,0.919
+Ours (gated ensemble),0.62025,0.99048,0.919
+Ours (gated ensemble),0.63291,0.99048,0.919
+Ours (gated ensemble),0.64557,0.99048,0.919
+Ours (gated ensemble),0.65823,0.99048,0.919
+Ours (gated ensemble),0.67089,0.99048,0.919
+Ours (gated ensemble),0.67848,0.99524,0.919
+Ours (gated ensemble),0.69114,0.99524,0.919
+Ours (gated ensemble),0.70380,0.99524,0.919
+Ours (gated ensemble),0.71646,0.99524,0.919
+Ours (gated ensemble),0.72911,0.99524,0.919
+Ours (gated ensemble),0.74177,0.99524,0.919
+Ours (gated ensemble),0.75443,0.99524,0.919
+Ours (gated ensemble),0.76582,0.99524,0.919
+Ours (gated ensemble),0.77848,0.99524,0.919
+Ours (gated ensemble),0.78861,1.00000,0.919
+Ours (gated ensemble),0.80000,1.00000,0.919
+Ours (gated ensemble),0.81139,1.00000,0.919
+Ours (gated ensemble),0.82405,1.00000,0.919
+Ours (gated ensemble),0.83671,1.00000,0.919
+Ours (gated ensemble),0.84937,1.00000,0.919
+Ours (gated ensemble),0.86203,1.00000,0.919
+Ours (gated ensemble),0.87468,1.00000,0.919
+Ours (gated ensemble),0.88734,1.00000,0.919
+Ours (gated ensemble),0.90000,1.00000,0.919
+Ours (gated ensemble),0.91266,1.00000,0.919
+Ours (gated ensemble),0.92532,1.00000,0.919
+Ours (gated ensemble),0.93797,1.00000,0.919
+Ours (gated ensemble),0.95063,1.00000,0.919
+Ours (gated ensemble),0.96329,1.00000,0.919
+Ours (gated ensemble),0.97595,1.00000,0.919
+Ours (gated ensemble),0.98861,1.00000,0.919
+Ours (gated ensemble),1.00000,1.00000,0.919
+Gradient boosting,0.00000,0.00000,0.866
+Gradient boosting,0.00000,0.01429,0.866
+Gradient boosting,0.00000,0.02857,0.866
+Gradient boosting,0.00000,0.03810,0.866
+Gradient boosting,0.00000,0.05238,0.866
+Gradient boosting,0.00000,0.06667,0.866
+Gradient boosting,0.00000,0.07619,0.866
+Gradient boosting,0.00000,0.09048,0.866
+Gradient boosting,0.00127,0.10000,0.866
+Gradient boosting,0.00127,0.11429,0.866
+Gradient boosting,0.00127,0.12857,0.866
+Gradient boosting,0.00127,0.13810,0.866
+Gradient boosting,0.00127,0.15238,0.866
+Gradient boosting,0.00127,0.16667,0.866
+Gradient boosting,0.00127,0.17619,0.866
+Gradient boosting,0.00253,0.19048,0.866
+Gradient boosting,0.00253,0.20000,0.866
+Gradient boosting,0.00253,0.21429,0.866
+Gradient boosting,0.00253,0.22857,0.866
+Gradient boosting,0.00380,0.23810,0.866
+Gradient boosting,0.00506,0.24762,0.866
+Gradient boosting,0.00506,0.26190,0.866
+Gradient boosting,0.00506,0.27619,0.866
+Gradient boosting,0.00633,0.28571,0.866
+Gradient boosting,0.01139,0.29524,0.866
+Gradient boosting,0.01139,0.30476,0.866
+Gradient boosting,0.01266,0.31905,0.866
+Gradient boosting,0.01266,0.32857,0.866
+Gradient boosting,0.01266,0.34286,0.866
+Gradient boosting,0.01772,0.34762,0.866
+Gradient boosting,0.02025,0.35714,0.866
+Gradient boosting,0.02405,0.36667,0.866
+Gradient boosting,0.02658,0.37619,0.866
+Gradient boosting,0.03038,0.38571,0.866
+Gradient boosting,0.03291,0.39524,0.866
+Gradient boosting,0.03291,0.40952,0.866
+Gradient boosting,0.03418,0.41905,0.866
+Gradient boosting,0.03544,0.43333,0.866
+Gradient boosting,0.04051,0.43810,0.866
+Gradient boosting,0.04304,0.44762,0.866
+Gradient boosting,0.04684,0.45714,0.866
+Gradient boosting,0.04810,0.47143,0.866
+Gradient boosting,0.05063,0.48095,0.866
+Gradient boosting,0.05316,0.49048,0.866
+Gradient boosting,0.05443,0.50000,0.866
+Gradient boosting,0.06203,0.50476,0.866
+Gradient boosting,0.06835,0.51429,0.866
+Gradient boosting,0.07215,0.51905,0.866
+Gradient boosting,0.07215,0.53333,0.866
+Gradient boosting,0.07468,0.54286,0.866
+Gradient boosting,0.07848,0.55238,0.866
+Gradient boosting,0.08481,0.55714,0.866
+Gradient boosting,0.08734,0.57143,0.866
+Gradient boosting,0.08861,0.58095,0.866
+Gradient boosting,0.09367,0.58571,0.866
+Gradient boosting,0.09494,0.60000,0.866
+Gradient boosting,0.09747,0.60952,0.866
+Gradient boosting,0.10380,0.61429,0.866
+Gradient boosting,0.11139,0.61905,0.866
+Gradient boosting,0.11392,0.62857,0.866
+Gradient boosting,0.11772,0.63810,0.866
+Gradient boosting,0.12025,0.64762,0.866
+Gradient boosting,0.12532,0.65714,0.866
+Gradient boosting,0.13165,0.66190,0.866
+Gradient boosting,0.13671,0.67143,0.866
+Gradient boosting,0.14177,0.67619,0.866
+Gradient boosting,0.14937,0.68095,0.866
+Gradient boosting,0.15316,0.69048,0.866
+Gradient boosting,0.15570,0.70000,0.866
+Gradient boosting,0.16329,0.70476,0.866
+Gradient boosting,0.16962,0.71429,0.866
+Gradient boosting,0.17089,0.72381,0.866
+Gradient boosting,0.17342,0.73333,0.866
+Gradient boosting,0.17975,0.74286,0.866
+Gradient boosting,0.18354,0.74762,0.866
+Gradient boosting,0.19114,0.75238,0.866
+Gradient boosting,0.19620,0.76190,0.866
+Gradient boosting,0.20759,0.76190,0.866
+Gradient boosting,0.21013,0.77143,0.866
+Gradient boosting,0.21646,0.78095,0.866
+Gradient boosting,0.21646,0.79048,0.866
+Gradient boosting,0.21899,0.80000,0.866
+Gradient boosting,0.23165,0.80000,0.866
+Gradient boosting,0.23418,0.81429,0.866
+Gradient boosting,0.23797,0.81905,0.866
+Gradient boosting,0.25063,0.81905,0.866
+Gradient boosting,0.25823,0.82381,0.866
+Gradient boosting,0.26582,0.82857,0.866
+Gradient boosting,0.26962,0.83810,0.866
+Gradient boosting,0.27722,0.84286,0.866
+Gradient boosting,0.27975,0.85238,0.866
+Gradient boosting,0.28861,0.85714,0.866
+Gradient boosting,0.29620,0.86190,0.866
+Gradient boosting,0.30380,0.86667,0.866
+Gradient boosting,0.31139,0.87143,0.866
+Gradient boosting,0.31899,0.87619,0.866
+Gradient boosting,0.32785,0.88095,0.866
+Gradient boosting,0.33544,0.88571,0.866
+Gradient boosting,0.34304,0.89048,0.866
+Gradient boosting,0.34557,0.90000,0.866
+Gradient boosting,0.35316,0.90476,0.866
+Gradient boosting,0.36203,0.90952,0.866
+Gradient boosting,0.37468,0.90952,0.866
+Gradient boosting,0.38228,0.91429,0.866
+Gradient boosting,0.39494,0.91429,0.866
+Gradient boosting,0.40759,0.91429,0.866
+Gradient boosting,0.41519,0.91905,0.866
+Gradient boosting,0.42785,0.91905,0.866
+Gradient boosting,0.43544,0.92381,0.866
+Gradient boosting,0.44810,0.92381,0.866
+Gradient boosting,0.46076,0.92381,0.866
+Gradient boosting,0.47342,0.92381,0.866
+Gradient boosting,0.48608,0.92381,0.866
+Gradient boosting,0.49367,0.92857,0.866
+Gradient boosting,0.50127,0.93333,0.866
+Gradient boosting,0.50886,0.93810,0.866
+Gradient boosting,0.52152,0.93810,0.866
+Gradient boosting,0.53418,0.93810,0.866
+Gradient boosting,0.54430,0.94286,0.866
+Gradient boosting,0.55443,0.94286,0.866
+Gradient boosting,0.56709,0.94286,0.866
+Gradient boosting,0.57468,0.94762,0.866
+Gradient boosting,0.58734,0.94762,0.866
+Gradient boosting,0.60000,0.94762,0.866
+Gradient boosting,0.60759,0.95238,0.866
+Gradient boosting,0.61899,0.95714,0.866
+Gradient boosting,0.62785,0.95714,0.866
+Gradient boosting,0.63671,0.96190,0.866
+Gradient boosting,0.64684,0.96667,0.866
+Gradient boosting,0.65696,0.96667,0.866
+Gradient boosting,0.66835,0.97143,0.866
+Gradient boosting,0.67722,0.97143,0.866
+Gradient boosting,0.68987,0.97143,0.866
+Gradient boosting,0.70253,0.97143,0.866
+Gradient boosting,0.71013,0.97619,0.866
+Gradient boosting,0.72278,0.97619,0.866
+Gradient boosting,0.73544,0.97619,0.866
+Gradient boosting,0.74304,0.98095,0.866
+Gradient boosting,0.75063,0.98571,0.866
+Gradient boosting,0.76329,0.98571,0.866
+Gradient boosting,0.77089,0.99048,0.866
+Gradient boosting,0.77975,0.99524,0.866
+Gradient boosting,0.79114,0.99524,0.866
+Gradient boosting,0.80380,0.99524,0.866
+Gradient boosting,0.81139,1.00000,0.866
+Gradient boosting,0.82405,1.00000,0.866
+Gradient boosting,0.83671,1.00000,0.866
+Gradient boosting,0.84937,1.00000,0.866
+Gradient boosting,0.86203,1.00000,0.866
+Gradient boosting,0.87468,1.00000,0.866
+Gradient boosting,0.88734,1.00000,0.866
+Gradient boosting,0.90000,1.00000,0.866
+Gradient boosting,0.91266,1.00000,0.866
+Gradient boosting,0.92532,1.00000,0.866
+Gradient boosting,0.93797,1.00000,0.866
+Gradient boosting,0.95063,1.00000,0.866
+Gradient boosting,0.96329,1.00000,0.866
+Gradient boosting,0.97595,1.00000,0.866
+Gradient boosting,0.98861,1.00000,0.866
+Gradient boosting,1.00000,1.00000,0.866
+Logistic regression,0.00000,0.00000,0.809
+Logistic regression,0.00000,0.01429,0.809
+Logistic regression,0.00000,0.02857,0.809
+Logistic regression,0.00127,0.03810,0.809
+Logistic regression,0.00127,0.05238,0.809
+Logistic regression,0.00127,0.06190,0.809
+Logistic regression,0.00253,0.07619,0.809
+Logistic regression,0.00253,0.08571,0.809
+Logistic regression,0.00253,0.10000,0.809
+Logistic regression,0.00253,0.11429,0.809
+Logistic regression,0.00253,0.12381,0.809
+Logistic regression,0.00253,0.13810,0.809
+Logistic regression,0.00253,0.15238,0.809
+Logistic regression,0.00506,0.16190,0.809
+Logistic regression,0.00506,0.17143,0.809
+Logistic regression,0.00506,0.18571,0.809
+Logistic regression,0.00633,0.19524,0.809
+Logistic regression,0.00759,0.20952,0.809
+Logistic regression,0.01013,0.21905,0.809
+Logistic regression,0.01139,0.22857,0.809
+Logistic regression,0.01266,0.24286,0.809
+Logistic regression,0.01266,0.25238,0.809
+Logistic regression,0.01266,0.26667,0.809
+Logistic regression,0.01266,0.28095,0.809
+Logistic regression,0.01899,0.28571,0.809
+Logistic regression,0.02152,0.29524,0.809
+Logistic regression,0.02152,0.30952,0.809
+Logistic regression,0.02532,0.31905,0.809
+Logistic regression,0.02658,0.32857,0.809
+Logistic regression,0.03038,0.33810,0.809
+Logistic regression,0.03544,0.34286,0.809
+Logistic regression,0.03671,0.35714,0.809
+Logistic regression,0.03671,0.36667,0.809
+Logistic regression,0.03924,0.37619,0.809
+Logistic regression,0.04557,0.38571,0.809
+Logistic regression,0.05316,0.39048,0.809
+Logistic regression,0.05316,0.40000,0.809
+Logistic regression,0.05823,0.40952,0.809
+Logistic regression,0.05823,0.42381,0.809
+Logistic regression,0.05949,0.43333,0.809
+Logistic regression,0.06456,0.44286,0.809
+Logistic regression,0.06709,0.45238,0.809
+Logistic regression,0.06709,0.46190,0.809
+Logistic regression,0.06962,0.47143,0.809
+Logistic regression,0.08228,0.47143,0.809
+Logistic regression,0.08861,0.48095,0.809
+Logistic regression,0.09367,0.48571,0.809
+Logistic regression,0.09873,0.49524,0.809
+Logistic regression,0.10127,0.50476,0.809
+Logistic regression,0.11266,0.50476,0.809
+Logistic regression,0.11646,0.51429,0.809
+Logistic regression,0.11899,0.52381,0.809
+Logistic regression,0.12658,0.52857,0.809
+Logistic regression,0.13038,0.53810,0.809
+Logistic regression,0.13165,0.54762,0.809
+Logistic regression,0.13924,0.55714,0.809
+Logistic regression,0.14304,0.56190,0.809
+Logistic regression,0.14684,0.57143,0.809
+Logistic regression,0.15443,0.57619,0.809
+Logistic regression,0.15696,0.58571,0.809
+Logistic regression,0.16456,0.59048,0.809
+Logistic regression,0.17342,0.59524,0.809
+Logistic regression,0.17722,0.60476,0.809
+Logistic regression,0.18354,0.60952,0.809
+Logistic regression,0.19114,0.61429,0.809
+Logistic regression,0.19494,0.62381,0.809
+Logistic regression,0.20380,0.62857,0.809
+Logistic regression,0.20633,0.63810,0.809
+Logistic regression,0.21392,0.64286,0.809
+Logistic regression,0.21646,0.65238,0.809
+Logistic regression,0.22405,0.65714,0.809
+Logistic regression,0.22658,0.66667,0.809
+Logistic regression,0.23418,0.67619,0.809
+Logistic regression,0.23924,0.68095,0.809
+Logistic regression,0.24430,0.69048,0.809
+Logistic regression,0.25316,0.69048,0.809
+Logistic regression,0.26076,0.69524,0.809
+Logistic regression,0.26962,0.70000,0.809
+Logistic regression,0.27342,0.70952,0.809
+Logistic regression,0.27848,0.71905,0.809
+Logistic regression,0.27975,0.72857,0.809
+Logistic regression,0.28608,0.73333,0.809
+Logistic regression,0.29367,0.73810,0.809
+Logistic regression,0.29873,0.74762,0.809
+Logistic regression,0.30000,0.75714,0.809
+Logistic regression,0.30506,0.76667,0.809
+Logistic regression,0.30886,0.77619,0.809
+Logistic regression,0.31899,0.77619,0.809
+Logistic regression,0.32658,0.78095,0.809
+Logistic regression,0.33418,0.78571,0.809
+Logistic regression,0.34177,0.79048,0.809
+Logistic regression,0.35063,0.79524,0.809
+Logistic regression,0.36203,0.79524,0.809
+Logistic regression,0.36582,0.80476,0.809
+Logistic regression,0.37342,0.80952,0.809
+Logistic regression,0.37722,0.81905,0.809
+Logistic regression,0.38608,0.82381,0.809
+Logistic regression,0.39241,0.82857,0.809
+Logistic regression,0.40000,0.83333,0.809
+Logistic regression,0.40759,0.83810,0.809
+Logistic regression,0.41519,0.84286,0.809
+Logistic regression,0.42405,0.84762,0.809
+Logistic regression,0.43544,0.84762,0.809
+Logistic regression,0.44304,0.85714,0.809
+Logistic regression,0.44684,0.86190,0.809
+Logistic regression,0.45316,0.87143,0.809
+Logistic regression,0.46203,0.87143,0.809
+Logistic regression,0.47468,0.87143,0.809
+Logistic regression,0.47848,0.88095,0.809
+Logistic regression,0.49114,0.88095,0.809
+Logistic regression,0.49873,0.88571,0.809
+Logistic regression,0.50127,0.89524,0.809
+Logistic regression,0.50886,0.90000,0.809
+Logistic regression,0.52152,0.90000,0.809
+Logistic regression,0.53418,0.90000,0.809
+Logistic regression,0.54684,0.90000,0.809
+Logistic regression,0.55696,0.90476,0.809
+Logistic regression,0.56709,0.90476,0.809
+Logistic regression,0.57595,0.90952,0.809
+Logistic regression,0.58734,0.90952,0.809
+Logistic regression,0.59620,0.91429,0.809
+Logistic regression,0.60380,0.91905,0.809
+Logistic regression,0.61139,0.92381,0.809
+Logistic regression,0.61899,0.92857,0.809
+Logistic regression,0.62658,0.93333,0.809
+Logistic regression,0.63544,0.93810,0.809
+Logistic regression,0.64304,0.94286,0.809
+Logistic regression,0.65570,0.94286,0.809
+Logistic regression,0.66835,0.94286,0.809
+Logistic regression,0.68101,0.94286,0.809
+Logistic regression,0.68734,0.95238,0.809
+Logistic regression,0.69620,0.95238,0.809
+Logistic regression,0.70380,0.95714,0.809
+Logistic regression,0.71013,0.96667,0.809
+Logistic regression,0.71519,0.97143,0.809
+Logistic regression,0.72785,0.97143,0.809
+Logistic regression,0.74051,0.97143,0.809
+Logistic regression,0.74810,0.97619,0.809
+Logistic regression,0.76076,0.97619,0.809
+Logistic regression,0.77342,0.97619,0.809
+Logistic regression,0.78101,0.98095,0.809
+Logistic regression,0.78861,0.98571,0.809
+Logistic regression,0.80127,0.98571,0.809
+Logistic regression,0.81392,0.98571,0.809
+Logistic regression,0.82658,0.98571,0.809
+Logistic regression,0.83924,0.98571,0.809
+Logistic regression,0.85190,0.98571,0.809
+Logistic regression,0.85949,0.99048,0.809
+Logistic regression,0.87215,0.99048,0.809
+Logistic regression,0.88481,0.99048,0.809
+Logistic regression,0.89241,0.99524,0.809
+Logistic regression,0.90506,0.99524,0.809
+Logistic regression,0.91772,0.99524,0.809
+Logistic regression,0.93038,0.99524,0.809
+Logistic regression,0.94304,0.99524,0.809
+Logistic regression,0.95063,1.00000,0.809
+Logistic regression,0.96329,1.00000,0.809
+Logistic regression,0.97595,1.00000,0.809
+Logistic regression,0.98861,1.00000,0.809
+Logistic regression,1.00000,1.00000,0.809
+LACE index,0.00000,0.00000,0.730
+LACE index,0.00000,0.01429,0.730
+LACE index,0.00253,0.02381,0.730
+LACE index,0.00380,0.03810,0.730
+LACE index,0.00506,0.04762,0.730
+LACE index,0.00759,0.05714,0.730
+LACE index,0.00886,0.06667,0.730
+LACE index,0.01013,0.08095,0.730
+LACE index,0.01392,0.09048,0.730
+LACE index,0.01392,0.10000,0.730
+LACE index,0.01519,0.11429,0.730
+LACE index,0.01519,0.12381,0.730
+LACE index,0.01772,0.13333,0.730
+LACE index,0.02025,0.14762,0.730
+LACE index,0.02278,0.15714,0.730
+LACE index,0.02658,0.16667,0.730
+LACE index,0.02911,0.17619,0.730
+LACE index,0.03165,0.18571,0.730
+LACE index,0.03544,0.19524,0.730
+LACE index,0.03924,0.20000,0.730
+LACE index,0.04051,0.21429,0.730
+LACE index,0.04304,0.22381,0.730
+LACE index,0.04304,0.23810,0.730
+LACE index,0.04304,0.24762,0.730
+LACE index,0.04430,0.26190,0.730
+LACE index,0.04557,0.27143,0.730
+LACE index,0.04684,0.28095,0.730
+LACE index,0.05063,0.29048,0.730
+LACE index,0.05443,0.30000,0.730
+LACE index,0.05696,0.30952,0.730
+LACE index,0.06329,0.31429,0.730
+LACE index,0.07215,0.31905,0.730
+LACE index,0.07468,0.32857,0.730
+LACE index,0.07722,0.33810,0.730
+LACE index,0.08101,0.34762,0.730
+LACE index,0.08861,0.35238,0.730
+LACE index,0.09620,0.35714,0.730
+LACE index,0.10000,0.36667,0.730
+LACE index,0.10886,0.37143,0.730
+LACE index,0.11013,0.38095,0.730
+LACE index,0.11646,0.39048,0.730
+LACE index,0.12152,0.39524,0.730
+LACE index,0.12911,0.40000,0.730
+LACE index,0.13544,0.40952,0.730
+LACE index,0.13797,0.41905,0.730
+LACE index,0.14304,0.42381,0.730
+LACE index,0.15063,0.42857,0.730
+LACE index,0.15316,0.43810,0.730
+LACE index,0.15696,0.44762,0.730
+LACE index,0.15949,0.45714,0.730
+LACE index,0.16709,0.46190,0.730
+LACE index,0.17089,0.47143,0.730
+LACE index,0.17342,0.48095,0.730
+LACE index,0.18101,0.48571,0.730
+LACE index,0.18987,0.49048,0.730
+LACE index,0.19241,0.50000,0.730
+LACE index,0.19873,0.50952,0.730
+LACE index,0.20253,0.51905,0.730
+LACE index,0.20633,0.52381,0.730
+LACE index,0.21392,0.52857,0.730
+LACE index,0.21772,0.53810,0.730
+LACE index,0.23038,0.53810,0.730
+LACE index,0.23797,0.54286,0.730
+LACE index,0.24051,0.55238,0.730
+LACE index,0.24430,0.56190,0.730
+LACE index,0.25190,0.56667,0.730
+LACE index,0.25949,0.57143,0.730
+LACE index,0.26076,0.58571,0.730
+LACE index,0.26709,0.59048,0.730
+LACE index,0.26835,0.60000,0.730
+LACE index,0.28101,0.60000,0.730
+LACE index,0.28228,0.61429,0.730
+LACE index,0.28481,0.62381,0.730
+LACE index,0.29367,0.62857,0.730
+LACE index,0.30253,0.62857,0.730
+LACE index,0.31013,0.63333,0.730
+LACE index,0.31772,0.64286,0.730
+LACE index,0.32152,0.64762,0.730
+LACE index,0.33418,0.64762,0.730
+LACE index,0.34177,0.65238,0.730
+LACE index,0.34557,0.66190,0.730
+LACE index,0.35316,0.66667,0.730
+LACE index,0.35823,0.67619,0.730
+LACE index,0.36329,0.68095,0.730
+LACE index,0.36709,0.69048,0.730
+LACE index,0.37848,0.69524,0.730
+LACE index,0.38228,0.70000,0.730
+LACE index,0.38987,0.70476,0.730
+LACE index,0.39747,0.70952,0.730
+LACE index,0.40633,0.71429,0.730
+LACE index,0.41899,0.71429,0.730
+LACE index,0.42152,0.72381,0.730
+LACE index,0.42532,0.73333,0.730
+LACE index,0.42785,0.74286,0.730
+LACE index,0.43544,0.74762,0.730
+LACE index,0.43797,0.75714,0.730
+LACE index,0.44684,0.76190,0.730
+LACE index,0.45823,0.76190,0.730
+LACE index,0.46203,0.77143,0.730
+LACE index,0.46962,0.77619,0.730
+LACE index,0.47722,0.78095,0.730
+LACE index,0.47848,0.79524,0.730
+LACE index,0.48861,0.79524,0.730
+LACE index,0.50127,0.79524,0.730
+LACE index,0.50886,0.80000,0.730
+LACE index,0.51646,0.80476,0.730
+LACE index,0.52152,0.81429,0.730
+LACE index,0.52278,0.82381,0.730
+LACE index,0.53038,0.82857,0.730
+LACE index,0.54304,0.82857,0.730
+LACE index,0.55063,0.83333,0.730
+LACE index,0.56329,0.83333,0.730
+LACE index,0.57089,0.83810,0.730
+LACE index,0.57975,0.84286,0.730
+LACE index,0.58608,0.85238,0.730
+LACE index,0.59241,0.85714,0.730
+LACE index,0.60253,0.85714,0.730
+LACE index,0.60633,0.86667,0.730
+LACE index,0.61519,0.87143,0.730
+LACE index,0.62658,0.87143,0.730
+LACE index,0.63924,0.87143,0.730
+LACE index,0.64684,0.87619,0.730
+LACE index,0.65443,0.88095,0.730
+LACE index,0.65949,0.89048,0.730
+LACE index,0.66962,0.89048,0.730
+LACE index,0.67342,0.90000,0.730
+LACE index,0.68101,0.90476,0.730
+LACE index,0.68354,0.91429,0.730
+LACE index,0.69620,0.91429,0.730
+LACE index,0.70759,0.91905,0.730
+LACE index,0.71266,0.92381,0.730
+LACE index,0.72025,0.92857,0.730
+LACE index,0.72785,0.93333,0.730
+LACE index,0.74051,0.93333,0.730
+LACE index,0.74810,0.93810,0.730
+LACE index,0.75570,0.94286,0.730
+LACE index,0.76203,0.95238,0.730
+LACE index,0.77215,0.95238,0.730
+LACE index,0.78354,0.95238,0.730
+LACE index,0.79241,0.95714,0.730
+LACE index,0.80506,0.95714,0.730
+LACE index,0.81646,0.95714,0.730
+LACE index,0.82911,0.95714,0.730
+LACE index,0.83671,0.96667,0.730
+LACE index,0.84051,0.97143,0.730
+LACE index,0.85063,0.97619,0.730
+LACE index,0.86076,0.97619,0.730
+LACE index,0.86329,0.99048,0.730
+LACE index,0.87215,0.99048,0.730
+LACE index,0.88481,0.99048,0.730
+LACE index,0.89367,0.99524,0.730
+LACE index,0.90506,0.99524,0.730
+LACE index,0.91772,0.99524,0.730
+LACE index,0.93038,0.99524,0.730
+LACE index,0.94304,0.99524,0.730
+LACE index,0.95443,1.00000,0.730
+LACE index,0.96329,1.00000,0.730
+LACE index,0.97595,1.00000,0.730
+LACE index,0.98861,1.00000,0.730
+LACE index,1.00000,1.00000,0.730

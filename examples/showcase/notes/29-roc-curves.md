@@ -5,7 +5,7 @@ An ROC is read as *area* and as *distance from the diagonal*, so both axes must 
 
 Each of the four curves carries an explicit `color`. Roles alone are not enough here: `reference` and `baseline` resolve to the *same* neutral in both themes, which is correct when one of them is context and wrong when both are models a reader has to tell apart. Four models need four separable hues, and four is also the ceiling before CKQ147 starts counting.
 
-Each model keeps its own threshold grid; the curves are drawn as they were evaluated rather than resampled onto a shared grid.
+Each model keeps its own threshold grid; the curves are drawn as they were evaluated rather than resampled onto a shared grid. Roughly 160 vertices per curve is deliberate: an empirical ROC is a staircase, and thinning it far enough that the segments become visible turns the curve into a polygon. Keep the segment shorter than about 25 px at the final physical size.
 
 The chance diagonal is a `reference_line` supplied by the layout, dashed and outside the legend: it is a frame of reference, not a fifth model.
 
@@ -24,7 +24,7 @@ Avoid more than four or five curves: overlapping ROCs stop being separable and C
 ## Spec Anchors
 - `type`: `line`
 - `layout`: `roc`
-- `profile`: `report_a4.full_width` with `style.height_mm` for the square canvas
+- `profile`: `nature.single_column` with `style.height_mm: 89` — 89×89 mm, square without dominating the page
 - `role`: `diagnostic`
 - `xAxis.scale`: `numeric` — the opt-in that makes `data.x` a coordinate
 - `series[].x`: each model's own threshold grid

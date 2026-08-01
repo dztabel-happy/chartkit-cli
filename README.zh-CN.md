@@ -51,8 +51,12 @@ ChartKit 是面向 Agent 的正式报告配图工具。
 | <img src="examples/showcase/reference/19-time-series-events.png" alt="ChartKit 事件时间序列图" width="260"> | <img src="examples/showcase/reference/20-distribution-violin.png" alt="ChartKit 小提琴分布图" width="260"> | <img src="examples/showcase/reference/21-bar-percent-stack.png" alt="ChartKit 百分比堆叠图" width="260"> |
 | <sub><strong>棒棒糖排名图</strong></sub> | <sub><strong>斜率图</strong></sub> | <sub><strong>误差带时间序列图</strong></sub> |
 | <img src="examples/showcase/reference/22-contribution-lollipop-ranking.png" alt="ChartKit 棒棒糖排名图" width="260"> | <img src="examples/showcase/reference/23-line-slopegraph.png" alt="ChartKit 斜率图" width="260"> | <img src="examples/showcase/reference/24-time-series-error-band.png" alt="ChartKit 误差带时间序列图" width="260"> |
-| <sub><strong>占比环形图</strong></sub> | <sub><strong>小多图组合</strong></sub> | |
-| <img src="examples/showcase/reference/25-proportion-donut.png" alt="ChartKit 占比环形图" width="260"> | <img src="examples/showcase/reference/26-composite-solar-curtailment.png" alt="ChartKit 小多图组合" width="260"> | |
+| <sub><strong>占比环形图</strong></sub> | <sub><strong>小多图组合</strong></sub> | <sub><strong>配对显著性括号</strong></sub> |
+| <img src="examples/showcase/reference/25-proportion-donut.png" alt="ChartKit 占比环形图" width="260"> | <img src="examples/showcase/reference/26-composite-solar-curtailment.png" alt="ChartKit 小多图组合" width="260"> | <img src="examples/showcase/reference/27-paired-significance.png" alt="ChartKit 配对显著性括号" width="260"> |
+| <sub><strong>hexbin 密度散点</strong></sub> | <sub><strong>ROC 曲线</strong></sub> | <sub><strong>规模曲线对比</strong></sub> |
+| <img src="examples/showcase/reference/28-density-scatter.png" alt="ChartKit hexbin 密度散点" width="260"> | <img src="examples/showcase/reference/29-roc-curves.png" alt="ChartKit ROC 曲线" width="260"> | <img src="examples/showcase/reference/30-scaling-comparison.png" alt="ChartKit 规模曲线对比" width="260"> |
+| <sub><strong>消融实验热图</strong></sub> | <sub><strong>带显著性的相关矩阵</strong></sub> | <sub><strong>混淆矩阵</strong></sub> |
+| <img src="examples/showcase/reference/31-ablation-heatmap.png" alt="ChartKit 消融实验热图" width="260"> | <img src="examples/showcase/reference/32-correlation-significance.png" alt="ChartKit 带显著性的相关矩阵" width="260"> | <img src="examples/showcase/reference/33-confusion-matrix.png" alt="ChartKit 混淆矩阵" width="260"> |
 
 ## 安装
 

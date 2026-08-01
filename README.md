@@ -51,8 +51,12 @@ These screenshots show ChartKit's default report figure output.
 | <img src="examples/showcase/reference/19-time-series-events.png" alt="ChartKit event time series chart" width="260"> | <img src="examples/showcase/reference/20-distribution-violin.png" alt="ChartKit violin distribution plot" width="260"> | <img src="examples/showcase/reference/21-bar-percent-stack.png" alt="ChartKit percent stacked bar chart" width="260"> |
 | <sub><strong>Lollipop ranking chart</strong></sub> | <sub><strong>Slopegraph</strong></sub> | <sub><strong>Error-band time series</strong></sub> |
 | <img src="examples/showcase/reference/22-contribution-lollipop-ranking.png" alt="ChartKit lollipop ranking chart" width="260"> | <img src="examples/showcase/reference/23-line-slopegraph.png" alt="ChartKit slopegraph" width="260"> | <img src="examples/showcase/reference/24-time-series-error-band.png" alt="ChartKit error-band time series chart" width="260"> |
-| <sub><strong>Proportion donut</strong></sub> | <sub><strong>Composite small multiples</strong></sub> | |
-| <img src="examples/showcase/reference/25-proportion-donut.png" alt="ChartKit proportion donut" width="260"> | <img src="examples/showcase/reference/26-composite-solar-curtailment.png" alt="ChartKit composite small multiples" width="260"> | |
+| <sub><strong>Proportion donut</strong></sub> | <sub><strong>Composite small multiples</strong></sub> | <sub><strong>Paired significance brackets</strong></sub> |
+| <img src="examples/showcase/reference/25-proportion-donut.png" alt="ChartKit proportion donut" width="260"> | <img src="examples/showcase/reference/26-composite-solar-curtailment.png" alt="ChartKit composite small multiples" width="260"> | <img src="examples/showcase/reference/27-paired-significance.png" alt="ChartKit paired significance brackets" width="260"> |
+| <sub><strong>Hexbin density scatter</strong></sub> | <sub><strong>ROC curves</strong></sub> | <sub><strong>Scaling comparison</strong></sub> |
+| <img src="examples/showcase/reference/28-density-scatter.png" alt="ChartKit hexbin density scatter" width="260"> | <img src="examples/showcase/reference/29-roc-curves.png" alt="ChartKit roc curves" width="260"> | <img src="examples/showcase/reference/30-scaling-comparison.png" alt="ChartKit scaling comparison" width="260"> |
+| <sub><strong>Ablation heatmap</strong></sub> | <sub><strong>Correlation matrix with significance</strong></sub> | <sub><strong>Confusion matrix</strong></sub> |
+| <img src="examples/showcase/reference/31-ablation-heatmap.png" alt="ChartKit ablation heatmap" width="260"> | <img src="examples/showcase/reference/32-correlation-significance.png" alt="ChartKit correlation matrix with significance" width="260"> | <img src="examples/showcase/reference/33-confusion-matrix.png" alt="ChartKit confusion matrix" width="260"> |
 
 ## Installation
 

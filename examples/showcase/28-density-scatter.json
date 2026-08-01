@@ -1,0 +1,57 @@
+{
+  "version": "0.1",
+  "type": "scatter",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.full_width",
+  "caption": "Day-ahead clearing price against residual demand for 4,320 half-hourly settlement intervals; colour encodes how many intervals fall in each hexagonal bin.",
+  "contract": {
+    "conclusion": "Price rises roughly linearly with residual demand up to about 25 GW and then steepens, while the intervals below 8 GW clear at or under zero.",
+    "role": "correlation",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "price-vs-residual-demand density field",
+      "supporting": [
+        "negative-price intervals below the zero line"
+      ]
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "4,320 half-hourly settlement intervals (90 days)",
+        "center": "not applicable",
+        "interval": "not applicable"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/28-density-scatter.csv"
+      }
+    ]
+  },
+  "data": {
+    "source": "source/28-density-scatter.csv",
+    "x_col": "residual_demand_gw",
+    "y_col": "clearing_price_eur_mwh",
+    "density": {
+      "mode": "hexbin",
+      "gridsize": 42,
+      "mincnt": 1,
+      "label": "Settlement intervals per bin"
+    }
+  },
+  "annotations": [
+    {
+      "type": "hline",
+      "value": 0,
+      "style": "dashed",
+      "label": "Zero price"
+    }
+  ],
+  "xAxis": {
+    "label": "Residual demand (GW)"
+  },
+  "yAxis": {
+    "label": "Day-ahead clearing price (EUR/MWh)"
+  }
+}

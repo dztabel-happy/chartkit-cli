@@ -1,0 +1,189 @@
+{
+  "version": "0.1",
+  "type": "scaling_comparison",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.full_width",
+  "caption": "(a) Exact-match accuracy against training-set size on a log axis, mean ± SEM over five seeds. (b) Per-benchmark accuracy at the 45,000-example budget. Ours = retrieval-augmented; SFT = instruction-tuned baseline; Scratch = supervised training without pretraining.",
+  "contract": {
+    "conclusion": "Retrieval augmentation holds a 5-7 point accuracy lead at every training budget, and the gap does not close at the largest budget or on any of the four benchmarks.",
+    "role": "comparison",
+    "archetype": "quantitative_grid",
+    "evidence_hierarchy": {
+      "hero": "accuracy-vs-training-size scaling curve",
+      "supporting": [
+        "per-benchmark accuracy at the largest budget"
+      ]
+    },
+    "statistics": [
+      {
+        "panel": "a",
+        "n_definition": "5 seeds per method per training-set size",
+        "center": "mean",
+        "interval": "SEM"
+      },
+      {
+        "panel": "b",
+        "n_definition": "5 seeds per method per benchmark at 45,000 training examples",
+        "center": "mean",
+        "interval": "SEM"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/30-scaling-comparison.csv"
+      }
+    ]
+  },
+  "data": {
+    "scaling": {
+      "x": [
+        200,
+        500,
+        1200,
+        3000,
+        7500,
+        18000,
+        45000
+      ],
+      "xscale": "log",
+      "x_label": "Training examples",
+      "y_label": "Exact-match accuracy",
+      "y_range": [
+        0.36,
+        0.84
+      ],
+      "series": [
+        {
+          "name": "Ours",
+          "color": "#2F6F9F",
+          "values": [
+            0.512,
+            0.583,
+            0.648,
+            0.702,
+            0.744,
+            0.771,
+            0.788
+          ],
+          "sem": [
+            0.021,
+            0.018,
+            0.015,
+            0.013,
+            0.011,
+            0.009,
+            0.008
+          ]
+        },
+        {
+          "name": "SFT",
+          "color": "#6C8FA8",
+          "values": [
+            0.474,
+            0.535,
+            0.594,
+            0.643,
+            0.681,
+            0.706,
+            0.719
+          ],
+          "sem": [
+            0.024,
+            0.02,
+            0.017,
+            0.014,
+            0.012,
+            0.011,
+            0.01
+          ]
+        },
+        {
+          "name": "Scratch",
+          "color": "#7A6A5C",
+          "values": [
+            0.398,
+            0.463,
+            0.531,
+            0.589,
+            0.633,
+            0.662,
+            0.677
+          ],
+          "sem": [
+            0.028,
+            0.024,
+            0.02,
+            0.017,
+            0.014,
+            0.012,
+            0.011
+          ]
+        }
+      ]
+    },
+    "benchmarks": {
+      "categories": [
+        "MedQA",
+        "PubMedQA",
+        "BioASQ",
+        "MMLU-clin."
+      ],
+      "y_label": "Exact-match accuracy",
+      "y_range": [
+        0.5,
+        0.93
+      ],
+      "series": [
+        {
+          "name": "Ours",
+          "color": "#2F6F9F",
+          "values": [
+            0.788,
+            0.751,
+            0.812,
+            0.694
+          ],
+          "sem": [
+            0.008,
+            0.011,
+            0.009,
+            0.014
+          ]
+        },
+        {
+          "name": "SFT",
+          "color": "#6C8FA8",
+          "values": [
+            0.719,
+            0.706,
+            0.744,
+            0.651
+          ],
+          "sem": [
+            0.01,
+            0.013,
+            0.011,
+            0.016
+          ]
+        },
+        {
+          "name": "Scratch",
+          "color": "#7A6A5C",
+          "values": [
+            0.677,
+            0.688,
+            0.669,
+            0.602
+          ],
+          "sem": [
+            0.011,
+            0.014,
+            0.013,
+            0.019
+          ]
+        }
+      ]
+    }
+  }
+}

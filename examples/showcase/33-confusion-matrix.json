@@ -1,0 +1,207 @@
+{
+  "version": "0.1",
+  "type": "heatmap",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.full_width",
+  "caption": "Row-normalised confusion matrix for a seven-class land-cover classifier on 2,843 held-out reference pixels.",
+  "contract": {
+    "conclusion": "Every class is recovered above 69%, but the errors are structured rather than diffuse: wetland loses a fifth of its pixels to water and grassland, and the shrub/forest and grassland/cropland pairs are confused in both directions.",
+    "role": "diagnostic",
+    "archetype": "evidence_matrix",
+    "evidence_hierarchy": {
+      "hero": "per-class recall on the diagonal",
+      "supporting": [
+        "off-diagonal confusion structure"
+      ]
+    },
+    "statistics": [
+      {
+        "panel": "main",
+        "n_definition": "2,843 held-out reference pixels across 7 classes",
+        "center": "row share of the true class (recall)",
+        "interval": "not shown"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/33-confusion-matrix.csv"
+      }
+    ]
+  },
+  "data": {
+    "label": "Share of reference class",
+    "x_labels": [
+      "Water",
+      "Wetland",
+      "Forest",
+      "Shrub",
+      "Grassland",
+      "Cropland",
+      "Built-up"
+    ],
+    "y_labels": [
+      "Water",
+      "Wetland",
+      "Forest",
+      "Shrub",
+      "Grassland",
+      "Cropland",
+      "Built-up"
+    ],
+    "values": [
+      [
+        396,
+        14,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        21,
+        132,
+        4,
+        6,
+        19,
+        5,
+        1
+      ],
+      [
+        1,
+        5,
+        561,
+        47,
+        7,
+        2,
+        0
+      ],
+      [
+        0,
+        8,
+        52,
+        236,
+        39,
+        6,
+        0
+      ],
+      [
+        1,
+        12,
+        9,
+        44,
+        336,
+        51,
+        2
+      ],
+      [
+        2,
+        4,
+        3,
+        11,
+        63,
+        425,
+        20
+      ],
+      [
+        1,
+        1,
+        2,
+        3,
+        14,
+        33,
+        242
+      ]
+    ],
+    "normalize": "row",
+    "colormap": "Blues",
+    "vmin": 0,
+    "vmax": 1,
+    "annotate": true,
+    "annotate_format": "{:.0%}",
+    "cell_text": [
+      [
+        null,
+        null,
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "",
+        null,
+        null,
+        null,
+        null,
+        "",
+        ""
+      ],
+      [
+        "",
+        null,
+        null,
+        null,
+        null,
+        null,
+        ""
+      ],
+      [
+        "",
+        null,
+        null,
+        null,
+        null,
+        null,
+        ""
+      ],
+      [
+        "",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "",
+        "",
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    ],
+    "diagonal_emphasis": true,
+    "aspect": "equal",
+    "col_groups": [
+      {
+        "label": "Predicted class",
+        "start": 0,
+        "end": 6
+      }
+    ],
+    "row_groups": [
+      {
+        "label": "Reference\nclass",
+        "start": 0,
+        "end": 6
+      }
+    ],
+    "y_group_x": -0.22,
+    "colorbar_fraction": 0.038
+  }
+}

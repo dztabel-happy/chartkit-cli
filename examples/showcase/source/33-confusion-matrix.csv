@@ -1,0 +1,8 @@
+reference_class,Water,Wetland,Forest,Shrub,Grassland,Cropland,Built-up
+Water,396,14,0,0,1,1,0
+Wetland,21,132,4,6,19,5,1
+Forest,1,5,561,47,7,2,0
+Shrub,0,8,52,236,39,6,0
+Grassland,1,12,9,44,336,51,2
+Cropland,2,4,3,11,63,425,20
+Built-up,1,1,2,3,14,33,242

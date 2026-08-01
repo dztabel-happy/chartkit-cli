@@ -1,0 +1,151 @@
+{
+  "version": "0.1",
+  "type": "ablation_heatmap",
+  "figure_mode": "data_figure",
+  "profile": "report_a4.full_width",
+  "caption": "(a) Exact-match accuracy for the full model and seven single-component ablations across five datasets. (b) Accuracy lost when retrieval is removed, with bootstrap 95% CI.",
+  "contract": {
+    "conclusion": "Removing retrieval costs more accuracy than removing any other single component on all five datasets, but on PubMedQA the loss is roughly half as large and its interval nearly reaches zero.",
+    "role": "comparison",
+    "archetype": "evidence_matrix",
+    "evidence_hierarchy": {
+      "hero": "component ablation accuracy matrix",
+      "supporting": [
+        "per-dataset cost of removing retrieval"
+      ]
+    },
+    "statistics": [
+      {
+        "panel": "a",
+        "n_definition": "8 configurations x 5 datasets, mean over 5 seeds",
+        "center": "mean exact-match accuracy",
+        "interval": "not shown"
+      },
+      {
+        "panel": "b",
+        "n_definition": "5 datasets",
+        "center": "accuracy difference between the full model and the retrieval ablation",
+        "interval": "bootstrap 95% CI (2,000 resamples)"
+      }
+    ],
+    "source_data": [
+      {
+        "panel": "main",
+        "path": "source/31-ablation-heatmap.csv"
+      }
+    ]
+  },
+  "data": {
+    "matrix": {
+      "rows": [
+        "Full model",
+        "w/o retrieval",
+        "w/o reranking",
+        "w/o citation loss",
+        "w/o curriculum",
+        "w/o augmentation",
+        "w/o ensembling",
+        "SFT baseline"
+      ],
+      "columns": [
+        "MedQA",
+        "PubMedQA",
+        "BioASQ",
+        "MMLU-clin.",
+        "EHR-QA"
+      ],
+      "values": [
+        [
+          0.788,
+          0.751,
+          0.812,
+          0.694,
+          0.657
+        ],
+        [
+          0.712,
+          0.708,
+          0.735,
+          0.648,
+          0.601
+        ],
+        [
+          0.749,
+          0.731,
+          0.778,
+          0.671,
+          0.629
+        ],
+        [
+          0.766,
+          0.742,
+          0.795,
+          0.679,
+          0.618
+        ],
+        [
+          0.758,
+          0.727,
+          0.784,
+          0.666,
+          0.634
+        ],
+        [
+          0.771,
+          0.735,
+          0.801,
+          0.683,
+          0.641
+        ],
+        [
+          0.744,
+          0.719,
+          0.769,
+          0.658,
+          0.622
+        ],
+        [
+          0.677,
+          0.688,
+          0.669,
+          0.602,
+          0.564
+        ]
+      ],
+      "vmin": 0.52,
+      "vmax": 0.84,
+      "label": "Exact-match accuracy"
+    },
+    "delta": {
+      "labels": [
+        "MedQA",
+        "PubMedQA",
+        "BioASQ",
+        "MMLU-clin.",
+        "EHR-QA"
+      ],
+      "values": [
+        0.076,
+        0.043,
+        0.077,
+        0.046,
+        0.056
+      ],
+      "ci_low": [
+        0.058,
+        0.011,
+        0.061,
+        0.031,
+        0.037
+      ],
+      "ci_high": [
+        0.094,
+        0.075,
+        0.093,
+        0.061,
+        0.075
+      ],
+      "x_label": "Accuracy lost without retrieval"
+    }
+  }
+}

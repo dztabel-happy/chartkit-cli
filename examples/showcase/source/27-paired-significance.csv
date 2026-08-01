@@ -1,0 +1,97 @@
+subject,visit,severity
+P01,Baseline,47.8
+P01,Week 8,45.7
+P01,Week 24,46.6
+P02,Baseline,63.7
+P02,Week 8,56.5
+P02,Week 24,56.4
+P03,Baseline,58.8
+P03,Week 8,51.0
+P03,Week 24,44.5
+P04,Baseline,54.4
+P04,Week 8,47.7
+P04,Week 24,48.3
+P05,Baseline,59.0
+P05,Week 8,52.3
+P05,Week 24,45.1
+P06,Baseline,55.8
+P06,Week 8,48.2
+P06,Week 24,37.0
+P07,Baseline,55.2
+P07,Week 8,51.5
+P07,Week 24,48.7
+P08,Baseline,65.7
+P08,Week 8,57.0
+P08,Week 24,51.2
+P09,Baseline,62.0
+P09,Week 8,53.3
+P09,Week 24,49.8
+P10,Baseline,50.5
+P10,Week 8,43.3
+P10,Week 24,47.3
+P11,Baseline,61.4
+P11,Week 8,59.0
+P11,Week 24,52.8
+P12,Baseline,63.9
+P12,Week 8,63.4
+P12,Week 24,62.7
+P13,Baseline,57.5
+P13,Week 8,51.4
+P13,Week 24,49.3
+P14,Baseline,55.0
+P14,Week 8,45.3
+P14,Week 24,41.8
+P15,Baseline,51.9
+P15,Week 8,40.0
+P15,Week 24,33.3
+P16,Baseline,63.3
+P16,Week 8,57.5
+P16,Week 24,60.7
+P17,Baseline,58.4
+P17,Week 8,52.9
+P17,Week 24,51.3
+P18,Baseline,58.5
+P18,Week 8,51.7
+P18,Week 24,50.7
+P19,Baseline,72.9
+P19,Week 8,60.5
+P19,Week 24,61.2
+P20,Baseline,57.1
+P20,Week 8,57.5
+P20,Week 24,57.1
+P21,Baseline,61.2
+P21,Week 8,53.4
+P21,Week 24,48.1
+P22,Baseline,64.8
+P22,Week 8,63.1
+P22,Week 24,61.4
+P23,Baseline,56.5
+P23,Week 8,49.0
+P23,Week 24,48.8
+P24,Baseline,59.3
+P24,Week 8,49.3
+P24,Week 24,47.7
+P25,Baseline,43.6
+P25,Week 8,40.0
+P25,Week 24,38.1
+P26,Baseline,60.3
+P26,Week 8,55.3
+P26,Week 24,55.6
+P27,Baseline,60.3
+P27,Week 8,57.2
+P27,Week 24,52.2
+P28,Baseline,49.9
+P28,Week 8,41.9
+P28,Week 24,39.7
+P29,Baseline,51.5
+P29,Week 8,43.7
+P29,Week 24,42.9
+P30,Baseline,55.5
+P30,Week 8,47.3
+P30,Week 24,44.6
+P31,Baseline,61.0
+P31,Week 8,61.6
+P31,Week 24,58.2
+P32,Baseline,63.6
+P32,Week 8,62.7
+P32,Week 24,60.9

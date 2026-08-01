@@ -40,7 +40,8 @@ rather than making it a first-choice few-shot card.
 The current set is sized as a 6 x 4 contact sheet and covers the common
 single-figure families that an analysis agent should reach for directly:
 distribution (box-strip, histogram, ridge, raincloud), bar (grouped and percent
-stacked), scatter, heatmap (correlation matrix and signed effect matrix),
+stacked), scatter, heatmap (correlation matrix, signed effect matrix,
+significance-marked correlation matrix, and row-normalised confusion matrix),
 interval, area, contribution (waterfall and lollipop ranking), profile-bar
 benchmark, line and slopegraph, time series with events or uncertainty bands,
 mixed dual-axis, ranked contribution, and network/bubble matrix.
@@ -81,3 +82,12 @@ spec, source data, reference image, and notes together.
 | `22-contribution-lollipop-ranking` | ranking independent signed effects with uncertainty around zero | the values form a cumulative waterfall |
 | `23-line-slopegraph` | comparing before-after movement across cohorts with endpoint labels | there are more than two meaningful periods |
 | `24-time-series-error-band` | showing forecast/observed trajectories with uncertainty bands | uncertainty is absent or unrelated to the claim |
+| `25-proportion-donut` | reading share of one total at a single point in time | the shares move over an ordered axis, or every small category matters individually |
+| `26-composite-solar-curtailment` | repeating one chart across facets (months, sites, cohorts) | the panels would carry different evidence types |
+| `27-paired-significance` | comparing repeated measures on the same subjects, with the individual trajectories and the paired-test result | the groups are independent samples, so no subject links exist |
+| `28-density-scatter` | showing where the mass of a relationship sits across thousands of observations | the cloud is sparse enough that every point is already visible |
+| `29-roc-curves` | comparing classifier discrimination, precision-recall, or calibration on a real numeric axis | the x values are ordered labels rather than measured coordinates |
+| `30-scaling-comparison` | showing that a method's advantage holds across training budgets *and* across benchmarks | only one of those two questions matters |
+| `31-ablation-heatmap` | presenting a component ablation study as evidence, with the effect size it implies | the matrix is a correlation, signed-effect, or directional matrix |
+| `32-correlation-significance` | reading block structure in a correlation matrix *and* which pairs are statistically supported | no test was run, or the rows and columns are different quantities |
+| `33-confusion-matrix` | showing which classes a classifier confuses, and in which direction | the claim is one headline accuracy, or there are fewer than about five classes |
